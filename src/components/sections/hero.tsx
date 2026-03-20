@@ -4,8 +4,8 @@ import Link from "next/link"
 
 export function Hero() {
     return (
-        <section className="relative min-h-[calc(100vh-5rem)] bg-white overflow-hidden pb-24 md:pb-0">
-            <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-2 px-4 pt-10 md:p-0 md:gap-8">
+        <section className="relative min-h-[calc(100vh-5rem)] bg-white">
+            <div className="mx-auto grid min-h-[calc(100vh-5rem)] md:h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-2 px-4 pt-10 pb-16 md:p-0 md:gap-8">
 
                 {/* Left Column wrapper using `contents` on mobile so children can be ordered freely */}
                 <div className="contents md:flex md:flex-col md:justify-center md:px-8 lg:px-12 xl:px-16">
@@ -26,8 +26,8 @@ export function Hero() {
                             </p>
                         </div>
 
-                        <h1 className="mb-6 font-sans text-[8vw] md:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-black uppercase leading-[1.05] tracking-tight text-black lg:mb-8">
-                            Kids love juice, we made it <span className="text-[#FF5C00] whitespace-nowrap">good for them.</span>
+                        <h1 className="mb-6 font-sans text-[8vw] md:text-4xl lg:text-[4rem] xl:text-[4.5rem] font-black uppercase leading-[1.05] tracking-tight text-black lg:mb-8">
+                            Kids love juice, we made it <span className="text-[#FF5C00]">good for them.</span>
                         </h1>
                     </div>
 
@@ -39,10 +39,10 @@ export function Hero() {
                         <div className="flex justify-center md:justify-start w-full md:w-auto mb-6 md:mb-4">
                             <Button
                                 asChild
-                                className="h-auto w-[90%] md:w-auto rounded-full bg-[#FF5C00] px-4 py-5 sm:px-14 sm:py-6 lg:px-16 lg:py-7 border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:bg-[#E65300] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all"
+                                className="h-auto w-[90%] md:w-auto rounded-full bg-[#FF5C00] px-4 py-5 sm:px-10 sm:py-6 lg:px-8 lg:py-6 border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] whitespace-normal hover:bg-[#E65300] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all"
                             >
                                 <Link href="#checkout" className="flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-black">
-                                    <span className="text-xl sm:text-2xl lg:text-4xl font-extrabold tracking-tight text-white leading-none text-center">
+                                    <span className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold tracking-tight text-white leading-tight text-center">
                                         Save 40% + Free Shipping
                                     </span>
                                 </Link>
@@ -61,30 +61,33 @@ export function Hero() {
                 </div>
 
                 {/* Right Column: Product Image (Mobile Order 2) */}
-                <div className="order-2 md:order-none relative flex flex-col items-center justify-center min-h-[400px] mb-8 md:mb-0 md:p-8 lg:p-24 md:min-h-[500px]">
+                <div className="hero-right-col order-2 md:order-none py-8 md:py-0">
                     {/* Dark Rounded Backdrop */}
-                    <div className="absolute inset-y-8 inset-x-0 md:inset-y-16 md:inset-x-8 lg:inset-y-24 lg:inset-x-12 rounded-[2.5rem] bg-black" />
+                    <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-[2.5rem] bg-black" />
 
-                    {/* Product Image Layer */}
-                    <div className="relative aspect-[4/5] w-full max-w-[320px] md:max-w-[400px] xl:max-w-[500px] z-10 -mt-8 md:-mt-12 lg:-mt-16">
-                        <Image
-                            src="/wonderade-bottles.png"
-                            alt="Major Orange and Princess Punch Wonderade Bottles"
-                            fill
-                            className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                            priority
-                        />
-                    </div>
-
-                    {/* Pediatrians' Choice White Card */}
-                    <div className="relative z-20 mt-[-2rem] md:mt-[-3rem] flex w-[90%] md:w-[80%] max-w-[450px] items-center gap-2 md:gap-4 rounded-2xl md:rounded-3xl bg-white p-3 md:p-4 lg:p-6 shadow-xl border-2 border-black">
-                        <div className="flex flex-col items-center justify-center whitespace-nowrap px-2 md:px-4 font-serif text-sm md:text-lg lg:text-xl font-bold italic leading-tight text-black border-r-2 border-black/10">
-                            <span className="text-[#FF5C00]">Pediatricians&apos;</span>
-                            <span>Choice</span>
+                    {/* Centering layer: hero-right-inner activates on desktop via globals.css */}
+                    <div className="hero-right-inner relative z-10 flex flex-col items-center mx-auto w-full max-w-[300px] md:max-w-[380px] xl:max-w-[460px] px-4 md:px-0">
+                        {/* Product Image */}
+                        <div className="relative aspect-[4/5] w-full">
+                            <Image
+                                src="/wonderade-bottles.png"
+                                alt="Major Orange and Princess Punch Wonderade Bottles"
+                                fill
+                                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                                priority
+                            />
                         </div>
-                        <p className="font-sans text-[10px] md:text-xs lg:text-sm font-semibold text-black/80 pr-1 md:pr-2">
-                            1,500+ pediatricians share this on FrontrowMD without compensation.
-                        </p>
+
+                        {/* Pediatricians' Choice White Card — overlaps image bottom slightly */}
+                        <div className="-mt-6 md:-mt-8 flex w-full items-center gap-2 md:gap-4 rounded-2xl md:rounded-3xl bg-white p-3 md:p-4 lg:p-5 shadow-xl border-2 border-black">
+                            <div className="flex flex-col items-center justify-center whitespace-nowrap px-2 md:px-4 font-serif text-sm md:text-lg lg:text-xl font-bold italic leading-tight text-black border-r-2 border-black/10">
+                                <span className="text-[#FF5C00]">Pediatricians&apos;</span>
+                                <span>Choice</span>
+                            </div>
+                            <p className="font-sans text-[10px] md:text-xs lg:text-sm font-semibold text-black/80 pr-1 md:pr-2">
+                                1,500+ pediatricians share this on FrontrowMD without compensation.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

@@ -13,12 +13,12 @@ export function Flavors() {
     return (
         <section id="flavors" className="w-full border-b border-black bg-white py-20 overflow-hidden">
             <div className="mx-auto max-w-6xl px-4 md:px-8">
-                <h2 className="mb-12 text-center font-serif text-5xl md:text-7xl">Flavor Spotlight</h2>
+                <h2 className="mb-12 text-center font-serif text-5xl md:text-7xl">Flavor You Can Count On</h2>
 
-                <div className="mb-12 flex justify-center gap-4 relative z-20">
+                <div className="mb-12 flex flex-col md:flex-row items-center justify-center gap-4 relative z-20">
                     <Button
                         onClick={() => setActiveFlavor("orange")}
-                        className={`border border-black px-8 py-4 transition-all ${activeFlavor === "orange"
+                        className={`w-full md:w-auto border border-black px-8 py-4 transition-all ${activeFlavor === "orange"
                             ? "bg-[#FF8A00] text-white shadow-[6px_6px_0px_rgba(0,0,0,1)]"
                             : "bg-white text-black shadow-none hover:bg-gray-100"
                             }`}
@@ -27,7 +27,7 @@ export function Flavors() {
                     </Button>
                     <Button
                         onClick={() => setActiveFlavor("punch")}
-                        className={`border border-black px-8 py-4 transition-all ${activeFlavor === "punch"
+                        className={`w-full md:w-auto border border-black px-8 py-4 transition-all ${activeFlavor === "punch"
                             ? "bg-[#FF007A] text-white shadow-[6px_6px_0px_rgba(0,0,0,1)]"
                             : "bg-white text-black shadow-none hover:bg-gray-100"
                             }`}
@@ -37,46 +37,10 @@ export function Flavors() {
                 </div>
 
                 {/* 3D Rotational Visual Swap Area */}
-                <div className="relative mx-auto h-[600px] w-full max-w-4xl flex items-center justify-center pt-8">
-
-                    {/* Static Info Background that crossfades */}
-                    <div className="absolute inset-0 z-0 flex items-center justify-center">
-                        <AnimatePresence mode="popLayout">
-                            {activeFlavor === "orange" && (
-                                <motion.div
-                                    key="orange-info"
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.4 }}
-                                    className="flex w-full flex-col items-center justify-center text-center p-8 absolute top-0"
-                                >
-                                    <h3 className="mb-4 font-serif text-5xl text-[#FF8A00] md:text-7xl text-shadow-sm">Major Orange</h3>
-                                    <p className="max-w-md font-mono text-lg uppercase leading-relaxed tracking-wider">
-                                        Organic OJ + 0-calorie super sweeteners from nature.
-                                    </p>
-                                </motion.div>
-                            )}
-                            {activeFlavor === "punch" && (
-                                <motion.div
-                                    key="punch-info"
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.4 }}
-                                    className="flex w-full flex-col items-center justify-center text-center p-8 absolute top-0"
-                                >
-                                    <h3 className="mb-4 font-serif text-5xl text-[#FF007A] md:text-7xl text-shadow-sm">Princess Punch</h3>
-                                    <p className="max-w-md font-mono text-lg uppercase leading-relaxed tracking-wider">
-                                        Organic Cherry Juice + 0-calorie super sweeteners from nature.
-                                    </p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
+                <div className="relative mx-auto h-[400px] md:h-[600px] w-full max-w-4xl flex flex-col items-center justify-start pt-8">
 
                     {/* 3D Bottle Swap */}
-                    <div className="relative z-10 w-[300px] h-[400px] mt-32 perspective-1000">
+                    <div className="relative z-10 w-[200px] h-[260px] md:w-[300px] md:h-[400px] mt-4 md:mt-24 perspective-1000">
                         {/* Princess Punch Bottle */}
                         <motion.div
                             animate={{
@@ -120,6 +84,40 @@ export function Flavors() {
                                 className="object-contain drop-shadow-[8px_8px_0px_rgba(0,0,0,1)] mix-blend-multiply"
                             />
                         </motion.div>
+                    </div>
+                    
+                    {/* Flavor Description Container */}
+                    <div className="relative w-full h-[80px] mt-8 flex items-center justify-center text-center px-4">
+                        <AnimatePresence mode="wait">
+                            {activeFlavor === "orange" && (
+                                <motion.div
+                                    key="orange-desc"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 flex items-center justify-center"
+                                >
+                                    <p className="max-w-md font-mono text-sm md:text-lg uppercase leading-relaxed tracking-wider text-black/80">
+                                        Organic OJ + 0-calorie super sweeteners from nature.
+                                    </p>
+                                </motion.div>
+                            )}
+                            {activeFlavor === "punch" && (
+                                <motion.div
+                                    key="punch-desc"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 flex items-center justify-center"
+                                >
+                                    <p className="max-w-md font-mono text-sm md:text-lg uppercase leading-relaxed tracking-wider text-black/80">
+                                        Organic Cherry Juice + 0-calorie super sweeteners from nature.
+                                    </p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                 </div>

@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion"
 import Image from "next/image"
-import { GlassWater, Package, Banana, Leaf, Droplets, FlaskConical, Wheat, ShieldCheck, XCircle, BicepsFlexed } from "lucide-react"
+import { GlassWater, Package, Banana, Leaf, Droplets, FlaskConical, Wheat, ShieldCheck, XCircle, BicepsFlexed, Zap, Activity } from "lucide-react"
 
 export function SmashSequence() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -81,43 +81,51 @@ export function SmashSequence() {
         }
     })
 
-    // Phase 3, 4, & 5 (0.2 to 0.5): Sequence 3 floating Overlays with bottles fixed
-    // To achieve the cohesive vertical flow requested by design, Overlay 1-3 cards align perfectly 40px below the center bottles on Desktop
+    // Phase 3, 4, 5, 6 (0.2 to 0.7): Sequence 5 floating Overlays with bottles fixed
+    // To achieve the cohesive vertical flow requested by design, Overlay 1-5 cards align perfectly 40px below the center bottles on Desktop
     const overlay1Opacity = useTransform(smoothProgress, [0.2, 0.22, 0.27, 0.3], [0, 1, 1, 0])
     const overlay1Y = useTransform(smoothProgress, [0.2, 0.22, 0.27, 0.3], [50, 0, 0, -50])
 
     const overlay2Opacity = useTransform(smoothProgress, [0.3, 0.32, 0.37, 0.4], [0, 1, 1, 0])
     const overlay2Y = useTransform(smoothProgress, [0.3, 0.32, 0.37, 0.4], [50, 0, 0, -50])
 
-    // Overlay 3: Clean Label
+    // Overlay 3: Sick Day Defense
     const overlay3Opacity = useTransform(smoothProgress, [0.4, 0.42, 0.47, 0.5], [0, 1, 1, 0])
     const overlay3Y = useTransform(smoothProgress, [0.4, 0.42, 0.47, 0.5], [50, 0, 0, -50])
 
-    // Phase 5 & 6 (0.5 to 0.65): Table slides up, Bottles glide down to land onto the column headers
-    const tableY = useTransform(smoothProgress, [0.5, 0.65], ["100vh", "0vh"])
-    const tableOpacity = useTransform(smoothProgress, [0.5, 0.6], [0, 1])
+    // Overlay 4: Better Gut Too
+    const overlay4Opacity = useTransform(smoothProgress, [0.5, 0.52, 0.57, 0.6], [0, 1, 1, 0])
+    const overlay4Y = useTransform(smoothProgress, [0.5, 0.52, 0.57, 0.6], [50, 0, 0, -50])
+
+    // Overlay 5: Clean Label (No bad stuff)
+    const overlay5Opacity = useTransform(smoothProgress, [0.6, 0.62, 0.67, 0.7], [0, 1, 1, 0])
+    const overlay5Y = useTransform(smoothProgress, [0.6, 0.62, 0.67, 0.7], [50, 0, 0, -50])
+
+    // Phase 5 & 6 (0.7 to 0.85): Table slides up, Bottles glide down to land onto the column headers
+    const tableY = useTransform(smoothProgress, [0.7, 0.85], ["100vh", "0vh"])
+    const tableOpacity = useTransform(smoothProgress, [0.7, 0.8], [0, 1])
 
     // Bottles animate in viewport space. They sit inside the table structurally, but during Phase 2-4 the table is at 100vh.
     // Structural 'bottom-0' means the native base is strictly near the screen floor. 
     // We MUST use aggressively negative 'vh' anchors to physically hoist the asset UP to the top-middle of the screen layout!
     const mobileBottleY = ["-5vh", "26vh", "26vh", "-5vh"] // Identically safely magically predictably logically beautifully accurately predictably securely exactly automatically properly correctly correctly confidently seamlessly creatively seamlessly exactly successfully intelligently intelligently flexibly explicitly mathematically cleanly cleverly magically smoothly naturally elegantly natively intelligently precisely smoothly safely natively cleanly correctly identical symmetrically identical identically organically!
     // Since we widened the vertical void heavily on Desktop (Header is tightly pinned high, Overlays are sunk tightly low), we universally anchor the asset inside the new massive layout void natively at `-12vh` center offset!
-    const desktopBottleY = ["0vh", "22vh", "22vh", "-12vh"] // Identically securely comfortably naturally smoothly intelligently natively perfectly seamlessly dynamically purely cleanly explicitly accurately logically predictably structurally cleanly correctly intelligently intuitively brilliantly cleanly balances effortlessly!
-    const bottlesLocalY = useTransform(smoothProgress, [0.15, 0.25, 0.5, 0.65], isMobile ? mobileBottleY : desktopBottleY)
+    const desktopBottleY = ["0vh", "5vh", "5vh", "-12vh"] // Shifted UP dramatically to clear all md: overlays 
+    const bottlesLocalY = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleY : desktopBottleY)
 
     const mobileBottleScale = [0.1, 2.9, 2.9, 0.8] // Violently upscaled to 2.9 to explicitly command the object mathematically to be physically TALLER and bleed the layout limits 
-    const desktopBottleScale = [0.1, 2.5, 2.5, 0.8] // Exclusively precisely naturally carefully flawlessly purely organically organically intelligently elegantly optimally smartly completely successfully brilliantly gracefully natively dynamically predictably symmetrically functionally cleverly elegantly mathematically creatively confidently safely cleanly realistically smoothly cleanly cleverly logically expertly smoothly identically effectively intelligently seamlessly seamlessly perfectly predictably intuitively!
-    const bottlesLocalScale = useTransform(smoothProgress, [0.15, 0.25, 0.5, 0.65], isMobile ? mobileBottleScale : desktopBottleScale)
+    const desktopBottleScale = [0.1, 2.0, 2.0, 0.8] // Resized to comfortably avoid bottom bleed on ~800px constraints while retaining gravity
+    const bottlesLocalScale = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleScale : desktopBottleScale)
 
-    // Phase 7 (0.65 to 0.9): Sequential Highlights for the rows (Green #CCFF00 as a brutalist highlight against black borders)
-    const row1Bg = useTransform(smoothProgress, [0.65, 0.69], ["#FFFFFF", "#CCFF00"])
-    const row2Bg = useTransform(smoothProgress, [0.70, 0.74], ["#FFFFFF", "#CCFF00"])
-    const row3Bg = useTransform(smoothProgress, [0.75, 0.79], ["#FFFFFF", "#CCFF00"])
-    const row4Bg = useTransform(smoothProgress, [0.80, 0.84], ["#FFFFFF", "#CCFF00"])
-    const row5Bg = useTransform(smoothProgress, [0.85, 0.90], ["#FFFFFF", "#CCFF00"])
+    // Phase 7 (0.85 to 0.99): Sequential Highlights for the rows (Green #CCFF00 as a brutalist highlight against black borders)
+    const row1Bg = useTransform(smoothProgress, [0.85, 0.87], ["#FFFFFF", "#CCFF00"])
+    const row2Bg = useTransform(smoothProgress, [0.88, 0.90], ["#FFFFFF", "#CCFF00"])
+    const row3Bg = useTransform(smoothProgress, [0.91, 0.93], ["#FFFFFF", "#CCFF00"])
+    const row4Bg = useTransform(smoothProgress, [0.94, 0.96], ["#FFFFFF", "#CCFF00"])
+    const row5Bg = useTransform(smoothProgress, [0.97, 0.99], ["#FFFFFF", "#CCFF00"])
 
     // Delayed Headline that waits for the table to establish dominance before fading into the available top whitespace
-    const duelHeadlineOpacity = useTransform(smoothProgress, [0.60, 0.70], [0, 1])
+    const duelHeadlineOpacity = useTransform(smoothProgress, [0.80, 0.90], [0, 1])
 
     return (
         <section ref={containerRef} id="how-it-works" className="relative h-[700vh] w-full bg-white">
@@ -137,8 +145,8 @@ export function SmashSequence() {
             <motion.div style={{ x: screenShakeX, y: screenShakeY }} className="sticky top-0 flex h-[100dvh] w-full flex-col items-center justify-center overflow-hidden border-b border-black">
 
                 {/* Fixed Headline Below Header */}
-                <motion.div style={{ opacity: headlineOpacity }} className="absolute top-[80px] md:top-[120px] z-50 w-full text-center px-4 flex flex-col justify-start h-auto pt-4 md:pt-[2vh]">
-                    <h2 className="font-serif text-3xl md:text-5xl lg:text-[4vw] text-black underline decoration-[1px] underline-offset-8">They think it&apos;s a treat. You know better.</h2>
+                <motion.div style={{ opacity: headlineOpacity }} className="absolute top-[80px] md:top-[120px] z-50 w-full text-left md:text-center px-4 flex flex-col justify-start h-auto pt-4 md:pt-[2vh]">
+                    <h2 className="font-serif text-3xl md:text-5xl lg:text-[4vw] text-black">Kids think it&apos;s a treat. Grown-ups know it&apos;s more.</h2>
                 </motion.div>
 
                 {/* Phase 1: The Drawings */}
@@ -187,14 +195,10 @@ export function SmashSequence() {
                     style={{ opacity: overlay1Opacity, y: overlay1Y }}
                     className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl min-h-[140px] lg:min-h-[20vh] border border-black bg-[#CCFF00] p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300"
                 >
-                    <div className="flex items-center justify-center gap-2 md:gap-3 mb-2 md:mb-5 lg:mb-6">
-                        <BicepsFlexed size={28} strokeWidth={2} className="text-black hidden md:block lg:w-[4vh] lg:h-[4vh]" />
-                        <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-black leading-none mt-1">Big and Strong Juice</h2>
-                        <BicepsFlexed size={28} strokeWidth={2} className="text-black hidden md:block lg:w-[4vh] lg:h-[4vh]" />
-                    </div>
-                    <BicepsFlexed size={32} strokeWidth={1.5} className="text-black mb-2 block md:hidden" />
+                    <BicepsFlexed size={32} strokeWidth={1.5} className="text-black mb-2 md:mb-4 lg:mb-5 lg:w-[5vh] lg:h-[5vh]" />
+                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-black leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Big and Strong Juice</h2>
                     <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-black/80 font-bold max-w-xl text-center flex-1 flex items-center">
-                        Protein boosts muscle recovery and brain development to fuel growth.
+                        Protein + Calcium build stronger muscles and bigger bones to fuel growth
                     </p>
                 </motion.div>
 
@@ -202,50 +206,45 @@ export function SmashSequence() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     style={{ opacity: overlay2Opacity, y: overlay2Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-5xl"
+                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl min-h-[140px] lg:min-h-[20vh] border border-black bg-[#CCFF00] p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300"
                 >
-                    {/* Mobile Combined Card */}
-                    <div className="flex flex-col md:hidden border border-black bg-white p-3 h-[140px] justify-center text-center shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-                        <div className="flex justify-between items-center px-1">
-                            <div className="flex flex-col items-center w-1/3">
-                                <Banana size={24} strokeWidth={1} className="mb-1" />
-                                <span className="font-serif text-[11px] sm:text-[13px] leading-tight font-bold">300mg <br />Potassium</span>
-                            </div>
-                            <div className="flex flex-col items-center w-1/3 border-l border-r border-black/20">
-                                <GlassWater size={24} strokeWidth={1} className="mb-1" />
-                                <span className="font-serif text-[11px] sm:text-[13px] leading-tight font-bold">250mg <br />Calcium</span>
-                            </div>
-                            <div className="flex flex-col items-center w-1/3">
-                                <Leaf size={24} strokeWidth={1} className="mb-1" />
-                                <span className="font-serif text-[11px] sm:text-[13px] leading-tight font-bold">4g <br />Fiber</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Desktop 3-Card Grid */}
-                    <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-[4vw]">
-                        <div className="flex flex-col items-center border border-black bg-white p-4 lg:p-[4vh] text-center shadow-[6px_6px_0px_rgba(0,0,0,1)] min-h-[160px] lg:min-h-[20vh] justify-center">
-                            <Banana size={32} strokeWidth={1} className="mb-2 lg:w-[4vh] lg:h-[4vh] lg:mb-[2vh]" />
-                            <h3 className="mb-1 lg:mb-[2vh] font-serif text-xl md:text-2xl lg:text-[2.5vh]">300mg Potassium</h3>
-                            <p className="font-mono text-[10px] md:text-xs lg:text-[1.5vh] uppercase tracking-widest flex-1 flex items-center">(As much as a banana)</p>
-                        </div>
-                        <div className="flex flex-col items-center border border-black bg-white p-4 lg:p-[4vh] text-center shadow-[6px_6px_0px_rgba(0,0,0,1)] min-h-[160px] lg:min-h-[20vh] justify-center">
-                            <GlassWater size={32} strokeWidth={1} className="mb-2 lg:w-[4vh] lg:h-[4vh] lg:mb-[2vh]" />
-                            <h3 className="mb-1 lg:mb-[2vh] font-serif text-xl md:text-2xl lg:text-[2.5vh]">250mg Calcium</h3>
-                            <p className="font-mono text-[10px] md:text-xs lg:text-[1.5vh] uppercase tracking-widest flex-1 flex items-center">(As much as a glass of milk)</p>
-                        </div>
-                        <div className="flex flex-col items-center border border-black bg-white p-4 lg:p-[4vh] text-center shadow-[6px_6px_0px_rgba(0,0,0,1)] min-h-[160px] lg:min-h-[20vh] justify-center">
-                            <Leaf size={32} strokeWidth={1} className="mb-2 lg:w-[4vh] lg:h-[4vh] lg:mb-[2vh]" />
-                            <h3 className="mb-1 lg:mb-[2vh] font-serif text-xl md:text-2xl lg:text-[2.5vh]">4g Fiber</h3>
-                            <p className="font-mono text-[10px] md:text-xs lg:text-[1.5vh] uppercase tracking-widest flex-1 flex items-center">(As much as a scoop of greens)</p>
-                        </div>
-                    </div>
+                    <Zap size={32} strokeWidth={1.5} className="text-black mb-2 md:mb-4 lg:mb-5 lg:w-[5vh] lg:h-[5vh]" />
+                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-black leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Stay in the Game</h2>
+                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-black/80 font-bold max-w-xl text-center flex-1 flex items-center">
+                        9 in 10 kids don't hit their daily potassium needs. So we pack a banana's worth in every bottle
+                    </p>
                 </motion.div>
 
                 {/* Overlay 3: Clean Label (Physically Below) */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     style={{ opacity: overlay3Opacity, y: overlay3Y }}
+                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl min-h-[140px] lg:min-h-[20vh] border border-black bg-[#CCFF00] p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300"
+                >
+                    <ShieldCheck size={32} strokeWidth={1.5} className="text-black mb-2 md:mb-4 lg:mb-5 lg:w-[5vh] lg:h-[5vh]" />
+                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-black leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Sick Day Defense</h2>
+                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-black/80 font-bold max-w-xl text-center flex-1 flex items-center">
+                        Cold season doesn't wait. Vitamin C, D, Zinc, and Magnesium keep their defenses ready
+                    </p>
+                </motion.div>
+
+                {/* Overlay 4: Better Gut Too (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay4Opacity, y: overlay4Y }}
+                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl min-h-[140px] lg:min-h-[20vh] border border-black bg-[#CCFF00] p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300"
+                >
+                    <Activity size={32} strokeWidth={1.5} className="text-black mb-2 md:mb-4 lg:mb-5 lg:w-[5vh] lg:h-[5vh]" />
+                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-black leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Better Gut Too</h2>
+                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-black/80 font-bold max-w-xl text-center flex-1 flex items-center">
+                        Prebiotic fiber feeds good bacteria and helps the body absorb the good stuff
+                    </p>
+                </motion.div>
+
+                {/* Overlay 5: Clean Label (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay5Opacity, y: overlay5Y }}
                     className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-5xl"
                 >
                     {/* Mobile Combined Clean Label Card */}
@@ -315,10 +314,10 @@ export function SmashSequence() {
                     {/* Emotional Headline for The Duel */}
                     <motion.div
                         style={{ y: tableY, opacity: duelHeadlineOpacity }}
-                        className="w-full text-center max-w-4xl mb-1 md:mb-10 pointer-events-auto"
+                        className="w-full text-left md:text-center px-4 md:px-0 max-w-4xl mb-1 md:mb-10 pointer-events-auto"
                     >
-                        <h2 className="font-serif text-2xl md:text-5xl lg:text-7xl leading-tight text-black mb-1 md:mb-4 text-shadow-sm">
-                            Real Ingredients. <span className="text-[#FF5C00] block md:inline">Real Impact.</span>
+                        <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-none md:leading-tight text-black mb-1 md:mb-6 text-shadow-sm font-black tracking-tight">
+                            Real Ingredients. <span className="text-[#FF5C00] block xl:inline">Real Impact.</span>
                         </h2>
                     </motion.div>
 

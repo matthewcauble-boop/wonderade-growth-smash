@@ -20,7 +20,7 @@ export function Header() {
 
                 <Button asChild className="px-3 md:px-6 py-0 shrink-0 whitespace-nowrap text-[11px] sm:text-xs md:text-base tracking-normal md:tracking-widest shadow-none hover:translate-x-0 hover:translate-y-0 hover:shadow-none active:translate-x-0 active:translate-y-0 border-l border-b-0 border-t-0 border-r-0 h-full !border-l-black rounded-none">
                     <Link href="#checkout" className="font-bold">
-                        BUY NOW
+                        TRY OUT
                     </Link>
                 </Button>
             </div>

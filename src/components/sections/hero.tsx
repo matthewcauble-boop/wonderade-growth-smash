@@ -10,60 +10,65 @@ export function Hero() {
                 {/* Left Column wrapper using `contents` on mobile so children can be ordered freely */}
                 <div className="contents md:flex md:flex-col md:justify-center md:px-8 lg:px-12 xl:px-16">
 
-                    {/* Group 1: Stars & Headline (Mobile Order 1) */}
-                    <div className="order-1 md:order-none flex flex-col">
-                        <div className="mb-4 md:mb-6 flex items-center gap-2">
-                            <div className="flex text-[#FF5C00]">
-                                {/* SVG Stars */}
-                                {[...Array(5)].map((_, i) => (
-                                    <svg key={i} className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                ))}
-                            </div>
-                            <p className="font-sans text-[10px] sm:text-xs md:text-sm font-bold text-black/80">
-                                <span className="text-[#FF5C00]">4.8</span> stars from <span className="text-[#FF5C00]">85,000</span> reviews | <span className="text-[#FF5C00]">1,000,000+</span> members
-                            </p>
+                    {/* Group 1: Badge & Headline (Mobile Order 1) */}
+                    <div className="order-1 md:order-none flex flex-col items-start">
+                        <div className="mb-4 md:mb-6 flex items-center">
+                            {/* <div className="inline-flex items-center justify-center bg-[#CCFF00] border border-black px-3 py-1.5 md:px-4 md:py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform duration-200">
+                                <span className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-black">Founding Family Pre-Order</span>
+                            </div> */}
                         </div>
 
-                        <h1 className="mb-6 font-sans text-[8vw] md:text-4xl lg:text-[4rem] xl:text-[4.5rem] font-black uppercase leading-[1.05] tracking-tight text-black lg:mb-8">
-                            Kids love juice, we made it <span className="text-[#FF5C00]">good for them.</span>
+                        <h1 className="mb-2 md:mb-4 font-sans text-[8vw] md:text-4xl lg:text-[4rem] xl:text-[4.5rem] font-black uppercase leading-[1.05] tracking-tight text-black lg:mb-6">
+                            The juice you wish you had when <span className="text-[#FF5C00]">you were growing up.</span>
                         </h1>
                     </div>
 
-                    {/* Group 3: Subhead & CTA (Mobile Order 3) */}
-                    <div className="order-3 md:order-none relative z-10 flex flex-col pt-6 md:pt-0">
-                        <p className="mb-8 md:mb-10 max-w-lg font-sans text-lg md:text-xl leading-relaxed text-black/90 font-medium font-condensed">
-                            8g Protein. 4g Fiber. 0g Added Sugar. Electrolytes + Immunity. The ultimate nutritional shortcut for growing bodies.
+                    {/* Group 2: Subhead tightly coupled under headline (Mobile Order 2) */}
+                    <div className="order-2 md:order-none relative z-10 flex flex-col pt-2 md:pt-4">
+                        <p className="mb-6 md:mb-10 max-w-lg font-sans text-lg md:text-xl leading-relaxed text-black/90 font-medium font-condensed">
+                            Every sip builds stronger muscles, bigger bones, and a sharper brain. No added sugar. No fake stuff. Finally.
                         </p>
-                        <div className="flex justify-center md:justify-start w-full md:w-auto mb-6 md:mb-4">
+                    </div>
+
+                    {/* Group 4: Pricing Box & CTA (Mobile Order 4) */}
+                    <div className="order-4 md:order-none relative z-10 flex flex-col pt-4 md:pt-0 pb-8 md:pb-0">
+                        <div className="w-full md:max-w-[420px] bg-white border-2 border-black p-5 sm:p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex flex-col">
+                            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#FF5C00] mb-2 leading-tight">Be one of the first families.</h3>
+                            <p className="font-sans text-xs sm:text-sm text-black/70 font-semibold mb-6 leading-relaxed">We&apos;re releasing our first batch to a small group of founding families before anyone else. Reserve your spot and we&apos;ll ship you the first case off the line.</p>
+                            
+                            <div className="flex items-center justify-center bg-[#CCFF00] border border-black px-3 py-1.5 shadow-[2px_2px_0px_rgba(0,0,0,1)] mb-5 w-fit">
+                                <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-black flex items-center gap-2">
+                                    <span className="relative flex h-2 w-2">
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-75"></span>
+                                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5C00]"></span>
+                                    </span>
+                                    Limited Spots Available
+                                </span>
+                            </div>
+                            
                             <Button
                                 asChild
-                                className="h-auto w-[90%] md:w-auto rounded-full bg-[#FF5C00] px-4 py-5 sm:px-10 sm:py-6 lg:px-8 lg:py-6 border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] whitespace-normal hover:bg-[#E65300] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all"
+                                className="h-auto w-full rounded-full bg-[#FF5C00] px-4 py-4 sm:py-5 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#E65300] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all mb-3"
                             >
-                                <Link href="#checkout" className="flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-black">
-                                    <span className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold tracking-tight text-white leading-tight text-center">
-                                        Save 40% + Free Shipping
+                                <Link href="#checkout" className="flex justify-center focus:outline-none focus:ring-2 focus:ring-black">
+                                    <span className="text-sm sm:text-base md:text-lg font-black tracking-widest uppercase text-white text-center">
+                                        Claim My First Batch
                                     </span>
                                 </Link>
                             </Button>
-                        </div>
-
-                        <div className="flex justify-center md:justify-start items-center gap-2 text-black/80 mb-8 md:mb-0">
-                            <svg className="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="font-sans text-xs md:text-sm font-semibold">30-Day Guarantee</span>
-                            <span className="flex h-3 w-3 md:h-4 md:w-4 items-center justify-center rounded-full border border-black/30 font-serif text-[10px]">i</span>
+                            
+                            <p className="text-center font-sans text-[10px] sm:text-xs font-bold text-black/50 uppercase tracking-widest">
+                                No commitment. Just first access.
+                            </p>
                         </div>
                     </div>
 
                 </div>
 
-                {/* Right Column: Product Image (Mobile Order 2) */}
-                <div className="hero-right-col order-2 md:order-none py-8 md:py-0">
+                {/* Right Column: Product Image (Mobile Order 3) */}
+                <div className="hero-right-col order-3 md:order-none py-8 md:py-0">
                     {/* Dark Rounded Backdrop */}
-                    <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-[2.5rem] bg-black" />
+                    {/* <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-[2.5rem] bg-black" /> */}
 
                     {/* Centering layer: hero-right-inner activates on desktop via globals.css */}
                     <div className="hero-right-inner relative z-10 flex flex-col items-center mx-auto w-full max-w-[300px] md:max-w-[380px] xl:max-w-[460px] px-4 md:px-0">
@@ -79,7 +84,7 @@ export function Hero() {
                         </div>
 
                         {/* Pediatricians' Choice White Card — overlaps image bottom slightly */}
-                        <div className="-mt-6 md:-mt-8 flex w-full items-center gap-2 md:gap-4 rounded-2xl md:rounded-3xl bg-white p-3 md:p-4 lg:p-5 shadow-xl border-2 border-black">
+                        {/* <div className="-mt-6 md:-mt-8 flex w-full items-center gap-2 md:gap-4 rounded-2xl md:rounded-3xl bg-white p-3 md:p-4 lg:p-5 shadow-xl border-2 border-black">
                             <div className="flex flex-col items-center justify-center whitespace-nowrap px-2 md:px-4 font-serif text-sm md:text-lg lg:text-xl font-bold italic leading-tight text-black border-r-2 border-black/10">
                                 <span className="text-[#FF5C00]">Pediatricians&apos;</span>
                                 <span>Choice</span>
@@ -87,7 +92,7 @@ export function Hero() {
                             <p className="font-sans text-[10px] md:text-xs lg:text-sm font-semibold text-black/80 pr-1 md:pr-2">
                                 1,500+ pediatricians share this on FrontrowMD without compensation.
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

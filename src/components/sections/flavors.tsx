@@ -13,7 +13,7 @@ export function Flavors() {
     return (
         <section id="flavors" className="w-full border-b border-black bg-white py-20 overflow-hidden">
             <div className="mx-auto max-w-6xl px-4 md:px-8">
-                <h2 className="mb-12 text-center font-serif text-5xl md:text-7xl">Flavor You Can Count On</h2>
+                <h2 className="mb-12 text-left md:text-center font-serif text-5xl md:text-7xl">Flavors You Can Count On</h2>
 
                 <div className="mb-12 flex flex-col md:flex-row items-center justify-center gap-4 relative z-20">
                     <Button

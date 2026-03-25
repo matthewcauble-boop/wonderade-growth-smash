@@ -11,14 +11,14 @@ export function Hero() {
             className="relative min-h-[calc(100vh-5rem)] bg-white overflow-hidden"
         >
 
-            <div className="mx-auto grid min-h-[calc(100vh-5rem)] md:h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-2 px-4 pt-2 md:pt-0 pb-16 md:p-0 md:gap-8">
+            <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-2 px-4 pt-2 md:py-12 lg:py-16 pb-16 md:gap-8">
 
                 {/* Left Column wrapper */}
                 <div className="contents order-2 md:order-none md:flex md:flex-col md:self-center md:justify-center md:py-10 md:px-8 lg:px-12 xl:px-16 relative z-10">
 
                     {/* Group 1: Headline (Mobile Order 2) */}
                     <div className="order-2 md:order-none flex flex-col items-start pt-2 md:pt-0 relative z-20">
-                        <h1 className="mb-2 md:mb-4 font-sans text-[8vw] md:text-4xl lg:text-[4rem] xl:text-[4.5rem] font-black uppercase leading-[1.05] tracking-tight text-[#374191] lg:mb-6">
+                        <h1 className="mb-2 md:mb-4 font-sans text-[8vw] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-black uppercase leading-[1.05] tracking-tight text-[#374191] lg:mb-6">
                             The juice you wish you had when <span className="text-[#F57D14]">you were growing up.</span>
                         </h1>
                     </div>
@@ -110,8 +110,8 @@ export function Hero() {
                 </div>
 
                 {/* Right Column: Product Image (Mobile Order 1) */}
-                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[45vh] min-h-[250px] md:min-h-0 md:h-[calc(100vh-5rem)] pt-4 pb-0 md:py-0">
-                    <div className="hero-right-inner relative z-10 w-full h-full mx-auto flex justify-center max-w-[480px] md:max-w-[100%] mt-0">
+                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[45vh] min-h-[250px] md:min-h-0 md:h-full pt-4 pb-0 md:py-0">
+                    <div className="hero-right-inner relative z-10 w-full h-full mx-auto flex justify-center max-w-[480px] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] mt-0">
                         {/* Product Bottles Vector Image */}
                         <motion.div 
                             initial={{ y: 80, opacity: 0 }}
@@ -124,7 +124,7 @@ export function Hero() {
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                                 className="relative w-full h-full origin-center"
                             >
-                                <div className="relative w-full h-[85%] md:h-full flex justify-center items-center mx-auto scale-[1.05] sm:scale-[1.1] md:scale-[1.1] lg:scale-[1.15] xl:scale-[1.20] 2xl:scale-[1.25] hover:scale-[1.10] sm:hover:scale-[1.15] md:hover:scale-[1.15] lg:hover:scale-[1.20] xl:hover:scale-[1.25] 2xl:hover:scale-[1.30] transition-transform duration-500 origin-center">
+                                <div className="relative w-full h-[85%] md:h-[95%] lg:h-full flex justify-center items-center mx-auto scale-[1.05] sm:scale-[1.1] md:scale-[0.95] lg:scale-[0.90] xl:scale-[0.95] 2xl:scale-[1.0] hover:scale-[1.10] sm:hover:scale-[1.15] md:hover:scale-100 lg:hover:scale-[0.95] xl:hover:scale-[1.0] 2xl:hover:scale-[1.05] transition-transform duration-500 origin-center">
                                     <Image
                                         src="/assets/brand/Product/wonderade-bottles-cropped.png"
                                         alt="Wonderade Bottles"

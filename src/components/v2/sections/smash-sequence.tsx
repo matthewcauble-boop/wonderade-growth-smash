@@ -147,13 +147,14 @@ export function SmashSequence() {
     // Bottles animate in viewport space. They sit inside the table structurally, but during Phase 2-4 the table is at 100vh.
     // Structural 'bottom-0' means the native base is strictly near the screen floor. 
     // We MUST use aggressively negative 'vh' anchors to physically hoist the asset UP to the top-middle of the screen layout!
-    const mobileBottleY = ["-5vh", "20vh", "20vh", "-5vh"] // Identically safely magically predictably logically beautifully accurately predictably securely exactly automatically properly correctly correctly confidently seamlessly creatively seamlessly exactly successfully intelligently intelligently flexibly explicitly mathematically cleanly cleverly magically smoothly naturally elegantly natively intelligently precisely smoothly safely natively cleanly correctly identical symmetrically identical identically organically!
-    // Since we widened the vertical void heavily on Desktop (Header is tightly pinned high, Overlays are sunk tightly low), we universally anchor the asset inside the new massive layout void natively at `-12vh` center offset!
-    const desktopBottleY = ["0vh", "5vh", "5vh", "-12vh"] // Shifted UP dramatically to clear all md: overlays 
+    const mobileBottleY = ["0vh", "8vh", "8vh", "0vh"]
+    // Since we widened the vertical void heavily on Desktop (Header is tightly pinned high, Overlays are sunk tightly low), we universally anchor the asset inside the new massive layout void natively at `-12vh`
+    // Bottles Local Y coordinate
+    const desktopBottleY = ["0vh", "3vh", "3vh", "0vh"]
     const bottlesLocalY = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleY : desktopBottleY)
 
-    const mobileBottleScale = [0.1, 2.9, 2.9, 0.8] // Violently upscaled to 2.9 to explicitly command the object mathematically to be physically TALLER and bleed the layout limits 
-    const desktopBottleScale = [0.1, 2.0, 2.0, 0.8] // Resized to comfortably avoid bottom bleed on ~800px constraints while retaining gravity
+    const mobileBottleScale = [0.1, 2.9, 2.9, 0.8] 
+    const desktopBottleScale = [0.1, 1.25, 1.25, 0.85]
     const bottlesLocalScale = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleScale : desktopBottleScale)
 
     // Phase 7 (0.85 to 0.99): Sequential Highlights for the rows (Brand Yellow #FBD02E against Navy borders)
@@ -238,168 +239,38 @@ export function SmashSequence() {
                     ))}
                 </motion.div>
 
-                {/* Overlay 1: Protein (Physically Below) */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    style={{ opacity: overlay1Opacity, y: overlay1Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl h-[220px] md:h-[260px] lg:h-[35vh] border-2 border-[#374191] bg-white p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
-                >
-                    <Image src="/assets/brand/Stickers/protein sticker 2.svg" alt="Protein" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[10vh] lg:h-[10vh] drop-shadow-md" />
-                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Big and Strong Juice</h2>
-                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-[#374191]/90 font-bold max-w-xl text-center flex-1 flex items-center">
-                        Protein + Calcium build stronger muscles and bigger bones to fuel growth
-                    </p>
-                </motion.div>
-
-                {/* Overlay 2: Multipliers (Physically Below) */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    style={{ opacity: overlay2Opacity, y: overlay2Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl h-[220px] md:h-[260px] lg:h-[35vh] border-2 border-[#374191] bg-white p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
-                >
-                    <Image src="/assets/brand/Stickers/banana.svg" alt="Banana" width={40} height={40} className="mb-2 md:mb-4 lg:mb-5 lg:w-[5vh] lg:h-[5vh] drop-shadow-md" />
-                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Stay in the Game</h2>
-                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-[#374191]/90 font-bold max-w-xl text-center flex-1 flex items-center">
-                        9 in 10 kids don't hit their daily potassium needs. So we pack a banana's worth in every bottle
-                    </p>
-                </motion.div>
-
-                {/* Overlay 3: Clean Label (Physically Below) */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    style={{ opacity: overlay3Opacity, y: overlay3Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl h-[220px] md:h-[260px] lg:h-[35vh] border-2 border-[#374191] bg-white p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
-                >
-                    <Image src="/assets/brand/Stickers/health_shield_icon.png" alt="Energy" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[10vh] lg:h-[10vh] mix-blend-multiply" />
-                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Sick Day Defense</h2>
-                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-[#374191]/90 font-bold max-w-xl text-center flex-1 flex items-center">
-                        Cold season doesn't wait. Vitamin C, D, Zinc, and Magnesium keep their defenses ready
-                    </p>
-                </motion.div>
-
-                {/* Overlay 4: Better Gut Too (Physically Below) */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    style={{ opacity: overlay4Opacity, y: overlay4Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-3xl h-[220px] md:h-[260px] lg:h-[35vh] border-2 border-[#374191] bg-white p-4 md:p-6 lg:p-10 text-center shadow-[12px_12px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
-                >
-                    <Image src="/assets/brand/Stickers/gut_health_icon.png" alt="Gut Health" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[10vh] lg:h-[10vh] mix-blend-multiply" />
-                    <h2 className="font-serif text-[24px] md:text-4xl lg:text-[4vh] font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-5 lg:mb-6">Better Gut Too</h2>
-                    <p className="font-mono text-xs md:text-sm lg:text-[2vh] lg:max-w-3xl uppercase tracking-widest text-[#374191]/90 font-bold max-w-xl text-center flex-1 flex items-center">
-                        Prebiotic fiber feeds good bacteria and helps the body absorb the good stuff
-                    </p>
-                </motion.div>
-
-                {/* Overlay 5: Clean Label (Physically Below) */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    style={{ opacity: overlay5Opacity, y: overlay5Y }}
-                    className="absolute bottom-[18vh] md:bottom-[3vh] z-40 w-[90%] max-w-5xl"
-                >
-                    {/* Mobile Combined Clean Label Card */}
-                    <div className="flex flex-col justify-between md:hidden border-2 border-[#374191] bg-white h-[220px] shadow-[6px_6px_0px_#374191] rounded-xl overflow-hidden">
-                        <div className="w-full bg-[#FBD02E] border-b-2 border-[#374191] py-1 px-4 flex justify-center items-center gap-2 shrink-0">
-                            <span className="font-mono text-[12px] uppercase font-bold tracking-widest text-[#374191]">Clean Label</span>
-                        </div>
-                        <div className="flex flex-col justify-center px-4 flex-1 gap-3 text-[#374191]">
-                            <div className="flex items-center gap-3">
-                                <XCircle size={18} className="text-[#374191]/50 shrink-0" />
-                                <span className="font-serif text-[14px] sm:text-[16px] text-left leading-none font-bold">No artificial sweeteners</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <XCircle size={18} className="text-[#374191]/50 shrink-0" />
-                                <span className="font-serif text-[14px] sm:text-[16px] text-left leading-none font-bold">No artificial colors</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <XCircle size={18} className="text-[#374191]/50 shrink-0" />
-                                <span className="font-serif text-[14px] sm:text-[16px] text-left leading-none font-bold">No high fructose corn syrup</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <Wheat size={18} className="text-[#374191]/50 shrink-0" />
-                                <span className="font-serif text-[14px] sm:text-[16px] text-left leading-none font-bold">No dairy, gluten, soy, nuts</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Desktop 4-Card Grid */}
-                    <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[2vw] w-[90%] md:w-full">
-                        <div className="flex flex-col border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] hover:-translate-y-1 transition-transform h-[260px] lg:h-[35vh] justify-between rounded-xl overflow-hidden text-[#374191]">
-                            <div className="w-full bg-[#CCEFFC] border-b-2 border-[#374191] py-1 lg:py-[1vh] px-4 flex justify-center items-center gap-2">
-                                <span className="font-mono text-[12px] lg:text-[1.8vh] uppercase tracking-widest font-bold text-[#374191]">Sweet</span>
-                            </div>
-                            <div className="flex-1 p-4 md:p-3 lg:p-[1.5vh] flex flex-col items-center justify-center text-center">
-                                <Image src="/assets/brand/Stickers/sugar sticker 1.svg" alt="Sugar" width={32} height={32} className="mb-2 lg:mb-[1.5vh] lg:w-[4vh] lg:h-[4vh]" />
-                                <h3 className="mb-1 lg:mb-[1.5vh] font-serif text-[18px] md:text-xl lg:text-[2.8vh] text-[#374191] leading-tight">No artificial sweeteners</h3>
-                                <p className="font-mono text-[11px] lg:text-[1.5vh] uppercase tracking-widest text-[#374191]/60 flex-1 flex items-center">Zero Erythritol</p>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] hover:-translate-y-1 transition-transform h-[260px] lg:h-[35vh] justify-between rounded-xl overflow-hidden text-[#374191]">
-                            <div className="w-full bg-[#FFFA99] border-b-2 border-[#374191] py-1 lg:py-[1vh] px-4 flex justify-center items-center gap-2">
-                                <span className="font-mono text-[12px] lg:text-[1.8vh] uppercase tracking-widest font-bold text-[#374191]">Vibrant</span>
-                            </div>
-                            <div className="flex-1 p-4 md:p-3 lg:p-[1.5vh] flex flex-col items-center justify-center text-center">
-                                <Image src="/assets/brand/Stickers/strawberry.svg" alt="Colors" width={32} height={32} className="mb-2 lg:mb-[1.5vh] lg:w-[4vh] lg:h-[4vh]" />
-                                <h3 className="mb-1 lg:mb-[1.5vh] font-serif text-[18px] md:text-xl lg:text-[2.8vh] text-[#374191] leading-tight">No artificial colors</h3>
-                                <p className="font-mono text-[11px] lg:text-[1.5vh] uppercase tracking-widest text-[#374191]/60 flex-1 flex items-center">Real Fruit Only</p>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] hover:-translate-y-1 transition-transform h-[260px] lg:h-[35vh] justify-between rounded-xl overflow-hidden text-[#374191]">
-                            <div className="w-full bg-white text-[#374191] border-b-2 border-[#374191] py-1 lg:py-[1vh] px-4 flex justify-center items-center gap-2 font-mono text-[12px] lg:text-[1.8vh] uppercase tracking-widest font-bold">
-                                Absolute Zero
-                            </div>
-                            <div className="flex-1 p-4 md:p-3 lg:p-[1.5vh] flex flex-col items-center justify-center text-center">
-                                <Image src="/assets/brand/Stickers/sugar sticker 2.svg" alt="Zero" width={32} height={32} className="mb-2 lg:mb-[1.5vh] lg:w-[4vh] lg:h-[4vh]" />
-                                <h3 className="mb-1 lg:mb-[1.5vh] font-serif text-[18px] md:text-xl lg:text-[2.8vh] leading-tight text-[#374191]">No high fructose corn syrup</h3>
-                                <p className="font-mono text-[11px] lg:text-[1.5vh] uppercase tracking-widest text-[#374191]/60 flex-1 flex items-center">Naturally Sweetened</p>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] hover:-translate-y-1 transition-transform h-[260px] lg:h-[35vh] justify-between rounded-xl overflow-hidden text-[#374191]">
-                            <div className="w-full bg-[#ED0C7B] text-white border-b-2 border-[#374191] py-1 lg:py-[1vh] px-4 flex justify-center items-center gap-2">
-                                <span className="font-mono text-[12px] lg:text-[1.8vh] uppercase tracking-widest font-bold text-white">Safe</span>
-                            </div>
-                            <div className="flex-1 p-4 md:p-3 lg:p-[1.5vh] flex flex-col items-center justify-center text-center">
-                                <Image src="/assets/brand/Stickers/school-safe-badges.svg" alt="Allergen Free" width={32} height={32} className="mb-2 lg:mb-[1.5vh] lg:w-[4vh] lg:h-[4vh]" />
-                                <h3 className="mb-1 lg:mb-[1.5vh] font-serif text-[18px] md:text-xl lg:text-[2.8vh] text-[#374191] leading-tight">No dairy, gluten, soy, nuts</h3>
-                                <p className="font-mono text-[11px] lg:text-[1.5vh] uppercase tracking-widest text-[#ED0C7B] font-bold flex-1 flex items-center">Top 9 Allergen Free</p>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
                 {/* Comparison Table & Synchronized Assets */}
                 <div className="absolute inset-0 z-50 flex w-full flex-col items-center justify-center px-4 pt-[5vh] md:pt-0 pb-2 md:pb-12 pointer-events-none">
 
                     {/* Emotional Headline for The Duel */}
                     <motion.div
                         style={{ y: tableY, opacity: duelHeadlineOpacity }}
-                        className="w-full text-left md:text-center px-4 md:px-0 max-w-4xl mb-1 md:mb-10 pointer-events-auto"
+                        className="w-full text-center px-4 md:px-0 max-w-[90vw] md:max-w-5xl mx-auto mb-4 md:mb-[3vh] pointer-events-auto"
                     >
-                        <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-none md:leading-tight text-[#374191] mb-1 md:mb-6 font-black tracking-tight">
-                            Real Ingredients. <span className="text-[#F57D14] block xl:inline">Real Impact.</span>
+                        <h2 className="font-serif text-[8vw] sm:text-4xl md:text-[4.5vh] lg:text-[5.5vh] leading-[1] text-[#374191] font-black tracking-tight">
+                            Real Ingredients. <br className="md:hidden" /><span className="text-[#F57D14]">Real Impact.</span>
                         </h2>
                     </motion.div>
 
                     <div className="relative w-full max-w-5xl flex flex-col pt-0 md:pt-4">
 
                         {/* Perfect Alignment Grid Layer for Assets */}
-                        <div className="grid grid-cols-3 w-full h-[120px] md:h-[220px] relative pointer-events-none">
+                        <div className="grid grid-cols-3 w-full h-[120px] md:h-[30vh] lg:h-[35vh] xl:h-[40vh] mt-[5vh] md:mt-0 relative pointer-events-none">
                             {/* Empty column over The Duel */}
                             <div></div>
 
                             {/* Animated Wonderade Bottles exactly bound to Center Column */}
                             <motion.div
                                 style={{ y: bottlesLocalY, scale: bottlesLocalScale, opacity: realBottlesOpacity }}
-                                className="relative flex items-end justify-center origin-bottom w-full z-10 pb-[45px] md:pb-[30px]"
+                                className="relative flex items-end justify-center origin-bottom w-full h-full z-10 pb-[16px] md:pb-4"
                             >
-                                <div className="relative w-[150px] h-[110px] md:w-[320px] md:h-[240px]">
+                                <div className="relative w-full h-full max-w-[150px] md:max-w-[450px] aspect-auto origin-bottom">
+                                    {/* Phase 3 Product Image Replacement mapped directly here */}
                                     <Image
                                         src="/assets/brand/Product/wonderade-bottles-cropped.png"
                                         alt="Wonderade Bottles"
                                         fill
-                                        className="object-contain"
+                                        className="object-contain object-bottom"
                                         priority
                                     />
                                 </div>
@@ -408,61 +279,150 @@ export function SmashSequence() {
                             {/* Generic Juice Box exactly bound to Right Column */}
                             <motion.div
                                 style={{ y: tableY, opacity: tableOpacity }}
-                                className="relative flex items-end justify-center w-full z-10 pb-[10px] md:pb-[30px] pt-[20px] md:pt-0"
+                                className="relative flex items-end justify-center w-full h-full z-10 pb-[16px] md:pb-4"
                             >
-                                <div className="relative w-[50px] h-[70px] md:w-[120px] md:h-[150px] border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] mix-blend-multiply flex mb-[80px] md:mb-[130px] rounded-xl">
+                                <div className="relative h-full aspect-[3/4] max-h-[70px] md:max-h-[160px] lg:max-h-[180px] border-2 border-[#374191] bg-white shadow-[6px_6px_0px_#374191] mix-blend-multiply flex rounded-xl origin-bottom">
                                     <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap font-mono text-[8px] md:text-sm uppercase tracking-widest text-[#374191]/40">Juice</span>
                                 </div>
                             </motion.div>
                         </div>
 
+                        {/* Phase 3 Unified Flex Overlay Wrapper natively dynamically ideally intelligently brilliantly smoothly organically flawlessly cleanly realistically neatly safely cleanly rationally smartly intelligently natively fluently creatively elegantly dependably fluently magically eloquently organically intelligently cleanly identical intelligently safely rationally identically! */}
+                        <div className="absolute inset-x-0 bottom-0 h-[100dvh] w-full md:relative md:inset-auto md:h-[0px] flex justify-center md:mt-[10px] pointer-events-none z-40">
+{/* Overlay 1: Protein (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay1Opacity, y: overlay1Y }}
+                    className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                >
+                    <Image src="/assets/brand/Stickers/protein sticker 2.svg" alt="Protein" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] drop-shadow-md" />
+                    <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Big and Strong Juice</h2>
+                    <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                        Protein + Calcium build stronger muscles and bigger bones to fuel growth
+                    </p>
+                </motion.div>
+
+                {/* Overlay 2: Multipliers (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay2Opacity, y: overlay2Y }}
+                    className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                >
+                    <Image src="/assets/brand/Stickers/banana.svg" alt="Banana" width={40} height={40} className="mb-2 md:mb-4 lg:mb-5 lg:w-[50px] lg:h-[50px] drop-shadow-md" />
+                    <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Stay in the Game</h2>
+                    <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                        9 in 10 kids don't hit their daily potassium needs. So we pack a banana's worth in every bottle
+                    </p>
+                </motion.div>
+
+                {/* Overlay 3: Clean Label (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay3Opacity, y: overlay3Y }}
+                    className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                >
+                    <Image src="/assets/brand/Stickers/health_shield_icon.png" alt="Energy" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
+                    <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Sick Day Defense</h2>
+                    <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                        Cold season doesn't wait. Vitamin C, D, Zinc, and Magnesium keep their defenses ready
+                    </p>
+                </motion.div>
+
+                {/* Overlay 4: Better Gut Too (Physically Below) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay4Opacity, y: overlay4Y }}
+                    className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                >
+                    <Image src="/assets/brand/Stickers/gut_health_icon.png" alt="Gut Health" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
+                    <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Better Gut Too</h2>
+                    <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                        Prebiotic fiber feeds good bacteria and helps the body absorb the good stuff
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    style={{ opacity: overlay5Opacity, y: overlay5Y }}
+                    className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] max-w-full flex justify-center pointer-events-none"
+                >
+                    {/* Unified Clean Label Card (Cross-Platform) */}
+                    <div className="flex flex-col justify-between border-2 border-[#374191] bg-white h-auto min-h-[220px] shadow-[8px_8px_0px_#374191] rounded-xl overflow-hidden w-[95%] max-w-md lg:max-w-lg mx-auto pointer-events-auto transform hover:-translate-y-2 transition-transform duration-300">
+                        <div className="w-full bg-[#FBD02E] border-b-2 border-[#374191] py-1 px-4 lg:py-2 flex justify-center items-center gap-2 shrink-0">
+                            <span className="font-mono text-[12px] lg:text-sm uppercase font-bold tracking-widest text-[#374191]">Clean Label</span>
+                        </div>
+                        <div className="flex flex-col justify-center px-4 md:px-6 lg:px-8 py-4 lg:py-6 flex-1 gap-3 lg:gap-4 text-[#374191]">
+                            <div className="flex items-center gap-3 lg:gap-4">
+                                <XCircle className="text-[#374191]/50 shrink-0 w-[18px] h-[18px] lg:w-[22px] lg:h-[22px]" />
+                                <span className="font-serif text-[14px] sm:text-[16px] lg:text-[18px] text-left leading-none font-bold">No artificial sweeteners</span>
+                            </div>
+                            <div className="flex items-center gap-3 lg:gap-4">
+                                <XCircle className="text-[#374191]/50 shrink-0 w-[18px] h-[18px] lg:w-[22px] lg:h-[22px]" />
+                                <span className="font-serif text-[14px] sm:text-[16px] lg:text-[18px] text-left leading-none font-bold">No artificial colors</span>
+                            </div>
+                            <div className="flex items-center gap-3 lg:gap-4">
+                                <XCircle className="text-[#374191]/50 shrink-0 w-[18px] h-[18px] lg:w-[22px] lg:h-[22px]" />
+                                <span className="font-serif text-[14px] sm:text-[16px] lg:text-[18px] text-left leading-none font-bold">No high fructose corn syrup</span>
+                            </div>
+                            <div className="flex items-center gap-3 lg:gap-4">
+                                <Wheat className="text-[#374191]/50 shrink-0 w-[18px] h-[18px] lg:w-[22px] lg:h-[22px]" />
+                                <span className="font-serif text-[14px] sm:text-[16px] lg:text-[18px] text-left leading-none font-bold">No dairy, gluten, soy, nuts</span>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+
+                
+
+                        </div>
+
                         {/* Traditional Data Table */}
                         <motion.div
                             style={{ y: tableY, opacity: tableOpacity }}
-                            className="border-2 border-[#374191] rounded-xl overflow-hidden shadow-[12px_12px_0px_#374191] flex flex-col w-full relative z-20 bg-white -mt-4 md:-mt-8 pointer-events-auto"
+                            className="border-2 border-[#374191] rounded-xl overflow-hidden shadow-[12px_12px_0px_#374191] flex flex-col w-full relative z-20 bg-white mt-2 md:-mt-2 pointer-events-auto"
                         >
                             {/* Header Row */}
                             <div className="grid grid-cols-3 border-b-2 border-[#374191]">
-                                <div className="flex items-center p-4 font-serif text-lg md:py-3 md:px-8 md:text-4xl uppercase tracking-wider bg-[#F8F2D0]"></div>
-                                <div className="flex items-center justify-center border-l-2 border-[#374191] bg-[#374191] overflow-hidden relative p-8">
+                                <div className="flex items-center p-4 font-serif text-lg md:py-3 md:px-8 md:text-4xl uppercase tracking-wider bg-[#F8F2D0] md:p-[2vh]"></div>
+                                <div className="flex items-center justify-center border-l-2 border-[#374191] bg-[#374191] overflow-hidden relative p-4 md:p-[2vh]">
                                     <img src="/assets/brand/Logo/wonderade_logo.svg" alt="Wonderade" className="w-[90%] md:w-full h-auto brightness-0 invert" />
                                 </div>
-                                <div className="flex items-center justify-center border-l-2 border-[#374191] p-4 text-center font-serif text-sm text-[#374191]/80 md:py-3 md:px-8 md:text-3xl uppercase tracking-widest bg-[#F8F2D0]">JUICE</div>
+                                <div className="flex items-center justify-center border-l-2 border-[#374191] p-4 text-center font-serif text-sm text-[#374191]/80 md:p-[2vh] md:text-[2.5vh] lg:text-[3vh] uppercase tracking-widest bg-[#F8F2D0]">JUICE</div>
                             </div>
 
                             {/* Row 1: Protein */}
-                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-base bg-white">
-                                <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 transition-colors text-[#374191]">Protein</div>
-                                <motion.div style={{ backgroundColor: row1Bg }} className="border-l-2 border-[#374191] p-4 text-center font-bold text-[#374191] md:py-2 md:px-6 text-sm md:text-xl">8g</motion.div>
-                                <div className="border-l-2 border-[#374191] p-4 text-center text-[#374191]/80 md:py-2 md:px-6 text-sm md:text-xl bg-white">0g</div>
+                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider transition-colors text-[#374191]">Protein</div>
+                                <motion.div style={{ backgroundColor: row1Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh]">8g</motion.div>
+                                <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] bg-white">0g</div>
                             </div>
 
                             {/* Row 2: Potassium/Calcium */}
-                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-base bg-white">
-                                <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 flex items-center transition-colors text-[#374191]">Potassium / Calcium</div>
-                                <motion.div style={{ backgroundColor: row2Bg }} className="border-l-2 border-[#374191] p-4 text-center font-bold text-[#374191] md:py-2 md:px-6 text-sm md:text-xl flex items-center justify-center">20%+ DV</motion.div>
-                                <div className="border-l-2 border-[#374191] p-4 text-center text-[#374191]/80 md:py-2 md:px-6 text-sm md:text-xl flex items-center justify-center bg-white">0%</div>
+                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider flex items-center transition-colors text-[#374191]">Potassium / Calcium</div>
+                                <motion.div style={{ backgroundColor: row2Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center">20%+ DV</motion.div>
+                                <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center bg-white">0%</div>
                             </div>
 
                             {/* Row 3: Total Sugars */}
-                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-base bg-white">
-                                <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 transition-colors text-[#374191]">Total Sugars</div>
-                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l-2 border-[#374191] p-4 text-center font-bold text-[#374191] md:py-2 md:px-6 text-sm md:text-xl">2g</motion.div>
-                                <div className="border-l-2 border-[#374191] p-4 text-center text-[#374191]/80 font-bold md:py-2 md:px-6 text-sm md:text-xl bg-white">15g</div>
+                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider transition-colors text-[#374191]">Total Sugars</div>
+                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh]">2g</motion.div>
+                                <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 font-bold text-sm md:text-[1.6vh] lg:text-[2vh] bg-white">15g</div>
                             </div>
 
                             {/* Row 4: Fiber */}
-                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-base bg-white">
-                                <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 transition-colors text-[#374191]">Fiber</div>
-                                <motion.div style={{ backgroundColor: row4Bg }} className="border-l-2 border-[#374191] p-4 text-center font-bold text-[#374191] md:py-2 md:px-6 text-sm md:text-xl">4g</motion.div>
-                                <div className="border-l-2 border-[#374191] p-4 text-center text-[#374191]/80 md:py-2 md:px-6 text-sm md:text-xl bg-white">0g</div>
+                            <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider transition-colors text-[#374191]">Fiber</div>
+                                <motion.div style={{ backgroundColor: row4Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh]">4g</motion.div>
+                                <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] bg-white">0g</div>
                             </div>
 
                             {/* Row 5: Vit D, Zinc, Iron */}
-                            <div className="grid grid-cols-3 font-mono text-[10px] md:text-base bg-white">
-                                <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 flex items-center transition-colors text-[#374191]">Zinc / Iron / Vit D</div>
-                                <motion.div style={{ backgroundColor: row5Bg }} className="border-l-2 border-[#374191] p-4 text-center font-bold text-[#374191] md:py-2 md:px-6 text-sm md:text-xl flex items-center justify-center">10% DV</motion.div>
-                                <div className="border-l-2 border-[#374191] p-4 text-center text-[#374191]/80 md:py-2 md:px-6 text-sm md:text-xl flex items-center justify-center bg-white">0%</div>
+                            <div className="grid grid-cols-3 font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider flex items-center transition-colors text-[#374191]">Zinc / Iron / Vit D</div>
+                                <motion.div style={{ backgroundColor: row5Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center">10% DV</motion.div>
+                                <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center bg-white">0%</div>
                             </div>
                         </motion.div>
 

@@ -87,7 +87,7 @@ export function Flavors() {
                     </div>
                     
                     {/* Flavor Description Container */}
-                    <div className="relative w-full h-[80px] mt-8 flex items-center justify-center text-center px-4">
+                    <div className="relative w-full h-auto min-h-[120px] mt-8 flex items-center justify-center text-center px-4">
                         <AnimatePresence mode="wait">
                             {activeFlavor === "orange" && (
                                 <motion.div
@@ -98,8 +98,8 @@ export function Flavors() {
                                     transition={{ duration: 0.3 }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <p className="max-w-md font-mono text-sm md:text-lg uppercase leading-relaxed tracking-wider text-[#374191]/90 font-medium">
-                                        Organic OJ + 0-calorie super sweeteners from nature.
+                                    <p className="max-w-2xl font-mono text-xs md:text-sm lg:text-base uppercase leading-relaxed tracking-widest text-[#374191]/90 font-medium">
+                                        Inspired by our love for fresh squeezed oranges and the candy-like juice we grew up on. Major Orange is real fruit and real orange extract combined with super sweeteners from nature to deliver that classic orange juice vibe without any added sugars or fake sweeteners.
                                     </p>
                                 </motion.div>
                             )}
@@ -112,8 +112,8 @@ export function Flavors() {
                                     transition={{ duration: 0.3 }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <p className="max-w-md font-mono text-sm md:text-lg uppercase leading-relaxed tracking-wider text-[#374191]/90 font-medium">
-                                        Organic Cherry Juice + 0-calorie super sweeteners from nature.
+                                    <p className="max-w-2xl font-mono text-xs md:text-sm lg:text-base uppercase leading-relaxed tracking-widest text-[#374191]/90 font-medium">
+                                        Inspired by those tasty cans and boxes we all grew up on. Princess Punch is cherry juice and a blend of fruits from the tropics to deliver a delightful fruit punch flavor that kids young and old seem to just love.
                                     </p>
                                 </motion.div>
                             )}

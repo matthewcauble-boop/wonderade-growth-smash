@@ -9,6 +9,7 @@ import { Flavors } from "@/components/v2/sections/flavors"
 import { Quality } from "@/components/v2/sections/quality"
 import { BoxComparison } from "@/components/v2/sections/box-comparison"
 import { Offer } from "@/components/v2/sections/offer"
+import { Footer } from "@/components/v2/layout/footer"
 import { ScrollRestoration } from "@/components/utils/scroll-restoration"
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
       <Quality />
       {/* <BoxComparison /> */}
       <Offer />
-
+      <Footer />
     </main>
   )
 }

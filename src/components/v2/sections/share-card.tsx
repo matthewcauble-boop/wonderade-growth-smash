@@ -52,7 +52,7 @@ export function ShareCard() {
                         Give 3 Families a Free Sample.
                     </h2>
                     <p className="font-mono text-xs md:text-sm uppercase text-[#374191]/60 font-bold mb-6">
-                        Copy your unique link below and drop it in the group chat. If three friends claim a sample, we'll send you an entire free bottle.
+                        Copy your unique link below and drop it in the group chat. If three friends claim a sample we'll send you a free gift when we launch.
                     </p>
 
                     <div className="flex flex-col sm:flex-row w-full gap-3">

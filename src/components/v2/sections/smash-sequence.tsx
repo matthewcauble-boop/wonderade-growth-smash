@@ -306,7 +306,7 @@ export function SmashSequence() {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 style={{ opacity: overlay1Opacity, y: overlay1Y }}
-                                className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                                className="absolute bottom-[2vh] md:bottom-auto md:top-[60%] lg:top-[64%] xl:top-[68%] md:mt-0 z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
                             >
                                 <Image src="/assets/brand/Stickers/protein sticker 2.svg" alt="Protein" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] drop-shadow-md" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Big and Strong Juice</h2>
@@ -319,7 +319,7 @@ export function SmashSequence() {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 style={{ opacity: overlay2Opacity, y: overlay2Y }}
-                                className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                                className="absolute bottom-[2vh] md:bottom-auto md:top-[60%] lg:top-[64%] xl:top-[68%] md:mt-0 z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
                             >
                                 <Image src="/assets/brand/Stickers/banana.svg" alt="Banana" width={40} height={40} className="mb-2 md:mb-4 lg:mb-5 lg:w-[50px] lg:h-[50px] drop-shadow-md" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Stay in the Game</h2>
@@ -332,7 +332,7 @@ export function SmashSequence() {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 style={{ opacity: overlay3Opacity, y: overlay3Y }}
-                                className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                                className="absolute bottom-[2vh] md:bottom-auto md:top-[60%] lg:top-[64%] xl:top-[68%] md:mt-0 z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
                             >
                                 <Image src="/assets/brand/Stickers/health_shield_icon.png" alt="Energy" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Sick Day Defense</h2>
@@ -345,7 +345,7 @@ export function SmashSequence() {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 style={{ opacity: overlay4Opacity, y: overlay4Y }}
-                                className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
+                                className="absolute bottom-[2vh] md:bottom-auto md:top-[60%] lg:top-[64%] xl:top-[68%] md:mt-0 z-40 w-[90%] md:w-[45vw] lg:w-[35vw] xl:w-[30vw] max-w-sm lg:max-w-md h-auto min-h-[180px] border-[3px] border-[#374191] bg-white p-4 lg:p-5 text-center shadow-[8px_8px_0px_#374191] flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300 rounded-xl"
                             >
                                 <Image src="/assets/brand/Stickers/gut_health_icon.png" alt="Gut Health" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Better Gut Too</h2>
@@ -357,7 +357,7 @@ export function SmashSequence() {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 style={{ opacity: overlay5Opacity, y: overlay5Y }}
-                                className="absolute bottom-[2vh] md:bottom-auto md:top-[50%] md:-mt-[15px] z-40 w-[90%] max-w-full flex justify-center pointer-events-none"
+                                className="absolute bottom-[2vh] md:bottom-auto md:top-[60%] lg:top-[64%] xl:top-[68%] md:mt-0 z-40 w-[90%] max-w-full flex justify-center pointer-events-none"
                             >
                                 {/* Unified Clean Label Card (Cross-Platform) */}
                                 <div className="flex flex-col justify-between border-2 border-[#374191] bg-white h-auto min-h-[220px] shadow-[8px_8px_0px_#374191] rounded-xl overflow-hidden w-[95%] max-w-md lg:max-w-lg mx-auto pointer-events-auto transform hover:-translate-y-2 transition-transform duration-300">

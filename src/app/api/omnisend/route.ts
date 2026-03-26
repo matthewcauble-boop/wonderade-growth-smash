@@ -17,6 +17,20 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Server Configuration Error" }, { status: 500 });
         }
 
+        // Dynamically probe the incoming client Request Headers targeting the middleware-injected HttpOnly cookie logic
+        const cookieHeader = request.headers.get("cookie");
+        const referralToken = cookieHeader?.split('; ').find(row => row.startsWith('wonderade_referral_id='))?.split('=')[1];
+        let referrerEmail = null;
+
+        // Securely decode the referral Base64 identity mapping back into a plain-text architectural email
+        if (referralToken) {
+             try {
+                 referrerEmail = Buffer.from(referralToken, 'base64').toString('ascii');
+             } catch(e) {
+                 console.error("Failed to decode native referral string securely", e);
+             }
+        }
+
         // Transmit securely to the Omnisend v3 Contacts API
         const payload: any = {
             identifiers: [
@@ -42,6 +56,13 @@ export async function POST(request: Request) {
         if (state) payload.state = state;
         if (postalCode) payload.postalCode = postalCode;
         if (address || city || state) payload.country = "US"; // Required context standard for US mapping natively
+
+        // Formally bind the tracking analytics straight into the CRM database schema dynamically
+        if (referrerEmail) {
+            payload.customProperties = {
+                referred_by: referrerEmail
+            };
+        }
 
         const response = await fetch("https://api.omnisend.com/v3/contacts", {
             method: "POST",

@@ -103,7 +103,7 @@ export function AddressForm() {
                     email,
                     firstName,
                     lastName,
-                    address: addressDetails.street || value, // Use formatted street, or raw input fallback
+                    address: addressDetails.street || inputValue, // Use formatted street, or raw input fallback
                     city: addressDetails.city,
                     state: addressDetails.state,
                     postalCode: addressDetails.zip

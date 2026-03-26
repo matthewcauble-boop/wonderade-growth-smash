@@ -154,7 +154,9 @@ export function SmashSequence() {
     const overlay5Y = useTransform(smoothProgress, [0.6, 0.62, 0.67, 0.7], [50, 0, 0, -50])
 
     // Phase 5 & 6 (0.7 to 0.85): Table slides up, Bottles glide down to land onto the column headers
-    const tableY = useTransform(smoothProgress, [0.7, 0.85], ["100vh", "0vh"])
+    const desktopTableY = ["100vh", "6vh"]
+    const mobileTableY = ["100vh", "0vh"]
+    const tableY = useTransform(smoothProgress, [0.7, 0.85], isMobile ? mobileTableY : desktopTableY)
     const tableOpacity = useTransform(smoothProgress, [0.7, 0.8], [0, 1])
 
     // Bottles animate in viewport space. They sit inside the table structurally, but during Phase 2-4 the table is at 100vh.

@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Hand } from "lucide-react"
 
 export function Offer() {
+    const router = useRouter()
     const [email, setEmail] = useState("")
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
     const [errorMessage, setErrorMessage] = useState("")
@@ -33,7 +35,12 @@ export function Offer() {
             }
 
             setStatus("success");
-            setEmail("");
+            
+            // Seamlessly redirect into the Step 2 Free Sample Funnel automatically routing the payload securely.
+            setTimeout(() => {
+                router.push(`/claim?email=${encodeURIComponent(email)}`)
+            }, 800);
+
         } catch (err) {
             setStatus("error");
             setErrorMessage("Network issue. Please try again.");

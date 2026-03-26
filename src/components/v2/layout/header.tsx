@@ -1,8 +1,20 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            // Silently update the URL to maintain the routing state without glitching the viewport
+            window.history.pushState(null, "", `#${targetId}`);
+        }
+    };
+
     return (
         <header className="sticky top-0 z-[9999] w-full border-b-2 border-[#374191] bg-white">
             <div className="flex h-20 items-center justify-between pl-4 md:pl-8">
@@ -22,9 +34,9 @@ export function Header() {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-mono text-xs lg:text-sm font-bold uppercase tracking-widest text-[#374191]">
-                        <Link href="#how-it-works" className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
-                        <Link href="#flavors" className="hover:text-[#Fbd02e] transition-colors">Flavors</Link>
-                        <Link href="#compare" className="hover:text-[#Fbd02e] transition-colors">Compare</Link>
+                        <Link href="#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
+                        <Link href="#flavors" onClick={(e) => scrollToSection(e, "flavors")} className="hover:text-[#Fbd02e] transition-colors">Flavors</Link>
+                        <Link href="#compare" onClick={(e) => scrollToSection(e, "compare")} className="hover:text-[#Fbd02e] transition-colors">Compare</Link>
                     </nav>
                 </div>
 
@@ -33,7 +45,7 @@ export function Header() {
                         <Image src="/assets/brand/Stickers/orange sticker.svg" alt="Juiced Up Sticker" fill className="object-contain" />
                     </div>
                     <Button asChild className="px-3 md:px-6 py-0 shrink-0 whitespace-nowrap text-[11px] sm:text-xs md:text-base tracking-normal md:tracking-widest shadow-none hover:bg-[#374191] hover:text-white transition-colors border-l-2 border-[#374191] bg-[#FBD02E] text-[#374191] h-full rounded-none">
-                        <Link href="#checkout" className="font-bold">
+                        <Link href="#checkout" onClick={(e) => scrollToSection(e, "checkout")} className="font-bold">
                             TRY OUT
                         </Link>
                     </Button>

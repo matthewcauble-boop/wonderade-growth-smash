@@ -10,6 +10,16 @@ export function Offer() {
     const [email, setEmail] = useState("")
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
     const [errorMessage, setErrorMessage] = useState("")
+    const [hasClaimed, setHasClaimed] = useState(false)
+
+    // Synthetically probe the local browser footprint to actively deflect rapid duplicates autonomously
+    import("react").then((React) => {
+        React.useEffect(() => {
+            if (typeof document !== 'undefined' && document.cookie.includes("wonderade_sample_claimed=true")) {
+                setHasClaimed(true);
+            }
+        }, []);
+    });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -55,43 +65,63 @@ export function Offer() {
                 <div className="flex flex-col border-2 border-[#374191] bg-[#F8F2D0] p-6 shadow-[8px_8px_0px_#374191] md:p-8 rounded-3xl">
                     <div className="flex items-center justify-center bg-[#FBD02E] border-2 border-[#374191] px-3 py-1.5 shadow-[2px_2px_0px_#374191] mb-5 w-fit rounded-lg">
                         <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#374191] flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F57D14] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F57D14]"></span>
-                            </span>
-                            Limited Spots Available
+                            {hasClaimed ? (
+                                "OFFER SECURED"
+                            ) : (
+                                <>
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F57D14] opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F57D14]"></span>
+                                    </span>
+                                    Limited Spots Available
+                                </>
+                            )}
                         </span>
                     </div>
 
-                    <h2 className="mb-2 font-serif text-4xl text-[#374191]">Claim Your Free Sample</h2>
-                    <p className="mb-8 font-mono text-sm uppercase text-[#374191]/60 tracking-widest font-bold">Try Wonderade before you buy.</p>
+                    <h2 className="mb-2 font-serif text-4xl text-[#374191]">
+                        {hasClaimed ? "You're All Set!" : "Claim Your Free Sample"}
+                    </h2>
+                    <p className="mb-8 font-mono text-sm uppercase text-[#374191]/60 tracking-widest font-bold">
+                        {hasClaimed ? "Your Free Box is physically processing." : "Try Wonderade before you buy."}
+                    </p>
 
-                    <form onSubmit={handleSubmit} className="mt-auto flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-2">
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            disabled={status === "loading" || status === "success"}
-                            placeholder="ENTER YOUR EMAIL"
-                            className="w-full px-4 py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 placeholder:font-normal text-[#374191] disabled:opacity-50"
-                        />
-                        <button 
-                            type="submit"
-                            disabled={status === "loading" || status === "success"}
-                            className="border-l-2 border-[#374191] bg-[#F57D14] px-6 py-4 font-mono text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#F36318] disabled:opacity-80 flex items-center justify-center min-w-[100px]"
-                        >
-                            {status === "loading" ? (
-                                <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
-                            ) : status === "success" ? (
-                                "LOCKED IN"
-                            ) : (
-                                "CLAIM"
-                            )}
-                        </button>
-                    </form>
+                    {hasClaimed ? (
+                        <div className="mt-auto px-6 py-4 border-2 border-[#374191] bg-[#489958] rounded-xl text-white font-mono text-sm font-bold uppercase tracking-widest text-center shadow-[4px_4px_0px_#374191]">
+                            SAMPLE RESERVED
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="mt-auto flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-2">
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                disabled={status === "loading" || status === "success"}
+                                placeholder="ENTER YOUR EMAIL"
+                                className="w-full px-4 py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 placeholder:font-normal text-[#374191] disabled:opacity-50"
+                            />
+                            <button 
+                                type="submit"
+                                disabled={status === "loading" || status === "success"}
+                                className="border-l-2 border-[#374191] bg-[#F57D14] px-6 py-4 font-mono text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#F36318] disabled:opacity-80 flex items-center justify-center min-w-[100px]"
+                            >
+                                {status === "loading" ? (
+                                    <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+                                ) : status === "success" ? (
+                                    "LOCKED IN"
+                                ) : (
+                                    "CLAIM"
+                                )}
+                            </button>
+                        </form>
+                    )}
 
                     <div className="mt-1 min-h-[1.5rem] flex items-center">
-                        {status === "error" ? (
+                        {hasClaimed ? (
+                            <p className="text-left font-mono text-[10px] md:text-xs uppercase tracking-wider text-[#374191]/60 font-bold leading-relaxed">
+                                Share the love. You can secure a free bottle by referring amazing families with the precise tracking link forwarded to your email.
+                            </p>
+                        ) : status === "error" ? (
                             <p className="text-left font-mono text-xs uppercase tracking-wider text-red-500 font-bold animate-pulse">
                                 {errorMessage}
                             </p>

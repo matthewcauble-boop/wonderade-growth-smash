@@ -114,6 +114,9 @@ export function AddressForm() {
             
             setStatus("success");
             
+            // Seamless Anti-Abuse Tracking Drop: Exactly 1 Year Expiration Native State Lock
+            document.cookie = "wonderade_sample_claimed=true; max-age=31536000; path=/";
+            
             // Completion redirects to the Step 3 Viral loop
             setTimeout(() => {
                 router.push(`/share?email=${encodeURIComponent(email)}&name=${encodeURIComponent(firstName)}`);

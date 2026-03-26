@@ -40,13 +40,9 @@ export function ShareCard() {
                     <Check className="w-10 h-10 text-white" strokeWidth={4} />
                 </div>
                 
-                <h1 className="font-serif text-5xl md:text-6xl text-[#374191] mb-4">
+                <h1 className="font-serif text-5xl md:text-6xl text-[#374191] mb-10">
                     Sample Secured!
                 </h1>
-                
-                <p className="font-mono text-sm md:text-base uppercase text-[#374191]/70 font-bold max-w-[80%] leading-relaxed mb-10">
-                    {name ? `Thanks, ${name}! ` : ""}Our team is physically packing your sample box right now. It usually ships within 24-48 hours.
-                </p>
 
                 <div className="w-full bg-[#F8F2D0] border-2 border-[#374191] rounded-2xl p-6 md:p-8 shadow-[4px_4px_0px_#374191] flex flex-col items-center">
                     <span className="flex items-center gap-2 font-mono text-[#F57D14] font-bold text-lg mb-2">

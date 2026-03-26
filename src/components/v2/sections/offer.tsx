@@ -5,7 +5,40 @@ import { Button } from "@/components/ui/button"
 import { Hand } from "lucide-react"
 
 export function Offer() {
-    const [isSubscription, setIsSubscription] = useState(true)
+    const [email, setEmail] = useState("")
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+    const [errorMessage, setErrorMessage] = useState("")
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!email || !email.includes('@')) {
+            setErrorMessage("Please enter a valid email.");
+            setStatus("error");
+            return;
+        }
+
+        setStatus("loading");
+        setErrorMessage("");
+
+        try {
+            const response = await fetch("/api/omnisend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email })
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to subscribe");
+            }
+
+            setStatus("success");
+            setEmail("");
+        } catch (err) {
+            setStatus("error");
+            setErrorMessage("Network issue. Please try again.");
+        }
+    }
 
     return (
         <section id="checkout" className="w-full border-b-2 border-[#374191] bg-white py-20 px-4 md:px-8">
@@ -26,21 +59,44 @@ export function Offer() {
                     <h2 className="mb-2 font-serif text-4xl text-[#374191]">Claim Your Free Sample</h2>
                     <p className="mb-8 font-mono text-sm uppercase text-[#374191]/60 tracking-widest font-bold">Try Wonderade before you buy.</p>
 
-                    <div className="mt-auto flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-4">
+                    <form onSubmit={handleSubmit} className="mt-auto flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-2">
                         <input
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={status === "loading" || status === "success"}
                             placeholder="ENTER YOUR EMAIL"
-                            className="w-full px-4 py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 placeholder:font-normal text-[#374191]"
+                            className="w-full px-4 py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 placeholder:font-normal text-[#374191] disabled:opacity-50"
                         />
-                        <button className="border-l-2 border-[#374191] bg-[#F57D14] px-6 py-4 font-mono text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#F36318] hover:text-white">
-                            CLAIM
+                        <button 
+                            type="submit"
+                            disabled={status === "loading" || status === "success"}
+                            className="border-l-2 border-[#374191] bg-[#F57D14] px-6 py-4 font-mono text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#F36318] disabled:opacity-80 flex items-center justify-center min-w-[100px]"
+                        >
+                            {status === "loading" ? (
+                                <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+                            ) : status === "success" ? (
+                                "LOCKED IN"
+                            ) : (
+                                "CLAIM"
+                            )}
                         </button>
-                    </div>
+                    </form>
 
-                    <div className="mt-2 min-h-[2rem]">
-                        <p className="text-left font-mono text-xs uppercase tracking-wider text-[#374191]/60 font-bold">
-                            No commitment. Just first access.
-                        </p>
+                    <div className="mt-1 min-h-[1.5rem] flex items-center">
+                        {status === "error" ? (
+                            <p className="text-left font-mono text-xs uppercase tracking-wider text-red-500 font-bold animate-pulse">
+                                {errorMessage}
+                            </p>
+                        ) : status === "success" ? (
+                            <p className="text-left font-mono text-xs uppercase tracking-wider text-[#374191] font-bold">
+                                Success! You've claimed first access.
+                            </p>
+                        ) : (
+                            <p className="text-left font-mono text-xs uppercase tracking-wider text-[#374191]/60 font-bold">
+                                No commitment. Just first access.
+                            </p>
+                        )}
                     </div>
                 </div>
 

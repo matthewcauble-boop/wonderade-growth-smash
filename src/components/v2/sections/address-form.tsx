@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
-import usePlacesAutocomplete, { getGeocode, getZipCode } from "use-places-autocomplete"
 import { useLoadScript } from "@react-google-maps/api"
 import { MapPin } from "lucide-react"
 
@@ -18,67 +17,70 @@ export function AddressForm() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
     const [errorMessage, setErrorMessage] = useState("")
 
+    const [inputValue, setInputValue] = useState("")
+    const [suggestions, setSuggestions] = useState<any[]>([])
+
     // Prevent hydration mismatch
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => setIsMounted(true), []);
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-        libraries: libraries as any
+        libraries: libraries as any,
+        version: "weekly"
     });
 
-    const {
-        ready,
-        value,
-        suggestions: { status: placesStatus, data },
-        setValue,
-        clearSuggestions,
-        init
-    } = usePlacesAutocomplete({
-        requestOptions: {
-            componentRestrictions: { country: "us" }
-        },
-        debounce: 300,
-        initOnMount: false
-    });
-
-    useEffect(() => {
-        if (isLoaded) {
-            init();
+    const fetchNewSuggestions = async (input: string) => {
+        setInputValue(input);
+        if (!input || !window.google) {
+            setSuggestions([]);
+            return;
         }
-    }, [isLoaded, init]);
+        try {
+            const { AutocompleteSuggestion } = await window.google.maps.importLibrary("places") as any;
+            const response = await AutocompleteSuggestion.fetchAutocompleteSuggestions({
+                input,
+                includedRegionCodes: ["us"]
+            });
+            setSuggestions(response.suggestions || []);
+        } catch (err) {
+            console.error("V3 Maps Native Error:", err);
+        }
+    };
 
-    const handleSelect = async (address: string) => {
-        setValue(address, false);
-        clearSuggestions();
+    const handleSelect = async (placeId: string, description: string) => {
+        setInputValue(description);
+        setSuggestions([]);
         
         try {
-            const results = await getGeocode({ address });
-            const zip = await getZipCode(results[0], false);
-            const addressComponents = results[0].address_components;
+            const { Place } = await window.google.maps.importLibrary("places") as any;
+            const place = new Place({ id: placeId });
+            await place.fetchFields({ fields: ["addressComponents"] });
             
             let city = "";
             let state = "";
             let streetNumber = "";
             let route = "";
+            let zip = "";
 
-            addressComponents.forEach(component => {
+            place.addressComponents?.forEach((component: any) => {
                 const types = component.types;
-                if (types.includes("locality")) city = component.long_name;
-                if (types.includes("administrative_area_level_1")) state = component.short_name;
-                if (types.includes("street_number")) streetNumber = component.long_name;
-                if (types.includes("route")) route = component.long_name;
+                if (types.includes("locality")) city = component.longText;
+                if (types.includes("administrative_area_level_1")) state = component.shortText;
+                if (types.includes("street_number")) streetNumber = component.longText;
+                if (types.includes("route")) route = component.longText;
+                if (types.includes("postal_code")) zip = component.longText;
             });
 
             setAddressDetails({
-                street: `${streetNumber} ${route}`.trim() || address.split(',')[0],
+                street: `${streetNumber} ${route}`.trim() || description.split(',')[0],
                 city,
                 state,
-                zip: zip || ""
+                zip
             });
 
         } catch (error) {
-            console.error("Geocoding Parsing Error: ", error);
+            console.error("V3 Geocoding Parsing Error: ", error);
         }
     };
 
@@ -167,24 +169,24 @@ export function AddressForm() {
                     <div className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden focus-within:-translate-y-0.5 transition-transform items-center px-4">
                         <MapPin className="text-[#374191]/50 w-5 h-5 mr-2" />
                         <input
-                            value={value}
-                            onChange={(e) => setValue(e.target.value)}
-                            disabled={!ready}
+                            value={inputValue}
+                            onChange={(e) => fetchNewSuggestions(e.target.value)}
+                            disabled={!isLoaded}
                             placeholder="START TYPING ADDRESS..."
                             className="w-full py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 text-[#374191] bg-transparent"
                         />
                     </div>
                     
                     {/* Autocomplete Suggestions Dropdown */}
-                    {placesStatus === "OK" && (
+                    {suggestions.length > 0 && (
                         <ul className="absolute top-full left-0 w-full mt-2 bg-white border-2 border-[#374191] rounded-xl shadow-[4px_4px_0px_#374191] overflow-hidden">
-                            {data.map(({ place_id, description }) => (
+                            {suggestions.map((suggest) => (
                                 <li
-                                    key={place_id}
-                                    onClick={() => handleSelect(description)}
+                                    key={suggest.placePrediction.placeId}
+                                    onClick={() => handleSelect(suggest.placePrediction.placeId, suggest.placePrediction.text.text)}
                                     className="cursor-pointer px-4 py-3 font-mono text-xs uppercase font-bold text-[#374191] hover:bg-[#F8F2D0] border-b border-[#374191]/10 last:border-none transition-colors"
                                 >
-                                    {description}
+                                    {suggest.placePrediction.text.text}
                                 </li>
                             ))}
                         </ul>

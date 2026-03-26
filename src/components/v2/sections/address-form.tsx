@@ -114,9 +114,9 @@ export function AddressForm() {
             
             setStatus("success");
             
-            // Completion redirects to a theoretical 'success' view or back to indexing.
+            // Completion redirects to the Step 3 Viral loop
             setTimeout(() => {
-                router.push("/?claim=success");
+                router.push(`/share?email=${encodeURIComponent(email)}&name=${encodeURIComponent(firstName)}`);
             }, 1000);
 
         } catch (err) {

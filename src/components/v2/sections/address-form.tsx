@@ -33,13 +33,20 @@ export function AddressForm() {
         suggestions: { status: placesStatus, data },
         setValue,
         clearSuggestions,
+        init
     } = usePlacesAutocomplete({
         requestOptions: {
             componentRestrictions: { country: "us" }
         },
         debounce: 300,
-        initOnMount: isLoaded
+        initOnMount: false
     });
+
+    useEffect(() => {
+        if (isLoaded) {
+            init();
+        }
+    }, [isLoaded, init]);
 
     const handleSelect = async (address: string) => {
         setValue(address, false);

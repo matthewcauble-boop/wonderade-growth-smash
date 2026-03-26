@@ -8,7 +8,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Wonderade | Growth-Smash",
+  title: "Wonderade | Big and Strong Juice",
   description: "The Power of Milk. The Taste of Candy.",
 };
 

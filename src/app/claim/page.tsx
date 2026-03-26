@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Suspense } from "react"
 import { Header } from "@/components/v2/layout/header"
 import { Footer } from "@/components/v2/layout/footer"
 import { AddressForm } from "@/components/v2/sections/address-form"
@@ -13,7 +14,9 @@ export default function ClaimPage() {
             {/* Massive Brand Yellow Container strictly holding the Step-2 Onboarding Form */}
             <section className="w-full flex-grow flex items-center justify-center p-4 py-20 bg-[#FBD02E]">
                 <div className="max-w-xl w-full">
-                    <AddressForm />
+                    <Suspense fallback={<div className="text-center font-mono text-[#374191] animate-pulse">Loading Custom Form...</div>}>
+                        <AddressForm />
+                    </Suspense>
                 </div>
             </section>
             

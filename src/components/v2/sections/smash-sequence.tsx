@@ -258,14 +258,14 @@ export function SmashSequence() {
                     {/* Emotional Headline for The Duel */}
                     <motion.div
                         style={{ y: tableY, opacity: duelHeadlineOpacity }}
-                        className="w-full text-center px-4 md:px-0 max-w-[90vw] md:max-w-5xl mx-auto mb-4 md:mb-[3vh] pointer-events-auto"
+                        className="w-full text-center px-4 md:px-0 max-w-[90vw] md:max-w-5xl mx-auto mb-2 md:mb-0 pointer-events-auto z-[60]"
                     >
-                        <h2 className="font-serif text-[8vw] sm:text-4xl md:text-[4.5vh] lg:text-[5.5vh] leading-[1] text-[#374191] font-black tracking-tight">
+                        <h2 className="font-serif text-[8vw] sm:text-4xl md:text-[4.5vh] lg:text-[5.5vh] leading-[1] text-[#374191] font-black tracking-tight drop-shadow-sm relative">
                             Real Ingredients. <br className="md:hidden" /><span className="text-[#F57D14]">Real Impact.</span>
                         </h2>
                     </motion.div>
 
-                    <div className="relative w-full max-w-5xl flex flex-col pt-0 md:pt-4">
+                    <div className="relative w-full max-w-5xl flex flex-col pt-0 md:-mt-[2vh]">
 
                         {/* Perfect Alignment Grid Layer for Assets */}
                         <div className="grid grid-cols-3 w-full h-[120px] md:h-[30vh] lg:h-[35vh] xl:h-[40vh] mt-[5vh] md:mt-0 relative pointer-events-none">

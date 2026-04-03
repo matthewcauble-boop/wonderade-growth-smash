@@ -582,6 +582,9 @@
   .waterfall-item.wf-total { background: var(--navy); }
   .waterfall-item.wf-total .wf-label { color: var(--warm-white); font-weight: 700; }
   .waterfall-item.wf-total .wf-value { color: var(--gold); font-size: 1.1rem; }
+  .waterfall-item.wf-sellin { background: rgba(255,210,70,0.12); border-left: 3px solid var(--gold); }
+  .waterfall-item.wf-sellin .wf-label { color: var(--navy); font-weight: 700; }
+  .waterfall-item.wf-sellin .wf-value { color: var(--navy); font-weight: 700; }
   .wf-pct { font-size: 0.7rem; color: #aaa; margin-left: 4px; }
 
   .channel-tier-card {
@@ -1204,13 +1207,50 @@
       <span class="cover-pill">Electrolytes</span>
       <span class="cover-pill">Vit C &amp; D</span>
     </div>
-    <div class="confidential-tag">CONFIDENTIAL — MARCH 2026 — SEED DECK</div>
-    <p class="source-line">Sources: C.S. Mott Children's Hospital National Poll 2024; CDC Nutrition Data 2024</p>
+    <div class="confidential-tag">CONFIDENTIAL — APRIL 2026 — SEED DECK</div>
   </div>
 
   <div class="scroll-hint">
     <span>SCROLL</span>
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SLIDE 2: THE PROBLEM
+══════════════════════════════════════════════ -->
+<section id="problem" style="background:var(--navy);">
+  <div class="fade-in">
+    <div class="section-label">01 — The Problem</div>
+    <h2 class="display-headline" style="color:var(--red);">The Problem</h2>
+    <p class="body-copy" style="color:rgba(248,242,215,0.85);margin-top:12px;">Convenient juice is just sugar water. No matter the brand.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-title">The Sugar Water Category</div>
+        <p class="problem-desc" style="font-weight:700;color:var(--navy);margin-bottom:6px;">Capri Sun. Honest Kids. Mott's. Juicy Juice.</p>
+        <p class="problem-desc">11–15g sugar, 0g protein, 0g fiber. No matter which brand a parent reaches for, they're handing their kid sugar water dressed up in a fun package.</p>
+      </div>
+      <div class="problem-card" style="border-left-color:var(--gold-dark);">
+        <div class="problem-stat gold">0.4 cm / year</div>
+        <p class="problem-desc">That's how much additional height a child gains annually from adequate protein intake. In 1900, Americans were taller than Danes. By 1960, Danes were taller — researchers attribute the reversal largely to Denmark's dramatic increase in milk and protein consumption. Protein drives bone density, muscle development, and cognitive function throughout childhood.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-number" style="font-size:1.6rem;">11–15g sugar</div>
+        <div class="stat-label">per serving, leading juice brands</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" style="font-size:1.6rem;">0g protein</div>
+        <div class="stat-label">in any major kids juice brand</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" style="font-size:1.6rem;">9 in 10 kids</div>
+        <div class="stat-label">don't hit daily potassium needs</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1250,6 +1290,11 @@
         <div class="nutrition-number">🧪</div>
         <div class="nutrition-label">Tested Clear</div>
         <div class="nutrition-desc">Heavy metals, pesticides, microbial</div>
+      </div>
+      <div class="nutrition-card">
+        <div class="nutrition-number"><span style="font-size:2rem;font-family:var(--font-display);color:var(--navy);">0g</span></div>
+        <div class="nutrition-label">Added Sugar</div>
+        <div class="nutrition-desc">Naturally sweetened with stevia, real juice, and sweet prayer leaf.</div>
       </div>
     </div>
 
@@ -1450,7 +1495,7 @@
 
     <div class="card mt-16 gold-border">
       <div class="card-title">COGS Trajectory</div>
-      <div class="card-body">$0.76/bottle at launch (270K units) → $0.60/bottle at scale (2M+ units/yr). Shipped via USPS Cubic Ground Advantage for optimized last-mile cost.</div>
+      <div class="card-body">$0.76/bottle at launch (550K units) → $0.60/bottle at scale (10M units/yr). Shipped via USPS Cubic Ground Advantage for optimized last-mile cost.</div>
     </div>
   </div>
 </section>
@@ -1475,24 +1520,28 @@
           <div class="sku-msrp-label">MSRP per unit</div>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Retailer Margin</span>
-          <span class="wf-value negative">−$1.20 <span class="wf-pct">40%</span></span>
-        </div>
-        <div class="waterfall-item wf-subtotal">
-          <span class="wf-label">Gross to Brand</span>
-          <span class="wf-value" style="color: var(--green);">$1.79 <span class="wf-pct">~60%</span></span>
+          <span class="wf-label">Retailer Margin <span class="wf-pct">−40%</span></span>
+          <span class="wf-value negative">→ retailer pays $1.79</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Broker (3.5% of gross)</span>
-          <span class="wf-value negative">−$0.06</span>
+          <span class="wf-label">Distributor Spread</span>
+          <span class="wf-value negative">−$0.29</span>
+        </div>
+        <div class="waterfall-item wf-sellin">
+          <span class="wf-label">Brand Sell-In ★</span>
+          <span class="wf-value">$1.50</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Trade Spend (10%)</span>
-          <span class="wf-value negative">−$0.18</span>
+          <span class="wf-label">Broker <span class="wf-pct">3.5% of sell-in</span></span>
+          <span class="wf-value negative">−$0.05</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Freight / Logistics (6%)</span>
-          <span class="wf-value negative">−$0.11</span>
+          <span class="wf-label">Trade Spend <span class="wf-pct">10% of sell-in</span></span>
+          <span class="wf-value negative">−$0.15</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">Freight / Logistics <span class="wf-pct">6% of sell-in</span></span>
+          <span class="wf-value negative">−$0.09</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">COGS <span class="wf-pct">launch est.</span></span>
@@ -1500,7 +1549,7 @@
         </div>
         <div class="waterfall-item wf-total">
           <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.68 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">38% of wholesale</span></span>
+          <span class="wf-value">$0.45 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">30% of sell-in</span></span>
         </div>
       </div>
 
@@ -1512,32 +1561,36 @@
           <div class="sku-msrp-label">MSRP · $2.50/unit implied</div>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Retailer Margin</span>
-          <span class="wf-value negative">−$4.00 <span class="wf-pct">40%</span></span>
-        </div>
-        <div class="waterfall-item wf-subtotal">
-          <span class="wf-label">Gross to Brand</span>
-          <span class="wf-value" style="color: var(--green);">$5.99 <span class="wf-pct">~60%</span></span>
+          <span class="wf-label">Retailer Margin <span class="wf-pct">−40%</span></span>
+          <span class="wf-value negative">→ retailer pays $5.99</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Broker (3.5% of gross)</span>
-          <span class="wf-value negative">−$0.21</span>
+          <span class="wf-label">Distributor Spread</span>
+          <span class="wf-value negative">−$0.49</span>
+        </div>
+        <div class="waterfall-item wf-sellin">
+          <span class="wf-label">Brand Sell-In ★</span>
+          <span class="wf-value">$5.50</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Trade Spend (10%)</span>
-          <span class="wf-value negative">−$0.60</span>
+          <span class="wf-label">Broker <span class="wf-pct">3.5% of sell-in</span></span>
+          <span class="wf-value negative">−$0.19</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">Freight / Logistics (6%)</span>
-          <span class="wf-value negative">−$0.36</span>
+          <span class="wf-label">Trade Spend <span class="wf-pct">10% of sell-in</span></span>
+          <span class="wf-value negative">−$0.55</span>
         </div>
         <div class="waterfall-item">
-          <span class="wf-label">COGS (4 × $0.76)</span>
+          <span class="wf-label">Freight / Logistics <span class="wf-pct">6% of sell-in</span></span>
+          <span class="wf-value negative">−$0.33</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">COGS <span class="wf-pct">4 × $0.76</span></span>
           <span class="wf-value negative">−$3.04</span>
         </div>
         <div class="waterfall-item wf-total">
           <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$1.78 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">30% of wholesale</span></span>
+          <span class="wf-value">$1.39 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">25% of sell-in</span></span>
         </div>
       </div>
 
@@ -1545,24 +1598,26 @@
 
     <!-- Comparison note -->
     <p style="margin-top: 14px; font-size: 0.82rem; color: #666; font-style: italic; line-height: 1.6; max-width: 720px;">
-      <strong style="color: var(--navy);">Single</strong> carries the stronger CM% (38%) on a higher per-unit MSRP.
-      <strong style="color: var(--navy);">4-Pack</strong> earns 2.6× the absolute dollar contribution per transaction ($1.78 vs. $0.68) — higher basket value for retailers and lower CAC per household acquired.
-      COGS est. $0.76/unit at launch (270K units); targets $0.60 at scale (2M+ units/yr).
+      <strong style="color: var(--navy);">Single</strong> earns 30% CM of brand sell-in — stronger margin rate.
+      <strong style="color: var(--navy);">4-Pack</strong> earns 3.1× the absolute dollar CM per transaction ($1.39 vs. $0.45) — higher basket value for retailers and lower CAC per household acquired.
+      COGS est. $0.76/unit at launch (550K units); targets $0.60 at scale (10M units/yr).
+      <br><em>★ Brand sell-in = what the brand actually receives. All % deductions calculated from this figure.</em>
+      <br><em>Direct-to-retailer bypasses distributor spread, improving CM to ~38%+ of sell-in.</em>
     </p>
 
     <!-- Bottom stat bar -->
     <div class="stat-row mt-16">
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--red);">$2.99</div>
-        <div class="margin-label">Single MSRP</div>
+        <div class="margin-pct" style="color: var(--red);">$1.50</div>
+        <div class="margin-label">Brand sell-in · Single</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--gold-dark);">$9.99</div>
-        <div class="margin-label">4-Pack MSRP</div>
+        <div class="margin-pct" style="color: var(--gold-dark);">$5.50</div>
+        <div class="margin-label">Brand sell-in · 4-Pack</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--green);">30–38%</div>
-        <div class="margin-label">Blended CM target (% of wholesale)</div>
+        <div class="margin-pct" style="color: var(--green);">25–30%</div>
+        <div class="margin-label">CM of brand sell-in</div>
       </div>
     </div>
   </div>
@@ -1905,14 +1960,14 @@
     <div class="section-label">13 — The Ask</div>
     <h2 class="display-headline">Seed round to launch,<br>validate, and scale.</h2>
     <div class="ask-amount">$1M</div>
-    <div class="ask-terms">Seed Round · $8M Cap SAFE · March 2026</div>
+    <div class="ask-terms">Seed Round · $12M Cap SAFE · April 2026</div>
 
     <div class="use-of-funds">
       <div class="fund-item">
         <div class="fund-pct">60%</div>
         <div>
-          <div class="fund-desc"><strong>Inventory</strong> — 270,000 units</div>
-          <div class="fund-amount">$600K · $0.76/unit COGS · Establishes co-packer relationship</div>
+          <div class="fund-desc"><strong>Inventory</strong> — 550,000 units</div>
+          <div class="fund-amount">$418K · $0.76/unit COGS · Establishes co-packer relationship</div>
         </div>
       </div>
       <div class="fund-item">
@@ -1935,7 +1990,7 @@
       <h4>MILESTONES THIS ROUND UNLOCKS</h4>
       <div class="unlock-item">
         <div class="unlock-num">1</div>
-        <div class="unlock-text"><strong>Production Launch</strong> — 270K unit inventory run. Establishes supply chain &amp; co-packer relationship.</div>
+        <div class="unlock-text"><strong>Production Launch</strong> — 550K unit inventory run. Establishes supply chain &amp; co-packer relationship.</div>
       </div>
       <div class="unlock-item">
         <div class="unlock-num">2</div>
@@ -1962,12 +2017,12 @@
     <div class="close-quote">"Every kid deserves nutrition that doesn't taste like compromise."</div>
     <div class="close-attribution">— Matthew Cauble, Founder &amp; CEO</div>
     <div class="close-divider"></div>
-    <div class="close-raise">$1M Seed · $8M Cap SAFE · Raising Now</div>
+    <div class="close-raise">$1M Seed · $12M Cap SAFE · Raising Now</div>
     <div class="close-contact">
-      <a href="mailto:matthew@wonderade.com">matthew@wonderade.com</a>
+      <a href="mailto:matt@wonderade.us" style="color:inherit;">matt@wonderade.us</a>
       <a href="https://wonderade.us" target="_blank" rel="noopener">wonderade.us</a>
     </div>
-    <div class="close-legal">This presentation contains confidential and proprietary information. Not for distribution. March 2026.</div>
+    <div class="close-legal">This presentation contains confidential and proprietary information. Not for distribution. April 2026.</div>
   </div>
 </section>
 

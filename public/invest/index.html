@@ -522,6 +522,45 @@
   .tier-desc { font-size: 0.82rem; line-height: 1.5; opacity: 0.88; }
   .source-line { margin-top: 20px; }
 
+  /* ─── Competitor grid ─── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .comp-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .comp-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--warm-white);
+    border-radius: 16px;
+    border: 1.5px solid rgba(54,71,142,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 12px;
+  }
+  .comp-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .comp-label {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--navy);
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   /* ─── Business Model ─── */
   #bizmodel { background: var(--warm-white); }
 
@@ -1179,6 +1218,7 @@
   <div class="nav-dot" data-target="video" title="Video"></div>
   <div class="nav-dot" data-target="whynow" title="Why Now"></div>
   <div class="nav-dot" data-target="playbook" title="Playbook"></div>
+  <div class="nav-dot" data-target="market" title="Market"></div>
   <div class="nav-dot" data-target="bizmodel" title="Business Model"></div>
   <div class="nav-dot" data-target="retail-finance" title="Retail Unit Economics"></div>
   <div class="nav-dot" data-target="retail-channels" title="Retail Playbook"></div>
@@ -1403,7 +1443,67 @@
 </section>
 
 <!-- ══════════════════════════════════════════════
-     SLIDE 7: BUSINESS MODEL
+     SLIDE 7: MARKET OPPORTUNITY
+══════════════════════════════════════════════ -->
+<section id="market">
+  <div class="fade-in">
+    <div class="section-label">06 — Market Opportunity</div>
+    <h2 class="display-headline">Massive market.<br>No functional winner.</h2>
+    <p class="body-copy mt-12">The U.S. kids beverage market is $18.8B and growing — dominated by brands with zero functional benefit.</p>
+
+    <div class="market-funnel">
+      <div class="market-tier tam">
+        <div class="tier-label">TAM</div>
+        <div class="tier-amount">$18.8B</div>
+        <div class="tier-desc">U.S. Kids Beverage Market (2024)<br>Growing at 5.4% CAGR → $30.2B by 2033</div>
+      </div>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Capri_Sun_pouch_standing.jpg" alt="Capri Sun" loading="lazy">
+        </div>
+        <div class="comp-label">Capri Sun</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://target.scene7.com/is/image/Target/GUEST_73707fb0-c9c4-4b1a-bb16-ee3568c25dad?wid=600&hei=600&fmt=pjpeg" alt="Honest Kids" loading="lazy">
+        </div>
+        <div class="comp-label">Honest Kids</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://target.scene7.com/is/image/Target/GUEST_cbaf9002-25a8-48b8-8733-641003f8dd05?wid=600&hei=600&fmt=pjpeg" alt="Nesquik" loading="lazy">
+        </div>
+        <div class="comp-label">Nesquik</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://target.scene7.com/is/image/Target/GUEST_5976629a-34a8-437d-871b-f9eb17f49e1d?wid=600&hei=600&fmt=pjpeg" alt="Juicy Juice" loading="lazy">
+        </div>
+        <div class="comp-label">Juicy Juice</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://target.scene7.com/is/image/Target/GUEST_036aec7b-7d96-4716-ab08-58019194d649?wid=600&hei=600&fmt=pjpeg" alt="Mott's for Tots" loading="lazy">
+        </div>
+        <div class="comp-label">Mott's</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-img-wrap">
+          <img src="https://target.scene7.com/is/image/Target/GUEST_de9c3d1f-a0a4-4262-b862-b4b5471148c8?wid=600&hei=600&fmt=pjpeg" alt="Hawaiian Punch" loading="lazy">
+        </div>
+        <div class="comp-label">Hawaiian Punch</div>
+      </div>
+    </div>
+
+    <p class="source-line">Sources: Astute Analytica U.S. Kids Beverage Market Report 2024; FactMR Kids Nutrition 2024</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SLIDE 8: BUSINESS MODEL
 ══════════════════════════════════════════════ -->
 <section id="bizmodel">
   <div class="fade-in">

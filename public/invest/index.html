@@ -1187,7 +1187,26 @@
     50% { transform: translateY(-12px); }
   }
   @media (max-width: 600px) {
-    .cover-char { height: 140px !important; }
+    /* F-001: Characters + wordmark = 583px wide → overflows 375px viewport. Hide chars. */
+    .cover-char { display: none !important; }
+
+    /* F-002: Founder photo (position:absolute bottom:40 right:40) overlaps content on mobile */
+    .founder-photo-float { display: none; }
+
+    /* F-003: stat-row 3-col → 2-col (95px cells too cramped for stat labels) */
+    .stat-row { grid-template-columns: 1fr 1fr; }
+
+    /* F-004: comp-grid 3-col → 2-col on mobile (6 items → 3 rows of 2) */
+    .comp-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* F-005: gm-row 3-col → 2-col on mobile */
+    .gm-row { grid-template-columns: 1fr 1fr; }
+
+    /* F-006: Header CTA touch target min 44px */
+    .header-cta { padding: 10px 18px; min-height: 44px; display: inline-flex; align-items: center; }
+
+    /* F-007: Nav dots — expand hit area via padding trick */
+    .nav-dot { padding: 8px; margin: -8px; box-sizing: content-box; }
   }
   /* ─── Utility ─── */
   .mt-4 { margin-top: 4px; }
@@ -1292,7 +1311,7 @@
       <p>Matt has created two functional nutrition categories from scratch. Wonderade is the third — with a larger TAM than either previous category at launch, an ingredient tech breakthrough that just unlocked the taste barrier, and the same millennial buyer, now raising children.</p>
     </div>
   </div>
-  <div style="position:absolute;bottom:40px;right:40px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:10;">
+  <div class="founder-photo-float" style="position:absolute;bottom:40px;right:40px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:10;">
     <div style="width:110px;height:138px;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,0.15);box-shadow:0 4px 20px rgba(0,0,0,0.5);">
       <img src="/invest/matt-cauble-crop.jpg" alt="Matt Cauble, Founder" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
     </div>

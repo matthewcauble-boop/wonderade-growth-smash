@@ -39,7 +39,7 @@ export function Flavors() {
                 {/* 3D Rotational Visual Swap Area */}
                 <div className="relative mx-auto h-auto w-full max-w-4xl flex flex-col items-center justify-center pt-2 md:pt-[2vh]">
 
-                    {/* 3D Bottle Swap */}
+                    {/* 3D Bottle Swap — hidden on mobile */}
                     <div className="hidden md:block relative z-10 w-[260px] h-[360px] md:w-[35vh] md:h-[45vh] lg:w-[38vh] lg:h-[50vh] xl:w-[40vh] xl:h-[53vh] mt-2 md:mt-[2vh] perspective-1000">
                         {/* Princess Punch Bottle */}
                         <motion.div

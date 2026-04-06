@@ -1,11 +1,41 @@
 "use client"
 
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { motion } from "framer-motion"
 
 export function Hero() {
+    const router = useRouter()
+    const [email, setEmail] = useState("")
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+    const [errorMessage, setErrorMessage] = useState("")
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!email || !email.includes('@')) {
+            setErrorMessage("Please enter a valid email.")
+            setStatus("error")
+            return
+        }
+        setStatus("loading")
+        setErrorMessage("")
+        try {
+            const response = await fetch("/api/omnisend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email })
+            })
+            if (!response.ok) throw new Error("Failed to subscribe")
+            setStatus("success")
+            setTimeout(() => {
+                router.push(`/claim?email=${encodeURIComponent(email)}`)
+            }, 800)
+        } catch {
+            setStatus("error")
+            setErrorMessage("Network issue. Please try again.")
+        }
+    }
     return (
         <section
             className="relative min-h-[calc(100vh-5rem)] bg-white overflow-hidden"
@@ -77,10 +107,7 @@ export function Hero() {
                                 <Image src="/assets/brand/Stickers/shimmer.svg" alt="Sparkle" fill className="object-contain" />
                             </div>
 
-                            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F57D14] mb-2 leading-tight">Be one of the first families.</h3>
-                            <p className="font-sans text-xs sm:text-sm text-[#374191] font-semibold mb-6 leading-relaxed">We&apos;re releasing our first batch to a small group of founding families before anyone else. Reserve your spot and we&apos;ll ship you the first case off the line.</p>
-
-                            <div className="flex items-center justify-center bg-[#FBD02E] border-2 border-[#374191] px-3 py-1.5 shadow-[2px_2px_0px_#374191] mb-5 w-fit rounded-lg">
+                            <div className="flex items-center justify-center bg-[#FBD02E] border-2 border-[#374191] px-3 py-1.5 shadow-[2px_2px_0px_#374191] mb-4 w-fit rounded-lg">
                                 <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#374191] flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F57D14] opacity-75"></span>
@@ -90,20 +117,42 @@ export function Hero() {
                                 </span>
                             </div>
 
-                            <Button
-                                asChild
-                                className="h-auto w-full rounded-full bg-[#F57D14] px-4 py-4 sm:py-5 border-2 border-[#374191] shadow-[4px_4px_0px_#374191] hover:bg-[#F36318] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_#374191] transition-all mb-3"
-                            >
-                                <Link href="#checkout" className="flex justify-center focus:outline-none focus:ring-2 focus:ring-[#374191]">
-                                    <span className="text-sm sm:text-base md:text-lg font-black tracking-widest uppercase text-white text-center">
-                                        Claim My First Batch
-                                    </span>
-                                </Link>
-                            </Button>
+                            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#F57D14] mb-1 leading-tight">Claim Your Free Sample</h3>
+                            <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#374191]/60 mb-5">Try Wonderade before you buy.</p>
 
-                            <p className="text-center font-sans text-[10px] sm:text-xs font-bold text-[#374191]/60 uppercase tracking-widest">
-                                No commitment. Just first access.
-                            </p>
+                            <form onSubmit={handleSubmit} className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-3">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    disabled={status === "loading" || status === "success"}
+                                    placeholder="ENTER YOUR EMAIL"
+                                    className="w-full px-3 py-3 font-mono text-xs font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 placeholder:font-normal text-[#374191] disabled:opacity-50"
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={status === "loading" || status === "success"}
+                                    className="border-l-2 border-[#374191] bg-[#F57D14] px-4 py-3 font-mono text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#F36318] disabled:opacity-80 flex items-center justify-center min-w-[80px]"
+                                >
+                                    {status === "loading" ? (
+                                        <span className="animate-spin h-3.5 w-3.5 border-2 border-white border-t-transparent rounded-full"></span>
+                                    ) : status === "success" ? (
+                                        "LOCKED IN"
+                                    ) : (
+                                        "CLAIM"
+                                    )}
+                                </button>
+                            </form>
+
+                            <div className="min-h-[1.25rem]">
+                                {status === "error" ? (
+                                    <p className="font-mono text-[10px] uppercase tracking-wider text-red-500 font-bold animate-pulse">{errorMessage}</p>
+                                ) : status === "success" ? (
+                                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#374191] font-bold">Success! You&apos;ve claimed first access.</p>
+                                ) : (
+                                    <p className="font-mono text-[10px] sm:text-xs font-bold text-[#374191]/60 uppercase tracking-widest">No commitment. Just first access.</p>
+                                )}
+                            </div>
                         </div>
                     </div>
 

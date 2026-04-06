@@ -415,7 +415,7 @@ export function SmashSequence() {
                             {/* Row 2: Potassium/Calcium */}
                             <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
                                 <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider flex items-center transition-colors text-[#374191]">Potassium / Calcium</div>
-                                <motion.div style={{ backgroundColor: row2Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center">20%+ DV</motion.div>
+                                <motion.div style={{ backgroundColor: row2Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center">10% DV</motion.div>
                                 <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center bg-white">0%</div>
                             </div>
 
@@ -435,7 +435,7 @@ export function SmashSequence() {
 
                             {/* Row 5: Vit D, Zinc, Iron */}
                             <div className="grid grid-cols-3 font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
-                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider flex items-center transition-colors text-[#374191]">Zinc / Iron / Vit D</div>
+                                <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider flex items-center transition-colors text-[#374191]">Zinc / Vit D / C</div>
                                 <motion.div style={{ backgroundColor: row5Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center">10% DV</motion.div>
                                 <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 text-sm md:text-[1.6vh] lg:text-[2vh] flex items-center justify-center bg-white">0%</div>
                             </div>

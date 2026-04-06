@@ -435,6 +435,44 @@
   #playbook { background: var(--navy); color: var(--warm-white); }
   #playbook .section-label { color: var(--gold); }
   #playbook .display-headline { color: var(--warm-white); }
+  .playbook-headline-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 4px;
+  }
+  .playbook-headline-text { flex: 1; }
+  .playbook-founder-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .playbook-founder-photo img {
+    width: 110px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .playbook-founder-label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  @media (max-width: 599px) {
+    .playbook-headline-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .playbook-founder-photo { align-self: center; }
+  }
   .playbook-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1277,11 +1315,19 @@
 <!-- ══════════════════════════════════════════════
      SLIDE 6: WE'VE SEEN THIS MOVIE BEFORE
 ══════════════════════════════════════════════ -->
-<section id="playbook" style="position:relative;">
+<section id="playbook">
   <div class="fade-in">
     <div class="section-label">01 — Founder Track Record</div>
-    <h2 class="display-headline">We've seen this<br>movie before.</h2>
-    <p class="body-copy mt-12">Two proven playbooks. One founder. Same thesis — bigger market.</p>
+    <div class="playbook-headline-row">
+      <div class="playbook-headline-text">
+        <h2 class="display-headline">We've seen this<br>movie before.</h2>
+        <p class="body-copy mt-12">Two proven playbooks. One founder. Same thesis — bigger market.</p>
+      </div>
+      <div class="playbook-founder-photo">
+        <img src="/invest/matt-cauble-crop.jpg" alt="Matt Cauble, Founder" />
+        <div class="playbook-founder-label">Matt Cauble, Founder</div>
+      </div>
+    </div>
 
     <div class="playbook-grid">
       <div class="playbook-card">
@@ -1298,24 +1344,11 @@
         <div class="playbook-stat">$5M</div>
         <div class="playbook-stat-label">Year-one revenue · category created</div>
       </div>
-      <div class="playbook-card" style="border: 1px solid rgba(239,75,97,0.4);">
-        <div class="playbook-year">2026 →</div>
-        <div class="playbook-brand">WONDERADE</div>
-        <div class="playbook-insight">Those same millennial parents now have kids. They want the same premium, functional, DTC model — for their children. Same buyer. Same playbook. Larger market.</div>
-        <div class="playbook-stat" style="color: var(--red);">$18.8B</div>
-        <div class="playbook-stat-label">Kids beverage market · no functional winner</div>
-      </div>
     </div>
 
     <div class="playbook-footer">
       <p>Matt has created two functional nutrition categories from scratch. Wonderade is the third — with a larger TAM than either previous category at launch, an ingredient tech breakthrough that just unlocked the taste barrier, and the same millennial buyer, now raising children.</p>
     </div>
-  </div>
-  <div class="founder-photo-float" style="position:absolute;bottom:40px;right:40px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:10;">
-    <div style="width:110px;height:138px;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,0.15);box-shadow:0 4px 20px rgba(0,0,0,0.5);">
-      <img src="/invest/matt-cauble-crop.jpg" alt="Matt Cauble, Founder" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
-    </div>
-    <div style="font-family:var(--font-body);font-size:0.65rem;color:rgba(255,255,255,0.45);letter-spacing:0.07em;text-transform:uppercase;text-align:center;">Matt Cauble, Founder</div>
   </div>
 </section>
 

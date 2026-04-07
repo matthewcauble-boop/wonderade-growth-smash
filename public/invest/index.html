@@ -662,6 +662,9 @@
   .waterfall-item.wf-sellin { background: rgba(255,210,70,0.12); border-left: 3px solid var(--gold); }
   .waterfall-item.wf-sellin .wf-label { color: var(--navy); font-weight: 700; }
   .waterfall-item.wf-sellin .wf-value { color: var(--navy); font-weight: 700; }
+  .waterfall-item.wf-realized { background: rgba(54,71,142,0.07); border-left: 3px solid var(--navy); }
+  .waterfall-item.wf-realized .wf-label { color: var(--navy); font-weight: 700; }
+  .waterfall-item.wf-realized .wf-value { color: var(--navy); font-weight: 700; }
   .wf-pct { font-size: 0.7rem; color: #aaa; margin-left: 4px; }
 
   .channel-tier-card {
@@ -1719,27 +1722,35 @@
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Retailer Margin <span class="wf-pct">−40%</span></span>
-          <span class="wf-value negative">→ retailer pays $1.79</span>
+          <span class="wf-value negative">→ Wholesale Price $1.79</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">Promos <span class="wf-pct">18% of wholesale</span></span>
+          <span class="wf-value negative">−$0.32</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">Display <span class="wf-pct">7% of wholesale</span></span>
+          <span class="wf-value negative">−$0.13</span>
+        </div>
+        <div class="waterfall-item wf-realized">
+          <span class="wf-label">Net Realized Price ★</span>
+          <span class="wf-value">$1.34</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Distributor Spread</span>
           <span class="wf-value negative">−$0.29</span>
         </div>
         <div class="waterfall-item wf-sellin">
-          <span class="wf-label">Brand Sell-In ★</span>
-          <span class="wf-value">$1.50</span>
+          <span class="wf-label">Brand Sell-In</span>
+          <span class="wf-value">$1.05</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Broker <span class="wf-pct">3.5% of sell-in</span></span>
-          <span class="wf-value negative">−$0.05</span>
-        </div>
-        <div class="waterfall-item">
-          <span class="wf-label">Trade Spend <span class="wf-pct">10% of sell-in</span></span>
-          <span class="wf-value negative">−$0.15</span>
+          <span class="wf-value negative">−$0.04</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Freight / Logistics <span class="wf-pct">6% of sell-in</span></span>
-          <span class="wf-value negative">−$0.09</span>
+          <span class="wf-value negative">−$0.06</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">COGS <span class="wf-pct">launch est.</span></span>
@@ -1747,7 +1758,7 @@
         </div>
         <div class="waterfall-item wf-total">
           <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.45 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">30% of sell-in</span></span>
+          <span class="wf-value">$0.19 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">14% of net realized</span></span>
         </div>
       </div>
 
@@ -1760,27 +1771,35 @@
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Retailer Margin <span class="wf-pct">−40%</span></span>
-          <span class="wf-value negative">→ retailer pays $5.99</span>
+          <span class="wf-value negative">→ Wholesale Price $5.99</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">Promos <span class="wf-pct">18% of wholesale</span></span>
+          <span class="wf-value negative">−$1.08</span>
+        </div>
+        <div class="waterfall-item">
+          <span class="wf-label">Display <span class="wf-pct">7% of wholesale</span></span>
+          <span class="wf-value negative">−$0.42</span>
+        </div>
+        <div class="waterfall-item wf-realized">
+          <span class="wf-label">Net Realized Price ★</span>
+          <span class="wf-value">$4.49</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Distributor Spread</span>
           <span class="wf-value negative">−$0.49</span>
         </div>
         <div class="waterfall-item wf-sellin">
-          <span class="wf-label">Brand Sell-In ★</span>
-          <span class="wf-value">$5.50</span>
+          <span class="wf-label">Brand Sell-In</span>
+          <span class="wf-value">$4.00</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Broker <span class="wf-pct">3.5% of sell-in</span></span>
-          <span class="wf-value negative">−$0.19</span>
-        </div>
-        <div class="waterfall-item">
-          <span class="wf-label">Trade Spend <span class="wf-pct">10% of sell-in</span></span>
-          <span class="wf-value negative">−$0.55</span>
+          <span class="wf-value negative">−$0.14</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">Freight / Logistics <span class="wf-pct">6% of sell-in</span></span>
-          <span class="wf-value negative">−$0.33</span>
+          <span class="wf-value negative">−$0.24</span>
         </div>
         <div class="waterfall-item">
           <span class="wf-label">COGS <span class="wf-pct">4 × $0.76</span></span>
@@ -1788,7 +1807,7 @@
         </div>
         <div class="waterfall-item wf-total">
           <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$1.39 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">25% of sell-in</span></span>
+          <span class="wf-value">$0.58 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">13% of net realized</span></span>
         </div>
       </div>
 
@@ -1796,26 +1815,26 @@
 
     <!-- Comparison note -->
     <p style="margin-top: 14px; font-size: 0.82rem; color: #666; font-style: italic; line-height: 1.6; max-width: 720px;">
-      <strong style="color: var(--navy);">Single</strong> earns 30% CM of brand sell-in — stronger margin rate.
-      <strong style="color: var(--navy);">4-Pack</strong> earns 3.1× the absolute dollar CM per transaction ($1.39 vs. $0.45) — higher basket value for retailers and lower CAC per household acquired.
+      <strong style="color: var(--navy);">Single</strong> earns 14% CM of net realized — after 25% total trade spend (18% promos + 7% display) off wholesale.
+      <strong style="color: var(--navy);">4-Pack</strong> earns 3.1× the absolute dollar CM per transaction ($0.58 vs. $0.19) — higher basket value for retailers and lower CAC per household acquired.
       COGS est. $0.76/unit at launch (550K units); targets $0.60 at scale (10M units/yr).
-      <br><em>★ Brand sell-in = what the brand actually receives. All % deductions calculated from this figure.</em>
-      <br><em>Direct-to-retailer bypasses distributor spread, improving CM to ~38%+ of sell-in.</em>
+      <br><em>★ Net realized price = wholesale less trade spend (promos + display). All CM % calculated from this figure.</em>
+      <br><em>Direct-to-retailer bypasses distributor spread, improving CM to ~20%+ of net realized.</em>
     </p>
 
     <!-- Bottom stat bar -->
     <div class="stat-row mt-16">
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--red);">$1.50</div>
-        <div class="margin-label">Brand sell-in · Single</div>
+        <div class="margin-pct" style="color: var(--red);">$1.34</div>
+        <div class="margin-label">Net realized · Single</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--gold-dark);">$5.50</div>
-        <div class="margin-label">Brand sell-in · 4-Pack</div>
+        <div class="margin-pct" style="color: var(--gold-dark);">$4.49</div>
+        <div class="margin-label">Net realized · 4-Pack</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--green);">25–30%</div>
-        <div class="margin-label">CM of brand sell-in</div>
+        <div class="margin-pct" style="color: var(--green);">13–14%</div>
+        <div class="margin-label">CM of net realized</div>
       </div>
     </div>
   </div>

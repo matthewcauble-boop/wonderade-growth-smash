@@ -73,7 +73,7 @@ export function Hero() {
                                     </svg>
                                 </div>
                                 <span className="font-sans text-base md:text-lg text-[#374191] font-bold leading-tight mt-0.5">
-                                    <span className="text-[#F57D14] font-black">2g of sugar</span> from real fruit
+                                    <span className="text-[#F57D14] font-black">3g of sugar</span> from real fruit
                                 </span>
                             </li>
                             <li className="flex items-start gap-3">

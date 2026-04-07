@@ -27,7 +27,7 @@ export function Comparison() {
                 {/* Row 3: Total Sugars */}
                 <div className="grid grid-cols-3 border-b border-black font-mono text-sm md:text-base">
                     <div className="p-4 font-bold uppercase tracking-wider md:p-6 text-xs md:text-base">Total Sugars</div>
-                    <div className="border-l border-black bg-[#E8F5E9] p-4 text-center font-bold text-black md:p-6 text-lg md:text-2xl">2g</div>
+                    <div className="border-l border-black bg-[#E8F5E9] p-4 text-center font-bold text-black md:p-6 text-lg md:text-2xl">3g</div>
                     <div className="border-l border-black p-4 text-center text-black/50 md:p-6 text-lg md:text-2xl">15g</div>
                 </div>
 

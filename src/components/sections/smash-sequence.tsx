@@ -386,7 +386,7 @@ export function SmashSequence() {
                             {/* Row 3: Total Sugars */}
                             <div className="grid grid-cols-3 border-b border-black font-mono text-[10px] md:text-base bg-white">
                                 <div className="p-4 font-bold uppercase tracking-wider md:py-2 md:px-6 transition-colors duration-300">Total Sugars</div>
-                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l border-black p-4 text-center font-bold text-black md:py-2 md:px-6 text-sm md:text-xl">2g</motion.div>
+                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l border-black p-4 text-center font-bold text-black md:py-2 md:px-6 text-sm md:text-xl">3g</motion.div>
                                 <div className="border-l border-black p-4 text-center text-black/80 font-bold md:py-2 md:px-6 text-sm md:text-xl bg-white">15g</div>
                             </div>
 

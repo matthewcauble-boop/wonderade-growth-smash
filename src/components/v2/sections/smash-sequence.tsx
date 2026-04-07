@@ -422,7 +422,7 @@ export function SmashSequence() {
                             {/* Row 3: Total Sugars */}
                             <div className="grid grid-cols-3 border-b-2 border-[#374191] font-mono text-[10px] md:text-[1.6vh] lg:text-[1.8vh] bg-white">
                                 <div className="p-2 py-[1vh] md:px-[2vw] font-bold uppercase tracking-wider transition-colors text-[#374191]">Total Sugars</div>
-                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh]">2g</motion.div>
+                                <motion.div style={{ backgroundColor: row3Bg }} className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center font-bold text-[#374191] text-sm md:text-[1.6vh] lg:text-[2vh]">3g</motion.div>
                                 <div className="border-l-2 border-[#374191] p-2 py-[1vh] px-[1vw] text-center text-[#374191]/80 font-bold text-sm md:text-[1.6vh] lg:text-[2vh] bg-white">15g</div>
                             </div>
 

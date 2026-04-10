@@ -448,12 +448,13 @@
     align-items: center;
     gap: 6px;
     flex-shrink: 0;
+    width: 200px;
   }
   .playbook-founder-photo img {
-    width: 110px;
-    height: 138px;
-    border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.15);
+    width: 100%;
+    height: 250px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     object-fit: cover;
     object-position: center 10%;
@@ -472,7 +473,12 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    .playbook-founder-photo { align-self: center; }
+    .playbook-founder-photo {
+      width: 100%;
+    }
+    .playbook-founder-photo img {
+      height: 280px;
+    }
   }
   .playbook-grid {
     display: grid;

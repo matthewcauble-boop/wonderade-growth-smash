@@ -674,6 +674,64 @@
   .waterfall-item.wf-realized .wf-value { color: var(--navy); font-weight: 700; }
   .wf-pct { font-size: 0.7rem; color: #aaa; margin-left: 4px; }
 
+  /* COGS scale callout */
+  .cogs-scale-callout {
+    background: rgba(116,192,71,0.10);
+    border: 1px solid rgba(116,192,71,0.30);
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  /* Year 1 / Year 2 split rows within waterfall cards */
+  .wf-year-banner {
+    display: flex;
+    background: rgba(54,71,142,0.04);
+    border-bottom: 1px solid rgba(54,71,142,0.08);
+    border-top: 2px solid rgba(54,71,142,0.12);
+  }
+  .wf-year-banner-col {
+    flex: 1;
+    padding: 7px 18px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    border-right: 1px solid rgba(54,71,142,0.08);
+  }
+  .wf-year-banner-col:last-child { border-right: none; }
+  .wf-year-banner-col.today { color: #888; }
+  .wf-year-banner-col.y2 { color: var(--green); }
+  .wf-split-row {
+    display: flex;
+    border-bottom: 1px solid rgba(54,71,142,0.06);
+  }
+  .wf-split-col {
+    flex: 1;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    border-right: 1px solid rgba(54,71,142,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .wf-split-col:last-child { border-right: none; }
+  .wf-split-col .wf-label { color: #555; font-weight: 600; font-size: 0.78rem; }
+  .wf-split-col .wf-value { font-family: var(--font-display); font-size: 1rem; color: var(--navy); }
+  .wf-split-col .wf-value.negative { color: #c0392b; }
+  .wf-split-row.wf-total-row { border-bottom: none; }
+  .wf-split-row.wf-total-row .wf-split-col { background: var(--navy); }
+  .wf-split-row.wf-total-row .wf-split-col .wf-label { color: rgba(255,255,255,0.6); font-weight: 700; }
+  .wf-split-row.wf-total-row .wf-split-col .wf-value { color: var(--gold); font-size: 1.1rem; }
+  .wf-split-row.wf-total-row .wf-split-col.y2 { background: #0d2414; }
+  .wf-split-row.wf-total-row .wf-split-col.y2 .wf-value { color: var(--green); font-size: 1.15rem; }
+  .wf-cm-pct { font-size: 0.75rem; opacity: 0.80; margin-left: 3px; }
+
   .channel-tier-card {
     border-radius: 16px;
     padding: 20px 22px;
@@ -1717,6 +1775,11 @@
     <h2 class="display-headline">Retail Unit Economics</h2>
     <p class="body-copy mt-12" style="color: var(--red); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase;">Two SKUs. One shelf strategy.</p>
 
+    <!-- COGS scale callout -->
+    <div class="cogs-scale-callout">
+      COGS scale from $0.76 → $0.62/unit as production ramps 50k → 200k cases/year — expanding brand CM from 22% → 32% on single-serve.
+    </div>
+
     <!-- SKU waterfall cards -->
     <div class="sku-grid">
 
@@ -1727,9 +1790,10 @@
           <div class="sku-msrp">$3.50</div>
           <div class="sku-msrp-label">MSRP per unit</div>
         </div>
+        <!-- Shared rows — identical both years -->
         <div class="waterfall-item">
           <span class="wf-label">Retailer Margin <span class="wf-pct">−35%</span></span>
-          <span class="wf-value negative">→ KeHE / UNFI Invoice to Retailer $2.28</span>
+          <span class="wf-value negative">→ KeHE / UNFI Invoice $2.28</span>
         </div>
         <div class="waterfall-item wf-sellin">
           <span class="wf-label">KeHE / UNFI Margin <span class="wf-pct">−18% of wholesale</span></span>
@@ -1755,13 +1819,30 @@
           <span class="wf-label">Freight / Logistics <span class="wf-pct">10% of sell-in</span></span>
           <span class="wf-value negative">−$0.19</span>
         </div>
-        <div class="waterfall-item">
-          <span class="wf-label">COGS <span class="wf-pct">launch est.</span></span>
-          <span class="wf-value negative">−$0.76</span>
+        <!-- Year split: Today vs Year 2 -->
+        <div class="wf-year-banner">
+          <div class="wf-year-banner-col today">Today · ~50k cases</div>
+          <div class="wf-year-banner-col y2">Year 2 · ~200k cases</div>
         </div>
-        <div class="waterfall-item wf-total">
-          <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.28 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">22% of net realized</span></span>
+        <div class="wf-split-row">
+          <div class="wf-split-col today">
+            <span class="wf-label">COGS</span>
+            <span class="wf-value negative">−$0.76</span>
+          </div>
+          <div class="wf-split-col y2">
+            <span class="wf-label">COGS</span>
+            <span class="wf-value negative">−$0.62</span>
+          </div>
+        </div>
+        <div class="wf-split-row wf-total-row">
+          <div class="wf-split-col today">
+            <span class="wf-label">Brand CM</span>
+            <span class="wf-value">$0.28 <span class="wf-cm-pct">22%</span></span>
+          </div>
+          <div class="wf-split-col y2">
+            <span class="wf-label">Brand CM</span>
+            <span class="wf-value">$0.42 <span class="wf-cm-pct">32%</span></span>
+          </div>
         </div>
       </div>
 
@@ -1772,9 +1853,10 @@
           <div class="sku-msrp">$11.99</div>
           <div class="sku-msrp-label">MSRP · $3.00/unit implied</div>
         </div>
+        <!-- Shared rows — identical both years -->
         <div class="waterfall-item">
           <span class="wf-label">Retailer Margin <span class="wf-pct">−35%</span></span>
-          <span class="wf-value negative">→ KeHE / UNFI Invoice to Retailer $7.79</span>
+          <span class="wf-value negative">→ KeHE / UNFI Invoice $7.79</span>
         </div>
         <div class="waterfall-item wf-sellin">
           <span class="wf-label">KeHE / UNFI Margin <span class="wf-pct">−18% of wholesale</span></span>
@@ -1800,13 +1882,30 @@
           <span class="wf-label">Freight / Logistics <span class="wf-pct">10% of sell-in</span></span>
           <span class="wf-value negative">−$0.64</span>
         </div>
-        <div class="waterfall-item">
-          <span class="wf-label">COGS <span class="wf-pct">4 × $0.76</span></span>
-          <span class="wf-value negative">−$3.04</span>
+        <!-- Year split: Today vs Year 2 -->
+        <div class="wf-year-banner">
+          <div class="wf-year-banner-col today">Today · ~50k cases</div>
+          <div class="wf-year-banner-col y2">Year 2 · ~200k cases</div>
         </div>
-        <div class="waterfall-item wf-total">
-          <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.54 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">12% of net realized</span></span>
+        <div class="wf-split-row">
+          <div class="wf-split-col today">
+            <span class="wf-label">COGS (4×$0.76)</span>
+            <span class="wf-value negative">−$3.04</span>
+          </div>
+          <div class="wf-split-col y2">
+            <span class="wf-label">COGS (4×$0.62)</span>
+            <span class="wf-value negative">−$2.48</span>
+          </div>
+        </div>
+        <div class="wf-split-row wf-total-row">
+          <div class="wf-split-col today">
+            <span class="wf-label">Brand CM</span>
+            <span class="wf-value">$0.54 <span class="wf-cm-pct">12%</span></span>
+          </div>
+          <div class="wf-split-col y2">
+            <span class="wf-label">Brand CM</span>
+            <span class="wf-value">$1.10 <span class="wf-cm-pct">25%</span></span>
+          </div>
         </div>
       </div>
 
@@ -1815,9 +1914,8 @@
     <!-- Comparison note -->
     <p style="margin-top: 14px; font-size: 0.82rem; color: #666; font-style: italic; line-height: 1.6; max-width: 720px;">
       Wonderade sells to KeHE / UNFI at sell-in; KeHE / UNFI marks up to wholesale; retailers pay wholesale and price to MSRP.
-      <strong style="color: var(--navy);">Single</strong> earns 22% CM of net realized. <strong style="color: var(--navy);">4-Pack</strong> at $11.99 MSRP earns 12% CM — trade spend structure is identical but the lower per-unit price compresses margin.
-      <strong style="color: var(--navy);">4-Pack</strong> delivers 2× the absolute dollar CM per transaction ($0.54 vs. $0.28) — higher basket value for retailers and lower CAC per household acquired.
-      COGS est. $0.76/unit at launch (550K units); targets $0.60 at scale (10M units/yr).
+      Trade spend (promos + display) is fixed — COGS improvement alone drives the CM expansion as volume scales.
+      <strong style="color: var(--navy);">4-Pack</strong> at Year 2 delivers $1.10 absolute CM per transaction vs. $0.54 today — higher basket value with improving unit economics.
       <br><em>★ Net Wonderade realized = sell-in less trade spend (promos + display). All CM % calculated from this figure.</em>
       <br><em>Direct-to-retailer bypasses KeHE / UNFI spread, improving sell-in and CM significantly.</em>
     </p>
@@ -1833,8 +1931,12 @@
         <div class="margin-label">Net realized · 4-Pack</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--green);">22% / 12%</div>
-        <div class="margin-label">CM · Single / 4-Pack</div>
+        <div class="margin-pct" style="color: var(--green);">22% → 32%</div>
+        <div class="margin-label">Single CM · Today → Year 2</div>
+      </div>
+      <div class="margin-box">
+        <div class="margin-pct" style="color: var(--green);">12% → 25%</div>
+        <div class="margin-label">4-Pack CM · Today → Year 2</div>
       </div>
     </div>
   </div>

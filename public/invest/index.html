@@ -674,6 +674,75 @@
   .waterfall-item.wf-realized .wf-value { color: var(--navy); font-weight: 700; }
   .wf-pct { font-size: 0.7rem; color: #aaa; margin-left: 4px; }
 
+  /* Year 1 / Year 2 COGS improvement split */
+  .wf-year-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 2px solid rgba(54,71,142,0.10);
+  }
+  .wf-year-col {
+    padding: 14px 18px 16px;
+  }
+  .wf-year-col.yr2 {
+    background: rgba(116,192,71,0.09);
+    border-left: 3px solid var(--green);
+  }
+  .wf-year-tag {
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .wf-year-tag.yr1 { color: #aaa; }
+  .wf-year-tag.yr2 { color: var(--green); }
+  .wf-year-cogs {
+    font-size: 0.78rem;
+    color: #c0392b;
+    font-family: var(--font-display);
+    margin-bottom: 6px;
+  }
+  .wf-year-cm {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+  .wf-year-col.yr2 .wf-year-cm { color: var(--green); }
+  .wf-year-pct {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+  }
+  .wf-year-col.yr2 .wf-year-pct { color: var(--green); }
+  .wf-year-cm-label {
+    font-size: 0.68rem;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  /* COGS callout banner */
+  .cogs-callout {
+    background: linear-gradient(135deg, rgba(54,71,142,0.07) 0%, rgba(116,192,71,0.07) 100%);
+    border: 1.5px solid rgba(54,71,142,0.15);
+    border-left: 4px solid var(--green);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  .cogs-callout strong { color: var(--navy); }
+  .cogs-callout .cogs-arrow {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--green);
+  }
+
   .channel-tier-card {
     border-radius: 16px;
     padding: 20px 22px;
@@ -1717,6 +1786,14 @@
     <h2 class="display-headline">Retail Unit Economics</h2>
     <p class="body-copy mt-12" style="color: var(--red); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase;">Two SKUs. One shelf strategy.</p>
 
+    <!-- COGS improvement callout -->
+    <div class="cogs-callout">
+      <span class="cogs-arrow">↓ COGS</span> &nbsp;
+      COGS scales from <strong>$0.76 → $0.62/unit</strong> as production ramps <strong>~50k → 200k+ cases</strong> in Year 2.
+      That $0.14/unit improvement expands brand CM from <strong>22% → 32%</strong> on single-serve and <strong>12% → 25%</strong> on 4-pack —
+      entirely driven by volume leverage, with no change to trade spend or channel structure.
+    </div>
+
     <!-- SKU waterfall cards -->
     <div class="sku-grid">
 
@@ -1755,13 +1832,24 @@
           <span class="wf-label">Freight / Logistics <span class="wf-pct">10% of sell-in</span></span>
           <span class="wf-value negative">−$0.19</span>
         </div>
-        <div class="waterfall-item">
-          <span class="wf-label">COGS <span class="wf-pct">launch est.</span></span>
-          <span class="wf-value negative">−$0.76</span>
-        </div>
-        <div class="waterfall-item wf-total">
-          <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.28 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">22% of net realized</span></span>
+        <!-- Year 1 / Year 2 COGS + CM split -->
+        <div class="wf-year-split">
+          <div class="wf-year-col yr1">
+            <div class="wf-year-tag yr1">Year 1 · ~50k cases</div>
+            <div class="wf-year-cm-label">COGS</div>
+            <div class="wf-year-cogs">−$0.76</div>
+            <div class="wf-year-cm-label">Brand CM</div>
+            <div class="wf-year-cm">$0.28</div>
+            <div class="wf-year-pct">22% of net realized</div>
+          </div>
+          <div class="wf-year-col yr2">
+            <div class="wf-year-tag yr2">Year 2 · 200k+ cases</div>
+            <div class="wf-year-cm-label">COGS</div>
+            <div class="wf-year-cogs">−$0.62</div>
+            <div class="wf-year-cm-label">Brand CM</div>
+            <div class="wf-year-cm">$0.42</div>
+            <div class="wf-year-pct">32% of net realized</div>
+          </div>
         </div>
       </div>
 
@@ -1800,13 +1888,24 @@
           <span class="wf-label">Freight / Logistics <span class="wf-pct">10% of sell-in</span></span>
           <span class="wf-value negative">−$0.64</span>
         </div>
-        <div class="waterfall-item">
-          <span class="wf-label">COGS <span class="wf-pct">4 × $0.76</span></span>
-          <span class="wf-value negative">−$3.04</span>
-        </div>
-        <div class="waterfall-item wf-total">
-          <span class="wf-label">Brand Contribution Margin</span>
-          <span class="wf-value">$0.54 &nbsp;<span style="color: var(--gold); font-size: 0.95rem;">12% of net realized</span></span>
+        <!-- Year 1 / Year 2 COGS + CM split -->
+        <div class="wf-year-split">
+          <div class="wf-year-col yr1">
+            <div class="wf-year-tag yr1">Year 1 · ~50k cases</div>
+            <div class="wf-year-cm-label">COGS</div>
+            <div class="wf-year-cogs">−$3.04 (4×$0.76)</div>
+            <div class="wf-year-cm-label">Brand CM</div>
+            <div class="wf-year-cm">$0.54</div>
+            <div class="wf-year-pct">12% of net realized</div>
+          </div>
+          <div class="wf-year-col yr2">
+            <div class="wf-year-tag yr2">Year 2 · 200k+ cases</div>
+            <div class="wf-year-cm-label">COGS</div>
+            <div class="wf-year-cogs">−$2.48 (4×$0.62)</div>
+            <div class="wf-year-cm-label">Brand CM</div>
+            <div class="wf-year-cm">$1.10</div>
+            <div class="wf-year-pct">25% of net realized</div>
+          </div>
         </div>
       </div>
 
@@ -1815,9 +1914,8 @@
     <!-- Comparison note -->
     <p style="margin-top: 14px; font-size: 0.82rem; color: #666; font-style: italic; line-height: 1.6; max-width: 720px;">
       Wonderade sells to KeHE / UNFI at sell-in; KeHE / UNFI marks up to wholesale; retailers pay wholesale and price to MSRP.
-      <strong style="color: var(--navy);">Single</strong> earns 22% CM of net realized. <strong style="color: var(--navy);">4-Pack</strong> at $11.99 MSRP earns 12% CM — trade spend structure is identical but the lower per-unit price compresses margin.
-      <strong style="color: var(--navy);">4-Pack</strong> delivers 2× the absolute dollar CM per transaction ($0.54 vs. $0.28) — higher basket value for retailers and lower CAC per household acquired.
-      COGS est. $0.76/unit at launch (550K units); targets $0.60 at scale (10M units/yr).
+      Trade spend structure is identical in both years — the CM expansion is 100% COGS-driven.
+      <strong style="color: var(--navy);">4-Pack</strong> still delivers the highest absolute dollar CM per transaction — $1.10 in Year 2 vs. $0.42 on Single — higher basket value for retailers and lower CAC per household acquired.
       <br><em>★ Net Wonderade realized = sell-in less trade spend (promos + display). All CM % calculated from this figure.</em>
       <br><em>Direct-to-retailer bypasses KeHE / UNFI spread, improving sell-in and CM significantly.</em>
     </p>
@@ -1825,16 +1923,16 @@
     <!-- Bottom stat bar -->
     <div class="stat-row mt-16">
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--red);">$1.30</div>
-        <div class="margin-label">Net realized · Single</div>
+        <div class="margin-pct" style="color: var(--red);">$0.76 → $0.62</div>
+        <div class="margin-label">COGS/unit<br>Year 1 → Year 2</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--gold-dark);">$4.44</div>
-        <div class="margin-label">Net realized · 4-Pack</div>
+        <div class="margin-pct" style="color: var(--gold-dark);">22% → 32%</div>
+        <div class="margin-label">Single CM<br>Year 1 → Year 2</div>
       </div>
       <div class="margin-box">
-        <div class="margin-pct" style="color: var(--green);">22% / 12%</div>
-        <div class="margin-label">CM · Single / 4-Pack</div>
+        <div class="margin-pct" style="color: var(--green);">12% → 25%</div>
+        <div class="margin-label">4-Pack CM<br>Year 1 → Year 2</div>
       </div>
     </div>
   </div>

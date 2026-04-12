@@ -67,6 +67,341 @@ const EPISODES = [
   },
 ];
 
+// ── POSE SVGs ──────────────────────────────────────────────────────────────────
+
+function PoseJumpingJack() {
+  return (
+    <svg viewBox="0 0 120 140" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Arms raised in V */}
+      <line x1="46" y1="66" x2="14" y2="28" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="74" y1="66" x2="106" y2="28" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Legs spread wide */}
+      <line x1="51" y1="94" x2="16" y2="130" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="69" y1="94" x2="104" y2="130" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Torso */}
+      <ellipse cx="60" cy="80" rx="18" ry="15" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Shorts */}
+      <path d="M44 88 L51 106 Q60 110 69 106 L76 88 Z" fill="#6CC941" stroke="#36478E" strokeWidth="2.5" />
+      {/* Head */}
+      <circle cx="60" cy="53" r="22" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Eyes */}
+      <circle cx="53" cy="49" r="4" fill="#36478E" />
+      <circle cx="67" cy="49" r="4" fill="#36478E" />
+      <circle cx="54.5" cy="47.5" r="1.8" fill="white" />
+      <circle cx="68.5" cy="47.5" r="1.8" fill="white" />
+      {/* Big smile */}
+      <path d="M51 60 Q60 69 69 60" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Fists */}
+      <circle cx="13" cy="26" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      <circle cx="107" cy="26" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      {/* Feet */}
+      <ellipse cx="15" cy="132" rx="9" ry="5" fill="#36478E" />
+      <ellipse cx="105" cy="132" rx="9" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+function PosePlank() {
+  return (
+    <svg viewBox="0 0 148 100" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Ground */}
+      <line x1="8" y1="90" x2="140" y2="90" stroke="#36478E" strokeWidth="2" strokeDasharray="5 4" strokeLinecap="round" opacity="0.35" />
+      {/* Front arms straight down */}
+      <line x1="50" y1="50" x2="50" y2="86" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="66" y1="50" x2="66" y2="86" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Back legs straight down */}
+      <line x1="108" y1="52" x2="108" y2="86" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="122" y1="52" x2="122" y2="86" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Body horizontal */}
+      <rect x="44" y="38" width="86" height="22" rx="11" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Head */}
+      <circle cx="26" cy="49" r="20" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Hair */}
+      <ellipse cx="26" cy="31" rx="16" ry="10" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      {/* Horn */}
+      <polygon points="26,17 20,31 32,31" fill="#FFD246" stroke="#36478E" strokeWidth="2" />
+      {/* Eyes */}
+      <circle cx="20" cy="47" r="3" fill="#36478E" />
+      <circle cx="31" cy="47" r="3" fill="#36478E" />
+      <circle cx="21.5" cy="45.5" r="1.3" fill="white" />
+      <circle cx="32.5" cy="45.5" r="1.3" fill="white" />
+      {/* Focused flat mouth */}
+      <line x1="19" y1="55" x2="33" y2="55" stroke="#36478E" strokeWidth="2" strokeLinecap="round" />
+      {/* Gloves at hands */}
+      <rect x="42" y="83" width="14" height="11" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2" />
+      <rect x="58" y="83" width="14" height="11" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2" />
+      {/* Feet */}
+      <ellipse cx="108" cy="89" rx="7" ry="5" fill="#36478E" />
+      <ellipse cx="122" cy="89" rx="7" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+function PoseSquat() {
+  return (
+    <svg viewBox="0 0 120 140" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Arms extended forward */}
+      <line x1="44" y1="74" x2="12" y2="60" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="76" y1="74" x2="108" y2="60" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Left leg bent — upper thigh */}
+      <line x1="50" y1="98" x2="26" y2="116" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Left lower leg */}
+      <line x1="26" y1="116" x2="26" y2="136" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Right leg bent — upper thigh */}
+      <line x1="70" y1="98" x2="94" y2="116" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Right lower leg */}
+      <line x1="94" y1="116" x2="94" y2="136" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Torso */}
+      <ellipse cx="60" cy="84" rx="18" ry="16" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Shorts */}
+      <path d="M44 94 L50 110 Q60 114 70 110 L76 94 Z" fill="#6CC941" stroke="#36478E" strokeWidth="2.5" />
+      {/* Head */}
+      <circle cx="60" cy="57" r="22" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Effort brows */}
+      <path d="M49 50 L54 53" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M66 53 L71 50" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Eyes */}
+      <circle cx="53" cy="55" r="3.5" fill="#36478E" />
+      <circle cx="67" cy="55" r="3.5" fill="#36478E" />
+      <circle cx="54.5" cy="53.5" r="1.5" fill="white" />
+      <circle cx="68.5" cy="53.5" r="1.5" fill="white" />
+      {/* Effort mouth */}
+      <path d="M53 64 Q60 70 67 64" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Fists forward */}
+      <circle cx="11" cy="59" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      <circle cx="109" cy="59" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      {/* Feet flat */}
+      <ellipse cx="26" cy="137" rx="10" ry="5" fill="#36478E" />
+      <ellipse cx="94" cy="137" rx="10" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+function PosePunchCombo() {
+  return (
+    <svg viewBox="0 0 128 140" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Back arm pulled back */}
+      <line x1="54" y1="68" x2="28" y2="76" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Front arm punching forward */}
+      <line x1="66" y1="66" x2="108" y2="56" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Back leg */}
+      <line x1="52" y1="97" x2="36" y2="133" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Front leg */}
+      <line x1="68" y1="97" x2="80" y2="133" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Torso */}
+      <ellipse cx="60" cy="82" rx="17" ry="17" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Head */}
+      <circle cx="60" cy="54" r="22" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Hair */}
+      <ellipse cx="60" cy="37" rx="19" ry="12" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      {/* Side braid */}
+      <path d="M76 42 Q84 55 78 68" stroke="#F499C1" strokeWidth="7" strokeLinecap="round" fill="none" />
+      {/* Horn */}
+      <polygon points="60,20 54,37 66,37" fill="#FFD246" stroke="#36478E" strokeWidth="2" />
+      {/* Fierce brow lines */}
+      <path d="M49 48 L56 51" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M64 51 L71 48" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Eyes */}
+      <circle cx="53" cy="53" r="3.5" fill="#36478E" />
+      <circle cx="67" cy="53" r="3.5" fill="#36478E" />
+      <circle cx="54.5" cy="51.5" r="1.5" fill="white" />
+      <circle cx="68.5" cy="51.5" r="1.5" fill="white" />
+      {/* Determined mouth */}
+      <line x1="53" y1="64" x2="67" y2="64" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Back glove */}
+      <rect x="19" y="71" width="14" height="12" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5" />
+      {/* Front glove extended */}
+      <rect x="105" y="50" width="16" height="13" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5" />
+      {/* Motion lines from punch */}
+      <line x1="122" y1="52" x2="126" y2="50" stroke="#FFD246" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="122" y1="57" x2="127" y2="57" stroke="#FFD246" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="122" y1="62" x2="126" y2="64" stroke="#FFD246" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Feet */}
+      <ellipse cx="35" cy="135" rx="9" ry="5" fill="#36478E" />
+      <ellipse cx="80" cy="135" rx="9" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+function PoseBearCrawl() {
+  return (
+    <svg viewBox="0 0 152 108" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Ground */}
+      <line x1="8" y1="98" x2="144" y2="98" stroke="#36478E" strokeWidth="2" strokeDasharray="5 4" strokeLinecap="round" opacity="0.35" />
+      {/* Front-left arm */}
+      <line x1="56" y1="62" x2="44" y2="90" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Front-right arm */}
+      <line x1="70" y1="62" x2="58" y2="90" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Back-left leg */}
+      <line x1="106" y1="64" x2="114" y2="90" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Back-right leg */}
+      <line x1="118" y1="64" x2="128" y2="90" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Body */}
+      <rect x="50" y="48" width="76" height="24" rx="12" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Shorts over back */}
+      <ellipse cx="122" cy="60" rx="16" ry="13" fill="#6CC941" stroke="#36478E" strokeWidth="2.5" />
+      {/* Head facing right */}
+      <circle cx="32" cy="58" r="22" fill="#F68C1E" stroke="#36478E" strokeWidth="3" />
+      {/* Eye (side view) */}
+      <circle cx="40" cy="53" r="4" fill="#36478E" />
+      <circle cx="41.5" cy="51.5" r="1.8" fill="white" />
+      {/* Nose */}
+      <circle cx="46" cy="62" r="2.5" fill="#F77500" />
+      {/* Smile */}
+      <path d="M36 65 Q43 71 49 65" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+      {/* Hands */}
+      <circle cx="42" cy="93" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      <circle cx="57" cy="93" r="7" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5" />
+      {/* Feet */}
+      <ellipse cx="113" cy="93" rx="7" ry="5" fill="#36478E" />
+      <ellipse cx="128" cy="93" rx="7" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+function PoseStarJump() {
+  return (
+    <svg viewBox="0 0 120 140" style={{ width: '100%', height: '100%' }} fill="none">
+      {/* Arms spread diagonally up */}
+      <line x1="46" y1="64" x2="10" y2="22" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="74" y1="64" x2="110" y2="22" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Legs spread diagonally down */}
+      <line x1="50" y1="94" x2="12" y2="132" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      <line x1="70" y1="94" x2="108" y2="132" stroke="#36478E" strokeWidth="9" strokeLinecap="round" />
+      {/* Torso */}
+      <ellipse cx="60" cy="80" rx="18" ry="16" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Skirt */}
+      <path d="M44 90 L50 108 Q60 113 70 108 L76 90 Z" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      {/* Head */}
+      <circle cx="60" cy="53" r="22" fill="#FDE5EA" stroke="#36478E" strokeWidth="3" />
+      {/* Hair — two poof buns */}
+      <ellipse cx="60" cy="36" rx="20" ry="11" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      <circle cx="46" cy="34" r="9" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      <circle cx="74" cy="34" r="9" fill="#F499C1" stroke="#36478E" strokeWidth="2.5" />
+      {/* Horn */}
+      <polygon points="60,17 54,34 66,34" fill="#FFD246" stroke="#36478E" strokeWidth="2" />
+      {/* Big eyes */}
+      <circle cx="53" cy="49" r="4.5" fill="#36478E" />
+      <circle cx="67" cy="49" r="4.5" fill="#36478E" />
+      <circle cx="54.5" cy="47" r="2" fill="white" />
+      <circle cx="68.5" cy="47" r="2" fill="white" />
+      {/* Big open smile */}
+      <path d="M50 60 Q60 70 70 60" stroke="#36478E" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Purple gloves at hand tips */}
+      <rect x="2" y="14" width="14" height="12" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5" />
+      <rect x="104" y="14" width="14" height="12" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5" />
+      {/* Sparkles */}
+      <circle cx="6" cy="10" r="3" fill="#FFD246" />
+      <circle cx="114" cy="10" r="3" fill="#FFD246" />
+      {/* Feet */}
+      <ellipse cx="11" cy="134" rx="9" ry="5" fill="#36478E" />
+      <ellipse cx="109" cy="134" rx="9" ry="5" fill="#36478E" />
+    </svg>
+  );
+}
+
+const POSES = [
+  {
+    id: 'jumping-jack',
+    move: 'Jumping Jack',
+    char: 'MO',
+    charLabel: 'Major Orange',
+    accent: '#F68C1E',
+    cue: 'Legs wide, arms up!',
+    svg: <PoseJumpingJack />,
+  },
+  {
+    id: 'plank',
+    move: 'Plank',
+    char: 'PP',
+    charLabel: 'Princess Punch',
+    accent: '#E56CA9',
+    cue: 'Flat back, hold it!',
+    svg: <PosePlank />,
+  },
+  {
+    id: 'squat',
+    move: 'Squat',
+    char: 'MO',
+    charLabel: 'Major Orange',
+    accent: '#F68C1E',
+    cue: 'Knees out, go low!',
+    svg: <PoseSquat />,
+  },
+  {
+    id: 'punch-combo',
+    move: 'Punch Combo',
+    char: 'PP',
+    charLabel: 'Princess Punch',
+    accent: '#E56CA9',
+    cue: 'Jab, cross, repeat!',
+    svg: <PosePunchCombo />,
+  },
+  {
+    id: 'bear-crawl',
+    move: 'Bear Crawl',
+    char: 'MO',
+    charLabel: 'Major Orange',
+    accent: '#F68C1E',
+    cue: 'Knees up, crawl forward!',
+    svg: <PoseBearCrawl />,
+  },
+  {
+    id: 'star-jump',
+    move: 'Star Jump',
+    char: 'PP',
+    charLabel: 'Princess Punch',
+    accent: '#E56CA9',
+    cue: 'Make a big star shape!',
+    svg: <PoseStarJump />,
+  },
+];
+
+function PoseCard({ pose }) {
+  return (
+    <div style={{
+      flexShrink: 0,
+      width: 158,
+      background: 'rgba(255,255,255,0.07)',
+      borderRadius: 20,
+      border: '1.5px solid rgba(255,255,255,0.12)',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <div style={{
+        height: 138,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '10px 10px 0',
+        background: 'rgba(255,255,255,0.03)',
+      }}>
+        <div style={{ width: '100%', height: '100%' }}>
+          {pose.svg}
+        </div>
+      </div>
+      <div style={{ padding: '8px 12px 14px' }}>
+        <div style={{
+          fontFamily: fredoka.style.fontFamily,
+          fontSize: 15, fontWeight: 700, color: '#F8F2D7', marginBottom: 2,
+        }}>
+          {pose.move}
+        </div>
+        <div style={{
+          fontSize: 10, color: pose.accent, fontWeight: 700, marginBottom: 4,
+          textTransform: 'uppercase', letterSpacing: 0.8,
+        }}>
+          {pose.charLabel}
+        </div>
+        <div style={{ fontSize: 12, color: 'rgba(248,242,215,0.55)', lineHeight: 1.4 }}>
+          {pose.cue}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CharAvatar({ char, size = 56 }) {
   const isMO = char === 'MO';
   const isBoth = char === 'BOTH';
@@ -258,6 +593,34 @@ function HomeTab({ streak, todayDone, onComplete }) {
           </div>
         </div>
       )}
+
+      {/* Try These Moves */}
+      <div style={{ marginTop: 36 }}>
+        <div style={{ padding: '0 20px 14px' }}>
+          <div style={{
+            fontFamily: fredoka.style.fontFamily,
+            fontSize: 22, fontWeight: 700, color: C.warmWhite,
+          }}>
+            Try These Moves
+          </div>
+          <div style={{ fontSize: 13, color: 'rgba(248,242,215,0.5)', marginTop: 3 }}>
+            Follow along with the characters!
+          </div>
+        </div>
+        <div style={{
+          display: 'flex',
+          gap: 12,
+          overflowX: 'auto',
+          paddingLeft: 20,
+          paddingRight: 20,
+          paddingBottom: 6,
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch',
+        }}>
+          {POSES.map((pose) => <PoseCard key={pose.id} pose={pose} />)}
+        </div>
+      </div>
     </div>
   );
 }

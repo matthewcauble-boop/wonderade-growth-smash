@@ -92,6 +92,167 @@ function CharName({ char }) {
   return <span style={{ color: C.gold, fontWeight: 700 }}>Both Characters</span>;
 }
 
+// ── POSE SVGs ─────────────────────────────────────────────────────────────────
+function PoseJumpingJack() {
+  return (
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="46" y1="46" x2="12" y2="14" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="74" y1="46" x2="108" y2="14" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="52" y1="70" x2="20" y2="126" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="68" y1="70" x2="100" y2="126" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="43" y="60" width="34" height="18" rx="7" fill="#6CC941" stroke="#36478E" strokeWidth="3"/>
+      <ellipse cx="60" cy="48" rx="17" ry="18" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="60" cy="20" r="15" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="55" cy="18" r="2" fill="#36478E"/>
+      <circle cx="65" cy="18" r="2" fill="#36478E"/>
+      <path d="M55 25 Q60 29 65 25" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="12" cy="14" r="5" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5"/>
+      <circle cx="108" cy="14" r="5" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5"/>
+      <ellipse cx="20" cy="126" rx="7" ry="4" fill="#36478E"/>
+      <ellipse cx="100" cy="126" rx="7" ry="4" fill="#36478E"/>
+    </svg>
+  );
+}
+
+function PosePlank() {
+  return (
+    <svg viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="28" y1="42" x2="28" y2="78" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="42" y1="42" x2="42" y2="78" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <ellipse cx="28" cy="80" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="42" cy="80" rx="8" ry="5" fill="#36478E"/>
+      <line x1="80" y1="46" x2="80" y2="80" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="96" y1="46" x2="96" y2="80" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="70" y="74" width="16" height="12" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <rect x="88" y="74" width="16" height="12" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <rect x="28" y="30" width="88" height="22" rx="11" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="128" cy="33" r="17" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <path d="M115 20 Q128 12 141 18" stroke="#F499C1" strokeWidth="6" strokeLinecap="round"/>
+      <circle cx="133" cy="30" r="2.5" fill="#36478E"/>
+      <path d="M129 38 Q133 43 138 39" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+function PoseSquat() {
+  return (
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="43" y1="56" x2="10" y2="62" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="77" y1="56" x2="110" y2="62" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="50" y1="82" x2="22" y2="112" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="70" y1="82" x2="98" y2="112" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="22" y1="112" x2="18" y2="132" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="98" y1="112" x2="102" y2="132" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="43" y="70" width="34" height="18" rx="7" fill="#6CC941" stroke="#36478E" strokeWidth="3"/>
+      <ellipse cx="60" cy="55" rx="17" ry="18" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="60" cy="26" r="15" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="55" cy="24" r="2" fill="#36478E"/>
+      <circle cx="65" cy="24" r="2" fill="#36478E"/>
+      <path d="M55 31 Q60 35 65 31" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="10" cy="62" r="5" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5"/>
+      <circle cx="110" cy="62" r="5" fill="#F68C1E" stroke="#36478E" strokeWidth="2.5"/>
+      <ellipse cx="18" cy="132" rx="9" ry="5" fill="#36478E"/>
+      <ellipse cx="102" cy="132" rx="9" ry="5" fill="#36478E"/>
+    </svg>
+  );
+}
+
+function PosePunchCombo() {
+  return (
+    <svg viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="90" y1="42" x2="128" y2="38" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="126" y="30" width="20" height="16" rx="6" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <line x1="148" y1="33" x2="156" y2="29" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="150" y1="38" x2="158" y2="38" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="148" y1="43" x2="156" y2="47" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="68" y1="44" x2="50" y2="48" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="30" y="40" width="20" height="16" rx="6" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <line x1="68" y1="68" x2="48" y2="92" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="84" y1="68" x2="100" y2="92" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <ellipse cx="48" cy="94" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="100" cy="94" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="78" cy="52" rx="18" ry="22" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="85" cy="22" r="16" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <path d="M74 12 Q85 6 96 10" stroke="#F499C1" strokeWidth="6" strokeLinecap="round"/>
+      <circle cx="90" cy="20" r="2.5" fill="#36478E"/>
+      <path d="M86 28 Q90 33 95 29" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+function PoseBearCrawl() {
+  return (
+    <svg viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="106" y1="46" x2="116" y2="74" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="90" y1="46" x2="94" y2="74" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="50" y1="50" x2="38" y2="78" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="34" y1="50" x2="22" y2="78" stroke="#F68C1E" strokeWidth="8" strokeLinecap="round"/>
+      <ellipse cx="55" cy="50" rx="22" ry="12" fill="#6CC941" stroke="#36478E" strokeWidth="3"/>
+      <ellipse cx="82" cy="40" rx="42" ry="18" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <ellipse cx="38" cy="80" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="22" cy="80" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="116" cy="76" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="94" cy="76" rx="8" ry="5" fill="#36478E"/>
+      <circle cx="130" cy="30" r="17" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="120" cy="16" r="8" fill="#F68C1E" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="136" cy="27" r="2.5" fill="#36478E"/>
+      <path d="M130 35 Q134 40 139 36" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+function PoseStarJump() {
+  return (
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="46" y1="54" x2="10" y2="22" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="74" y1="54" x2="110" y2="22" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <rect x="2" y="14" width="16" height="13" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <rect x="102" y="14" width="16" height="13" rx="5" fill="#7F489C" stroke="#36478E" strokeWidth="2.5"/>
+      <line x1="52" y1="76" x2="18" y2="122" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <line x1="68" y1="76" x2="102" y2="122" stroke="#FDE5EA" strokeWidth="8" strokeLinecap="round"/>
+      <ellipse cx="18" cy="124" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="102" cy="124" rx="8" ry="5" fill="#36478E"/>
+      <ellipse cx="60" cy="62" rx="16" ry="18" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <circle cx="60" cy="32" r="16" fill="#FDE5EA" stroke="#36478E" strokeWidth="3"/>
+      <path d="M46 22 Q54 14 60 18" stroke="#F499C1" strokeWidth="5" strokeLinecap="round"/>
+      <path d="M60 16 Q66 12 74 18" stroke="#F499C1" strokeWidth="5" strokeLinecap="round"/>
+      <circle cx="55" cy="30" r="2" fill="#36478E"/>
+      <circle cx="65" cy="30" r="2" fill="#36478E"/>
+      <path d="M55 37 Q60 42 65 37" stroke="#36478E" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M8 52 L10 57 L12 52 L10 47 Z" fill="#FFD246"/>
+      <path d="M108 52 L110 57 L112 52 L110 47 Z" fill="#FFD246"/>
+      <path d="M16 98 L18 104 L20 98 L18 92 Z" fill="#FFD246"/>
+      <path d="M100 98 L102 104 L104 98 L102 92 Z" fill="#FFD246"/>
+    </svg>
+  );
+}
+
+const POSES = [
+  { id: 1, Svg: PoseJumpingJack, name: 'Jumping Jack',  character: 'Major Orange',   color: '#F68C1E', cue: 'Legs wide, arms up!' },
+  { id: 2, Svg: PosePlank,       name: 'Plank Hold',    character: 'Princess Punch',  color: '#F499C1', cue: 'Flat back, hold strong!' },
+  { id: 3, Svg: PoseSquat,       name: 'Power Squat',   character: 'Major Orange',   color: '#F68C1E', cue: 'Knees out, chest up!' },
+  { id: 4, Svg: PosePunchCombo,  name: 'Punch Combo',   character: 'Princess Punch',  color: '#F499C1', cue: 'Jab! Cross! Go!' },
+  { id: 5, Svg: PoseBearCrawl,   name: 'Bear Crawl',    character: 'Major Orange',   color: '#F68C1E', cue: 'Crawl like a bear!' },
+  { id: 6, Svg: PoseStarJump,    name: 'Star Jump',     character: 'Princess Punch',  color: '#F499C1', cue: 'Explode like a star!' },
+];
+
+function PoseCard({ pose }) {
+  return (
+    <div style={{
+      flexShrink: 0, width: 158, borderRadius: 16,
+      background: '#1a2a4a', border: '1px solid rgba(255,255,255,0.1)',
+      padding: '12px 10px 10px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+    }}>
+      <div style={{ width: 120, height: 110, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <pose.Svg />
+      </div>
+      <div style={{ fontFamily: "'Fredoka One', cursive", fontSize: 14, color: '#fff', textAlign: 'center' }}>{pose.name}</div>
+      <div style={{ fontSize: 11, color: pose.color, fontWeight: 600 }}>{pose.character}</div>
+      <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center' }}>{pose.cue}</div>
+    </div>
+  );
+}
+
 // ── HOME TAB ──────────────────────────────────────────────────────────────────
 function HomeTab({ streak, todayDone, onComplete }) {
   const today = new Date().getDay(); // 0=Sun
@@ -247,6 +408,16 @@ function HomeTab({ streak, todayDone, onComplete }) {
               </button>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* Pose Cards */}
+      <div style={{ marginTop: 20, padding: '0 20px' }}>
+        <div style={{ fontFamily: "'Fredoka One', cursive", fontSize: 18, color: '#fff', marginBottom: 10, paddingLeft: 4 }}>
+          Try These Moves
+        </div>
+        <div style={{ display: 'flex', gap: 10, overflowX: 'auto', paddingBottom: 8, scrollbarWidth: 'none' }}>
+          {POSES.map(pose => <PoseCard key={pose.id} pose={pose} />)}
         </div>
       </div>
 

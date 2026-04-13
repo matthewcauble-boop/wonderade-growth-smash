@@ -70,18 +70,35 @@ const EPISODES = [
 function CharAvatar({ char, size = 56 }) {
   const isMO = char === 'MO';
   const isBoth = char === 'BOTH';
-  const bg = isBoth ? `linear-gradient(135deg, ${C.orangeChar} 50%, ${C.pinkChar} 50%)` : isMO ? C.orangeChar : C.pinkChar;
-  const label = isBoth ? '🏆' : isMO ? '🍊' : '🦄';
+  if (isBoth) {
+    return (
+      <div style={{
+        width: size, height: size, borderRadius: '50%',
+        background: `linear-gradient(135deg, ${C.orangeChar} 50%, ${C.pinkChar} 50%)`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: size * 0.45, flexShrink: 0,
+        border: `3px solid ${C.warmWhite}`,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+      }}>
+        🏆
+      </div>
+    );
+  }
+  const src = isMO ? '/characters/major-orange.png' : '/characters/princess-punch.png';
+  const bg = isMO ? C.orangeChar : C.pinkChar;
   return (
     <div style={{
       width: size, height: size, borderRadius: '50%',
       background: bg,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: size * 0.45, flexShrink: 0,
+      flexShrink: 0,
       border: `3px solid ${C.warmWhite}`,
       boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+      overflow: 'hidden',
     }}>
-      {label}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={isMO ? 'Major Orange' : 'Princess Punch'}
+        style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
     </div>
   );
 }
@@ -159,7 +176,7 @@ function HomeTab({ streak, todayDone, onComplete }) {
             padding: '20px 20px 16px',
             display: 'flex', alignItems: 'center', gap: 14,
           }}>
-            <CharAvatar char={challenge.char} size={64} />
+            <CharAvatar char={challenge.char} size={88} />
             <div>
               <div style={{ fontSize: 12, color: 'rgba(248,242,215,0.5)', marginBottom: 3, letterSpacing: 1, textTransform: 'uppercase' }}>
                 Today&apos;s host

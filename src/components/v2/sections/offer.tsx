@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Hand } from "lucide-react"
@@ -12,14 +12,11 @@ export function Offer() {
     const [errorMessage, setErrorMessage] = useState("")
     const [hasClaimed, setHasClaimed] = useState(false)
 
-    // Synthetically probe the local browser footprint to actively deflect rapid duplicates autonomously
-    import("react").then((React) => {
-        React.useEffect(() => {
-            if (typeof document !== 'undefined' && document.cookie.includes("wonderade_sample_claimed=true")) {
-                setHasClaimed(true);
-            }
-        }, []);
-    });
+    useEffect(() => {
+        if (typeof document !== 'undefined' && document.cookie.includes("wonderade_sample_claimed=true")) {
+            setHasClaimed(true);
+        }
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,7 +31,7 @@ export function Offer() {
         setErrorMessage("");
 
         try {
-            const response = await fetch("/api/omnisend", {
+            const response = await fetch("/api/klaviyo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })

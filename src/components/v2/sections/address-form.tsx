@@ -96,7 +96,7 @@ export function AddressForm() {
         setStatus("loading");
         
         try {
-            const response = await fetch("/api/omnisend", {
+            const response = await fetch("/api/klaviyo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

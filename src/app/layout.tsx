@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://static.klaviyo.com/onsite/js/XwRkYR/klaviyo.js?company_id=XwRkYR" />
+      </head>
       <body
         className={`${quicksand.variable} antialiased`}
       >

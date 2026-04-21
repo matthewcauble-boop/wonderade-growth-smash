@@ -165,11 +165,13 @@ export function SmashSequence() {
     const mobileBottleY = ["0vh", "8vh", "8vh", "0vh"]
     // Since we widened the vertical void heavily on Desktop (Header is tightly pinned high, Overlays are sunk tightly low), we universally anchor the asset inside the new massive layout void natively at `-12vh`
     // Bottles Local Y coordinate
-    const desktopBottleY = ["0vh", "3vh", "3vh", "0vh"]
+    const desktopBottleY = ["0vh", "3vh", "3vh", "6vh"]
     const bottlesLocalY = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleY : desktopBottleY)
 
-    const mobileBottleScale = [0.1, dynamicMobileScale, dynamicMobileScale, 0.8] 
-    const desktopBottleScale = [0.1, 1.25, 1.25, 0.85]
+    const mobileBottleScale = [0.1, dynamicMobileScale, dynamicMobileScale, 0.8]
+    // Scale bottles based on viewport height — shorter screens get smaller bottles during card phase
+    const desktopCardScale = typeof window !== 'undefined' ? Math.min(1.25, window.innerHeight / 750) : 1.25
+    const desktopBottleScale = [0.1, desktopCardScale, desktopCardScale, 0.85]
     const bottlesLocalScale = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleScale : desktopBottleScale)
 
     // Phase 7 (0.85 to 0.99): Sequential Highlights for the rows (Brand Yellow #FBD02E against Navy borders)
@@ -180,7 +182,14 @@ export function SmashSequence() {
     const row5Bg = useTransform(smoothProgress, [0.97, 0.99], ["#FFFFFF", "#FBD02E"])
 
     // Delayed Headline that waits for the table to establish dominance before fading into the available top whitespace
-    const duelHeadlineOpacity = useTransform(smoothProgress, [0.80, 0.90], [0, 1])
+    // Desktop: headline fades in AFTER table is settled (0.88-0.95) to avoid overlap during transition
+    // Mobile: original timing
+    const duelHeadlineOpacity = useTransform(smoothProgress, isMobile ? [0.80, 0.90] : [0.88, 0.95], [0, 1])
+    // Desktop: headline lands higher than bottles (0vh instead of 6vh) to prevent overlap
+    // Mobile: uses tableY as before
+    // Headline lands at same position as table (6vh) — it's above bottles in DOM order
+    // so it naturally renders above them. The mb-4 class adds spacing between headline and bottles.
+    const duelHeadlineY = useTransform(smoothProgress, [0.7, 0.85], isMobile ? mobileTableY : desktopTableY)
 
     return (
         <section ref={containerRef} id="how-it-works" className="relative h-[700vh] w-full bg-white">
@@ -259,8 +268,8 @@ export function SmashSequence() {
 
                     {/* Emotional Headline for The Duel */}
                     <motion.div
-                        style={{ y: tableY, opacity: duelHeadlineOpacity }}
-                        className="w-full text-center px-4 md:px-0 max-w-[90vw] md:max-w-5xl mx-auto mb-2 md:mb-0 pointer-events-auto z-[60]"
+                        style={{ y: duelHeadlineY, opacity: duelHeadlineOpacity }}
+                        className="w-full text-center px-4 md:px-0 max-w-[90vw] md:max-w-5xl mx-auto mb-2 md:mb-4 pointer-events-auto z-[60]"
                     >
                         <h2 className="font-serif text-[8vw] sm:text-4xl md:text-[4.5vh] lg:text-[5.5vh] leading-[1] text-[#374191] font-black tracking-tight drop-shadow-sm relative">
                             Real Ingredients. <br className="md:hidden" /><span className="text-[#F57D14]">Real Impact.</span>

@@ -26,17 +26,7 @@ export function Footer() {
                         <p className="font-mono text-sm text-white/70 leading-relaxed uppercase tracking-widest font-bold">
                             The power of milk. The taste of candy. Real fruit, zero added sugars, and 8g of protein for growing kids.
                         </p>
-                        <div className="flex space-x-4 pt-2">
-                            <a href="#" className="text-white/70 hover:text-[#FBD02E] transition-colors">
-                                <Instagram size={24} />
-                            </a>
-                            <a href="#" className="text-white/70 hover:text-[#FBD02E] transition-colors">
-                                <Facebook size={24} />
-                            </a>
-                            <a href="#" className="text-white/70 hover:text-[#FBD02E] transition-colors">
-                                <Twitter size={24} />
-                            </a>
-                        </div>
+                        {/* Social links hidden until accounts are live */}
                     </div>
 
                     {/* Shop Links */}
@@ -54,21 +44,9 @@ export function Footer() {
                     <div className="flex flex-col space-y-6">
                         <h4 className="font-sans font-black text-xl uppercase tracking-widest text-[#FBD02E]">Info</h4>
                         <ul className="flex flex-col space-y-4 font-mono text-sm uppercase tracking-widest font-bold text-white/70">
-                            <li><Link href="#" className="hover:text-white transition-colors">Our Story</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Nutrition Facts</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">FAQ</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Contact Us</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Legal Links */}
-                    <div className="flex flex-col space-y-6">
-                        <h4 className="font-sans font-black text-xl uppercase tracking-widest text-[#FBD02E]">Legal</h4>
-                        <ul className="flex flex-col space-y-4 font-mono text-sm uppercase tracking-widest font-bold text-white/70">
-                            <li><Link href="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Shipping Policy</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Refund Policy</Link></li>
+                            <li><Link href="#how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                            <li><Link href="#flavors" className="hover:text-white transition-colors">Nutrition Facts</Link></li>
+                            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -78,13 +56,7 @@ export function Footer() {
                     <p className="font-mono text-xs uppercase tracking-widest text-white/50 font-bold">
                         &copy; {new Date().getFullYear()} Wonderade. All rights reserved.
                     </p>
-                    <div className="flex space-x-3 opacity-50">
-                        {/* Placeholder for payment icons */}
-                        <div className="w-10 h-6 bg-white rounded-sm"></div>
-                        <div className="w-10 h-6 bg-white rounded-sm"></div>
-                        <div className="w-10 h-6 bg-white rounded-sm"></div>
-                        <div className="w-10 h-6 bg-white rounded-sm"></div>
-                    </div>
+                    {/* Payment icons hidden until store is live */}
                 </div>
             </div>
         </footer>

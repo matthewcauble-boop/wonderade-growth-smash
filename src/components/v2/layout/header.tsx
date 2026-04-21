@@ -36,7 +36,6 @@ export function Header() {
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-mono text-xs lg:text-sm font-bold uppercase tracking-widest text-[#374191]">
                         <Link href="#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
                         <Link href="#flavors" onClick={(e) => scrollToSection(e, "flavors")} className="hover:text-[#Fbd02e] transition-colors">Flavors</Link>
-                        <Link href="#compare" onClick={(e) => scrollToSection(e, "compare")} className="hover:text-[#Fbd02e] transition-colors">Compare</Link>
                     </nav>
                 </div>
 

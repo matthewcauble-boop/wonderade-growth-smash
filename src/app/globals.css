@@ -70,6 +70,31 @@ body {
   }
 }
 
+/* ─── Desktop-only: fluid info cards in How It Works ─── */
+/* Sets a viewport-based scale factor that cards inherit */
+/* Mobile is NOT affected */
+@media (min-width: 768px) {
+  #how-it-works {
+    --card-scale: clamp(0.7, calc(100vh / 1000), 1);
+  }
+  /* Info cards: scale min-height, padding, text, and icons with viewport */
+  #how-it-works .z-40 > div {
+    min-height: calc(180px * var(--card-scale, 1)) !important;
+    padding: calc(20px * var(--card-scale, 1)) !important;
+  }
+  #how-it-works .z-40 > div h2 {
+    font-size: clamp(16px, 3.5vh, 36px) !important;
+  }
+  #how-it-works .z-40 > div p {
+    font-size: clamp(8px, 1.4vh, 14px) !important;
+  }
+  #how-it-works .z-40 > div img {
+    width: clamp(30px, 8vh, 80px) !important;
+    height: clamp(30px, 8vh, 80px) !important;
+    margin-bottom: calc(16px * var(--card-scale, 1)) !important;
+  }
+}
+
 /* Base brutalism resets */
 * {
   border-color: #000000;

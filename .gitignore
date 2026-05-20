@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 .env*.local
 .gstack/
+
+# Claude Code local/ephemeral
+.claude/worktrees/
+.claude/settings.local.json

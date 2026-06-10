@@ -80,19 +80,22 @@ body {
   }
   /* Info cards: scale min-height, padding, text, and icons with viewport */
   #how-it-works .z-40 > div {
-    min-height: calc(180px * var(--card-scale, 1)) !important;
-    padding: calc(20px * var(--card-scale, 1)) !important;
+    min-height: calc(190px * var(--card-scale, 1)) !important;
+    padding: calc(22px * var(--card-scale, 1)) calc(30px * var(--card-scale, 1)) !important;
   }
   #how-it-works .z-40 > div h2 {
-    font-size: clamp(16px, 3.5vh, 36px) !important;
+    font-size: clamp(16px, 3.3vh, 34px) !important;
+    line-height: 1.1 !important;
   }
   #how-it-works .z-40 > div p {
-    font-size: clamp(8px, 1.4vh, 14px) !important;
+    font-size: clamp(9px, 1.45vh, 14px) !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.04em !important;
   }
   #how-it-works .z-40 > div img {
-    width: clamp(30px, 8vh, 80px) !important;
-    height: clamp(30px, 8vh, 80px) !important;
-    margin-bottom: calc(16px * var(--card-scale, 1)) !important;
+    width: clamp(28px, 6.5vh, 66px) !important;
+    height: clamp(28px, 6.5vh, 66px) !important;
+    margin-bottom: calc(10px * var(--card-scale, 1)) !important;
   }
 }
 
@@ -107,12 +110,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
+  font-family: var(--font-baloo), 'Baloo 2', 'Quicksand', cursive;
   font-weight: bold;
 }
 
-/* Headlines use the brand display font even though the page forces font-sans on
-   descendants — keep this higher-specificity + !important so it wins. */
+/* Headlines use the brand display font (Baloo 2). Reference --font-baloo directly
+   — it's the real custom property emitted by next/font. (--font-display lives in
+   `@theme inline`, which inlines into utilities and never emits a usable var, so
+   var(--font-display) here would be empty and the rule would silently drop.)
+   Keep higher specificity + !important so it beats the font-serif utility class. */
 main :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-baloo), 'Baloo 2', 'Quicksand', cursive !important;
 }

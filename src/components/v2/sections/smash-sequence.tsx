@@ -169,8 +169,10 @@ export function SmashSequence() {
     const bottlesLocalY = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleY : desktopBottleY)
 
     const mobileBottleScale = [0.1, dynamicMobileScale, dynamicMobileScale, 0.8]
-    // Scale bottles based on viewport height — shorter screens get smaller bottles during card phase
-    const desktopCardScale = typeof window !== 'undefined' ? Math.min(1.25, window.innerHeight / 750) : 1.25
+    // Scale bottles based on viewport height — shorter screens get smaller bottles during card phase.
+    // Tuned down (cap 1.1, divisor 860) so short laptop heights keep clear vertical room for the
+    // headline above and the floating info cards below (prevents the card icon clipping the bottles).
+    const desktopCardScale = typeof window !== 'undefined' ? Math.min(1.1, window.innerHeight / 860) : 1.1
     const desktopBottleScale = [0.1, desktopCardScale, desktopCardScale, 0.85]
     const bottlesLocalScale = useTransform(smoothProgress, [0.15, 0.25, 0.7, 0.85], isMobile ? mobileBottleScale : desktopBottleScale)
 
@@ -321,7 +323,7 @@ export function SmashSequence() {
                             >
                                 <Image src="/assets/brand/Stickers/protein sticker 2.svg" alt="Protein" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] drop-shadow-md" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Big and Strong Juice</h2>
-                                <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                                <p className="font-mono text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-wide leading-relaxed text-[#374191]/90 font-bold max-w-[90%] text-center">
                                     Protein + Calcium build stronger muscles and bigger bones to fuel growth
                                 </p>
                             </motion.div>
@@ -334,7 +336,7 @@ export function SmashSequence() {
                             >
                                 <Image src="/assets/brand/Stickers/banana.svg" alt="Banana" width={40} height={40} className="mb-2 md:mb-4 lg:mb-5 lg:w-[50px] lg:h-[50px] drop-shadow-md" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Stay in the Game</h2>
-                                <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                                <p className="font-mono text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-wide leading-relaxed text-[#374191]/90 font-bold max-w-[90%] text-center">
                                     9 in 10 kids don't hit their daily potassium needs. So we pack a banana's worth in every bottle
                                 </p>
                             </motion.div>
@@ -347,7 +349,7 @@ export function SmashSequence() {
                             >
                                 <Image src="/assets/brand/Stickers/health_shield_icon.png" alt="Energy" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Sick Day Defense</h2>
-                                <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                                <p className="font-mono text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-wide leading-relaxed text-[#374191]/90 font-bold max-w-[90%] text-center">
                                     Cold season doesn't wait. Vitamin C, D, Zinc, and Magnesium keep their defenses ready
                                 </p>
                             </motion.div>
@@ -360,7 +362,7 @@ export function SmashSequence() {
                             >
                                 <Image src="/assets/brand/Stickers/gut_health_icon.png" alt="Gut Health" width={80} height={80} className="mb-2 md:mb-4 lg:mb-5 lg:w-[80px] lg:h-[80px] mix-blend-multiply" />
                                 <h2 className="font-serif text-[24px] md:text-2xl lg:text-3xl xl:text-4xl font-bold uppercase tracking-tight text-[#374191] leading-none mt-1 mb-2 md:mb-3 lg:mb-4">Better Gut Too</h2>
-                                <p className="font-mono text-xs text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-widest text-[#374191]/90 font-bold max-w-full text-center flex items-center">
+                                <p className="font-mono text-[10px] md:text-xs lg:text-sm mx-auto uppercase tracking-wide leading-relaxed text-[#374191]/90 font-bold max-w-[90%] text-center">
                                     Prebiotic fiber feeds good bacteria and helps the body absorb the good stuff
                                 </p>
                             </motion.div>

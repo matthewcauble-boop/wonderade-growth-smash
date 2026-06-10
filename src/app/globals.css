@@ -11,6 +11,7 @@
   --font-sans: var(--font-quicksand), 'Quicksand', sans-serif;
   --font-serif: var(--font-quicksand), 'Quicksand', sans-serif;
   --font-mono: var(--font-quicksand), 'Quicksand', sans-serif;
+  --font-display: var(--font-baloo), 'Baloo 2', 'Quicksand', cursive;
 
   --shadow-brutal: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   --shadow-brutal-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
@@ -106,6 +107,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-weight: bold;
+}
+
+/* Headlines use the brand display font even though the page forces font-sans on
+   descendants — keep this higher-specificity + !important so it wins. */
+main :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-display) !important;
 }

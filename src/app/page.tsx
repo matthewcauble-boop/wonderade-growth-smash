@@ -13,7 +13,7 @@ import { ScrollRestoration } from "@/components/utils/scroll-restoration"
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-white font-sans [&_*]:!font-sans">
+    <main className="relative min-h-screen bg-white font-sans">
       <ScrollRestoration />
       <BenefitFader />
       <Header />

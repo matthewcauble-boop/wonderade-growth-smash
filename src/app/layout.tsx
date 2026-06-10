@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Quicksand, Baloo_2 } from "next/font/google";
 import "./globals.css";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
+});
+
+// Headline / display font — matches the Shopify theme's --font-display (Baloo 2,
+// the stand-in for the brand "Alphabet Soup" face).
+const baloo = Baloo_2({
+  variable: "--font-baloo",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +31,7 @@ export default function RootLayout({
         <script async src="https://static.klaviyo.com/onsite/js/XwRkYR/klaviyo.js?company_id=XwRkYR" />
       </head>
       <body
-        className={`${quicksand.variable} antialiased`}
+        className={`${quicksand.variable} ${baloo.variable} antialiased`}
       >
         {children}
       </body>

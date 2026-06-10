@@ -8,6 +8,7 @@ import { SmashSequence } from "@/components/v2/sections/smash-sequence"
 import { Quality } from "@/components/v2/sections/quality"
 import { BoxComparison } from "@/components/v2/sections/box-comparison"
 import { Offer } from "@/components/v2/sections/offer"
+import { Founder } from "@/components/v2/sections/founder"
 import { Footer } from "@/components/v2/layout/footer"
 import { ScrollRestoration } from "@/components/utils/scroll-restoration"
 
@@ -22,6 +23,7 @@ export default function Home() {
       <SmashSequence />
       <Quality />
       {/* <BoxComparison /> */}
+      <Founder />
       <Offer />
       <Footer />
     </main>

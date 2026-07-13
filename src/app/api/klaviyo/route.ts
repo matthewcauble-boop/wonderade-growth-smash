@@ -12,7 +12,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
         }
 
-        const KLAVIYO_PRIVATE_KEY = process.env.KLAVIYO_PRIVATE_KEY
+        const KLAVIYO_PRIVATE_KEY = process.env.KLAVIYO_PRIVATE_KEY?.trim()
 
         if (!KLAVIYO_PRIVATE_KEY) {
             console.error("Missing KLAVIYO_PRIVATE_KEY")
@@ -105,10 +105,13 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Failed to create profile" }, { status: profileRes.status })
         }
 
-        // Step 2: Subscribe to the main list (you'll need to set KLAVIYO_LIST_ID in env)
-        const listId = process.env.KLAVIYO_LIST_ID
+        // Step 2: Subscribe to the main list.
+        // The relationships endpoint only grants list membership — it does NOT record
+        // marketing consent, so profiles added that way are never mailable. The
+        // subscription job below sets consent AND adds the profile to the list.
+        const listId = process.env.KLAVIYO_LIST_ID?.trim()
         if (listId && profileId) {
-            await fetch(`${KLAVIYO_API_URL}/lists/${listId}/relationships/profiles/`, {
+            const subRes = await fetch(`${KLAVIYO_API_URL}/profile-subscription-bulk-create-jobs/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -116,9 +119,35 @@ export async function POST(request: Request) {
                     revision: KLAVIYO_REVISION
                 },
                 body: JSON.stringify({
-                    data: [{ type: "profile", id: profileId }]
+                    data: {
+                        type: "profile-subscription-bulk-create-job",
+                        attributes: {
+                            custom_source: "v2-landing-page",
+                            profiles: {
+                                data: [
+                                    {
+                                        type: "profile",
+                                        id: profileId,
+                                        attributes: {
+                                            email,
+                                            subscriptions: {
+                                                email: { marketing: { consent: "SUBSCRIBED" } }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        relationships: {
+                            list: { data: { type: "list", id: listId } }
+                        }
+                    }
                 })
             })
+
+            if (!subRes.ok) {
+                console.error("Klaviyo subscribe error:", subRes.status, await subRes.text())
+            }
         }
 
         return NextResponse.json({ success: true }, { status: 200 })

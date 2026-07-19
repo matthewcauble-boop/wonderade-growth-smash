@@ -86,6 +86,31 @@ ffmpeg -f concat -safe 0 -i wlist.txt \
   major-orange-workout-vhs.mp4
 ```
 
+## Version 3 — 2D cartoon on grainy VHS (16:9)
+
+Third pass combining the two: Major Orange stays flat 2D cel-animated in his
+original art style, but the footage looks like a 90s cartoon taped off TV —
+heavy VHS grain, scan lines, chroma bleed, tracking wobble — with the 90s
+synth workout soundtrack. Music only, no dialogue.
+
+| # | Scene | Length | Clip | Job ID |
+|---|-------|--------|------|--------|
+| 1 | Opening | 10s | [x1](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151124_3c0e076f-a312-471d-bcb7-58522ee94c42.mp4) | 3c0e076f-a312-471d-bcb7-58522ee94c42 |
+| 2 | Side-lunge steps | 10s | [x2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151128_d224f625-6915-4664-b2b2-62f6da01a13f.mp4) | d224f625-6915-4664-b2b2-62f6da01a13f |
+| 3 | Ball-change | 10s | [x3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151651_0bdae929-8c08-4909-a9fe-f41f7344d315.mp4) | 0bdae929-8c08-4909-a9fe-f41f7344d315 |
+| 4 | Hip twists + sofa audience | 10s | [x4](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151140_74bff4a2-76e7-4998-80f2-e14e58d70ab2.mp4) | 74bff4a2-76e7-4998-80f2-e14e58d70ab2 |
+| 5 | Grand finale | 12s | [x5](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151145_8b282b6e-1524-4f73-80ed-31b726d51474.mp4) | 8b282b6e-1524-4f73-80ed-31b726d51474 |
+| 6 | Goodbye + VHS static | 8s | [x6](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_151151_5d4d6410-02db-4611-8f59-45184b17c9cd.mp4) | 5d4d6410-02db-4611-8f59-45184b17c9cd |
+
+Stitch (download as `x1.mp4` … `x6.mp4`):
+
+```bash
+printf "file 'x%d.mp4'\n" 1 2 3 4 5 6 > xlist.txt
+ffmpeg -f concat -safe 0 -i xlist.txt \
+  -c:v libx264 -crf 18 -preset medium -c:a aac -b:a 192k \
+  major-orange-workout-cartoon-vhs.mp4
+```
+
 ## Higgsfield job IDs (version 1, vintage cartoon)
 
 | Scene | Job ID |

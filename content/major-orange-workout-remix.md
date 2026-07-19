@@ -60,7 +60,33 @@ Each clip carries its own instrumental music, so cuts land on music changes. For
 single continuous soundtrack, mute the clips (`-an`) and lay one music track over
 the joined video in any editor.
 
-## Higgsfield job IDs
+## Version 2 — 90s VHS workout tape (16:9)
+
+Second pass with a different treatment: semi-realistic Major Orange mascot as a
+real aerobics instructor, analog VHS camcorder look (grain, chroma bleed, scan
+lines, tracking wobble), retro 90s aerobics studio, and energetic 90s synth
+workout music (drum machine, slap bass, synth stabs) — still music only, no
+dialogue. Same six-scene structure.
+
+| # | Scene | Length | Clip | Job ID |
+|---|-------|--------|------|--------|
+| 1 | Opening | 10s | [w1](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_144819_52d2d483-e3c3-4071-87d4-99d835a7a64b.mp4) | 52d2d483-e3c3-4071-87d4-99d835a7a64b |
+| 2 | Side-lunge steps | 10s | [w2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_144822_1dcb4a72-f8e6-4148-8cce-83f2ef812606.mp4) | 1dcb4a72-f8e6-4148-8cce-83f2ef812606 |
+| 3 | Ball-change | 10s | [w3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_144828_9038c5e5-9d49-45d8-b35c-45c6d61943cd.mp4) | 9038c5e5-9d49-45d8-b35c-45c6d61943cd |
+| 4 | Hip twists + sofa audience | 10s | [w4](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_144833_d2825b4b-fcf1-41d5-8cf9-e1e949e716f7.mp4) | d2825b4b-fcf1-41d5-8cf9-e1e949e716f7 |
+| 5 | Grand finale | 12s | [w5](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_144839_9decbc8e-cf66-4893-92da-c1657d4890f3.mp4) | 9decbc8e-cf66-4893-92da-c1657d4890f3 |
+| 6 | Goodbye + VHS static | 8s | [w6](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_145316_fdcb1383-57df-440b-a313-71e3145d47c2.mp4) | fdcb1383-57df-440b-a313-71e3145d47c2 |
+
+Stitch the same way (download as `w1.mp4` … `w6.mp4`):
+
+```bash
+printf "file 'w%d.mp4'\n" 1 2 3 4 5 6 > wlist.txt
+ffmpeg -f concat -safe 0 -i wlist.txt \
+  -c:v libx264 -crf 18 -preset medium -c:a aac -b:a 192k \
+  major-orange-workout-vhs.mp4
+```
+
+## Higgsfield job IDs (version 1, vintage cartoon)
 
 | Scene | Job ID |
 |-------|--------|

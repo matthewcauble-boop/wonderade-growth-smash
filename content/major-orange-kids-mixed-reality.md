@@ -40,3 +40,22 @@ Or lay a single music track over the whole cut:
 Note: the "kids" in these clips are AI-generated people, not real minors —
 fine for concept/testing, but check your ad-platform policies on synthetic
 people before running this as paid creative.
+
+## Version 2 — candid retake (720p)
+
+Retake after feedback that v1 felt uncanny (fixed smiles, stiff character).
+Direction changes: kids written as candid documentary subjects — varied
+genuine expressions, imperfect timing, never posing at the camera — and
+Major Orange animated with springy squash-and-stretch, anticipation, and
+follow-through on his leaf and belt. Rendered at 720p to fit remaining
+credits; keepers can be upscaled with Higgsfield upscale_video. The stitch
+script now points at these v2 clips.
+
+| # | Scene | Length | Clip | Job ID |
+|---|-------|--------|------|--------|
+| 1 | Opening — bouncy leap, genuine surprise | 10s | [k1v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_231057_1d4e7213-970b-45e1-82ea-2012d40f0453.mp4) | 1d4e7213-970b-45e1-82ea-2012d40f0453 |
+| 2 | Side-lunge steps — kids out of sync, tongue-out focus | 10s | [k2v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230527_dc327177-8336-4002-b416-95d624e3bd0d.mp4) | dc327177-8336-4002-b416-95d624e3bd0d |
+| 3 | Tap-step footwork — counting, wobbling, proud glances | 10s | [k3v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230534_4a7e907c-28bd-4407-a33f-018961c78446.mp4) | 4a7e907c-28bd-4407-a33f-018961c78446 |
+| 4 | Hip twists — real-kid chaos, grass flop and recovery | 10s | [k4v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230542_c2177d5c-2c8d-42a7-bff6-fda101419cac.mp4) | c2177d5c-2c8d-42a7-bff6-fda101419cac |
+| 5 | Full routine — loose joyful chaos, push-in | 12s | [k5v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230549_badff489-e458-4e95-80c8-9b2595406bda.mp4) | badff489-e458-4e95-80c8-9b2595406bda |
+| 6 | Goodbye — kids flop on grass, wind-up high-five | 8s | [k6v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230556_30b02638-35dd-4959-b764-af6be1800f89.mp4) | 30b02638-35dd-4959-b764-af6be1800f89 |

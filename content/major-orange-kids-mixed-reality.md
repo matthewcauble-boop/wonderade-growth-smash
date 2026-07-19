@@ -59,3 +59,18 @@ script now points at these v2 clips.
 | 4 | Hip twists — real-kid chaos, grass flop and recovery | 10s | [k4v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230542_c2177d5c-2c8d-42a7-bff6-fda101419cac.mp4) | c2177d5c-2c8d-42a7-bff6-fda101419cac |
 | 5 | Full routine — loose joyful chaos, push-in | 12s | [k5v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230549_badff489-e458-4e95-80c8-9b2595406bda.mp4) | badff489-e458-4e95-80c8-9b2595406bda |
 | 6 | Goodbye — kids flop on grass, wind-up high-five | 8s | [k6v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_230556_30b02638-35dd-4959-b764-af6be1800f89.mp4) | 30b02638-35dd-4959-b764-af6be1800f89 |
+
+## Version 3 — natural facial animation (scenes 1, 4, 6)
+
+Retake after feedback that Major Orange's face was stuck on a permanent
+smile. His expressions now change with the action: curious eyebrows,
+focused concentration, puffed-cheek effort, encouraging nods, and a grin
+only at earned moments. Remaining credits covered the three most
+face-forward scenes; 2, 3, and 5 keep their v2 takes. The stitch script
+uses these v3 clips for scenes 1, 4, and 6.
+
+| # | Scene | Length | Clip | Job ID |
+|---|-------|--------|------|--------|
+| 1 | Opening — determined landing, raised-brow scan, one warm nod | 10s | [k1v3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_233119_93542b60-98f5-4e58-9249-eb57c92260da.mp4) | 93542b60-98f5-4e58-9249-eb57c92260da |
+| 4 | Hip twists — effort face, chuckle at the grass flop | 10s | [k4v3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_233126_4c2e3600-a6eb-4ce7-8af2-b387efcc9efb.mp4) | 4c2e3600-a6eb-4ce7-8af2-b387efcc9efb |
+| 6 | Goodbye — winded exhale, proud look, one genuine smile | 8s | [k6v3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_233136_88c14978-21be-4dcf-999c-14c66561eedf.mp4) | 88c14978-21be-4dcf-999c-14c66561eedf |

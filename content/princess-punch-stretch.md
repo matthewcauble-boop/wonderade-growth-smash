@@ -35,3 +35,29 @@ ffmpeg -f concat -safe 0 -i plist.txt \
 
 Each clip carries its own music; for one continuous soundtrack, mute the
 clips (`-an`) and lay a single track over the joined cut in any editor.
+
+## Version 2 — timeless / modern (16:9)
+
+Upgraded art direction after feedback that v1 read too young: same cel
+animation style, but a sophisticated muted palette (warm cream, terracotta,
+dusty rose, deep plum), a minimalist golden-hour studio (wooden floor, one
+large window, an olive tree), very subtle film grain, calm adult poise, and
+a warm lo-fi piano-and-synth score. Music only, no dialogue.
+
+| # | Scene | Length | Clip | Job ID |
+|---|-------|--------|------|--------|
+| 1 | Opening breath in window light | 10s | [t1](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_160620_82f13bbf-943f-4ab4-9db8-95a3b08d33a4.mp4) | 82f13bbf-943f-4ab4-9db8-95a3b08d33a4 |
+| 2 | Neck + shoulder release | 10s | [t2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_160624_36ec1a5a-66f7-4674-9995-127e17d443ee.mp4) | 36ec1a5a-66f7-4674-9995-127e17d443ee |
+| 3 | Standing side stretch | 10s | [t3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_160630_981fa8f1-b3e1-4988-b985-69b6d3e1d87b.mp4) | 981fa8f1-b3e1-4988-b985-69b6d3e1d87b |
+| 4 | Forward fold | 10s | [t4](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_160635_78f4c960-9645-4a66-a031-2e86637511c5.mp4) | 78f4c960-9645-4a66-a031-2e86637511c5 |
+| 5 | Seated side stretch in sunbeam | 10s | [t5](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_161151_40da507e-35b8-4b9c-88e4-092a435f42e9.mp4) | 40da507e-35b8-4b9c-88e4-092a435f42e9 |
+| 6 | Quiet ending + fade | 8s | [t6](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_160639_5b261338-cf5d-4342-a7b6-d38f4bac95c8.mp4) | 5b261338-cf5d-4342-a7b6-d38f4bac95c8 |
+
+Stitch (download as `t1.mp4` … `t6.mp4`):
+
+```bash
+printf "file 't%d.mp4'\n" 1 2 3 4 5 6 > tlist.txt
+ffmpeg -f concat -safe 0 -i tlist.txt \
+  -c:v libx264 -crf 18 -preset medium -c:a aac -b:a 192k \
+  princess-punch-stretch-timeless.mp4
+```

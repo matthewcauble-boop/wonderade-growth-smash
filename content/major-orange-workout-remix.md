@@ -20,6 +20,28 @@ Generated 2026-07-19 with Higgsfield (Seedance 2.0, 1080p, 16:9), using
 
 Total: ~60 seconds.
 
+## Vertical 9:16 versions (TikTok / Reels / Shorts)
+
+Each 16:9 scene was run through Higgsfield Reframe to a 1080p vertical canvas:
+
+| # | Scene | Vertical clip | Reframe job ID |
+|---|-------|---------------|----------------|
+| 1 | Opening | [v1](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140139_8f4bd6b9-b47d-46d5-8b68-c772dd979c3d.mp4) | 8f4bd6b9-b47d-46d5-8b68-c772dd979c3d |
+| 2 | Side-lunge steps | [v2](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140146_cc421ce0-8c4a-40ef-8b37-b27af8b53c8c.mp4) | cc421ce0-8c4a-40ef-8b37-b27af8b53c8c |
+| 3 | Ball-change | [v3](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140152_96e4d438-fd53-4def-ae1b-80f3d2219ea8.mp4) | 96e4d438-fd53-4def-ae1b-80f3d2219ea8 |
+| 4 | Hip twists + sofa audience | [v4](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140158_879ac645-510a-49a2-aba8-ef51de64667b.mp4) | 879ac645-510a-49a2-aba8-ef51de64667b |
+| 5 | Grand finale | [v5](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140205_88994107-8b27-4722-a0d3-5f82d98642f9.mp4) | 88994107-8b27-4722-a0d3-5f82d98642f9 |
+| 6 | Goodbye | [v6](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260719_140211_a97b6cf0-8349-486c-8c0d-03c727b2e2a0.mp4) | a97b6cf0-8349-486c-8c0d-03c727b2e2a0 |
+
+To build the vertical cut, download v1–v6 as `v1.mp4` … `v6.mp4` and run:
+
+```bash
+printf "file 'v%d.mp4'\n" 1 2 3 4 5 6 > vlist.txt
+ffmpeg -f concat -safe 0 -i vlist.txt \
+  -c:v libx264 -crf 18 -preset medium -c:a aac -b:a 192k \
+  major-orange-workout-remix-vertical.mp4
+```
+
 ## Stitching into one video
 
 The remote session's network policy blocks CDN downloads, so join the clips locally:

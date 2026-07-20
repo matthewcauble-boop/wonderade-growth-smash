@@ -21,6 +21,16 @@ Generated 2026-07-19 with Higgsfield (Seedance 2.0, 1080p, 16:9), using
 
 Total: ~60 seconds.
 
+## Bonus — one-piece 15s social cut (1080p)
+
+The montage compressed into a single generation with four prompt-described
+cuts and one continuous soundtrack — zero editing needed: belt tug at dawn →
+blur-speed jump rope → low-tracking city sprint → sunrise steps leap with
+fists raised.
+
+[One-piece cut](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260720_014214_70e8fd7f-7124-4eca-8c8b-60079ce93f13.mp4)
+— job 70e8fd7f-7124-4eca-8c8b-60079ce93f13
+
 ## Stitching
 
 One command (requires ffmpeg + curl); downloads the clips and blends the six

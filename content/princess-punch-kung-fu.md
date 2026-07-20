@@ -63,3 +63,18 @@ Or lay a single music track over the whole cut:
 ```
 
 The original 720p teaser clips (f1/f6 above) remain available for reference.
+
+## Bonus — one-piece 15s social cut
+
+A single 15-second generation describing the whole montage as a multi-cut
+sequence in one prompt: dawn stance → dummy speed forms → bamboo wall-kick →
+bell-ring finale, with one continuous soundtrack and zero editing needed.
+
+[One-piece cut](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260720_011510_191c1703-8652-4e8d-92e7-597bb4db2751.mp4)
+— job 191c1703-8652-4e8d-92e7-597bb4db2751
+
+Workflow note: Seedance's *native* multi-shot toggle is not exposed via the
+MCP integration (the fields are silently dropped) — but describing the shot
+list inside the prompt achieves the same continuous-music multi-cut result
+for clips up to the 15s generation cap. Use that pattern for social-length
+one-piece content; use the stitch scripts for longer cuts.

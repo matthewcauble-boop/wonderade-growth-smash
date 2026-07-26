@@ -31,6 +31,27 @@ fists raised.
 [One-piece cut](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260720_014214_70e8fd7f-7124-4eca-8c8b-60079ce93f13.mp4)
 — job 70e8fd7f-7124-4eca-8c8b-60079ce93f13
 
+## Anime-refined one-piece cuts (less "AI", 15s, 1080p)
+
+Refinement pass targeting three feedback notes: (1) fix the floaty AI camera
+with deliberate LOCKED angles and hard cuts between distinct compositions
+(low hero angle, Dutch tilt, side-profile track, ECU on the eyes); (2) fix
+the eerie smooth frame rate by asking for authentic anime cadence — LIMITED
+ANIMATION ON TWOS (~12fps), stepped motion with held key poses and smear /
+impact frames instead of smooth morphing; (3) lean hard into the anime
+SPEED-LINE / radial-blur rush backgrounds. Two variants to compare cadence:
+
+| Variant | Emphasis | Clip | Job ID |
+|---------|----------|------|--------|
+| A | ECU eyes → belt → speed-line sprint → Dutch impact → summit leap | [anime-A](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260726_145431_61a2a211-25a9-4a7d-8302-807f980ed99a.mp4) | 61a2a211-25a9-4a7d-8302-807f980ed99a |
+| B | gym silhouette → jump-rope ECU → side-profile speed-line jog → Dutch push-in → stairs summit | [anime-B](https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260726_150039_811862ab-eeac-40a8-83fe-4cde2be99a63.mp4) | 811862ab-eeac-40a8-83fe-4cde2be99a63 |
+
+Prompt levers that moved the needle: "animated on twos ~12fps", "held key
+poses, NOT smooth morphing", "hard cuts between locked committed angles, no
+drifting camera", "anime speed-line / radial-blur rush backgrounds", "smear
+frames and impact/emphasis-frame flashes". Combat verbs ("punch", "power up")
+still trip the content filter — frame action as effort/training instead.
+
 ## Stitching
 
 One command (requires ffmpeg + curl); downloads the clips and blends the six

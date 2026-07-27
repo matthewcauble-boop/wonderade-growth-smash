@@ -51,10 +51,17 @@ berry-kid, puppy, and per-shot poses.
 
 ## Production record (completed 2026-07-27)
 
-**FINAL CUT (31.0s, 1280x720):**
-https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/aff0d12b-d8c1-4bfe-b726-d777c446360f.mp4
-(media `aff0d12b-d8c1-4bfe-b726-d777c446360f`; QA analysis `df2b16f8` — all
-18 beats verified in order, opera arc correct, no drift.)
+**FINAL CUT v2 (31.0s, 1280x720):**
+https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/33750a91-ddef-49ae-a203-0928b1dd7300.mp4
+(media `33750a91-…`. v1 `aff0d12b-…` / QA `df2b16f8` verified all 18 beats,
+but the user caught shot 17's dunk MISSING the basket — machine QA
+described "slams through the net" for a rim-out. Retake `90c6382f` scripted
+the make explicitly ("does NOT hit the rim, does NOT bounce out"); its own
+QA `863e1154` confirmed the ball passing through the net. v2 splices the
+retake's t=2–3s (the slam beat) with the ORIGINAL take's audio, because the
+retake leaked an electronic music bed despite the music ban. Lesson: QA
+scene descriptions narrate intent, not outcome — for a make-or-miss beat,
+verify the result shot-specifically and script the outcome in the prompt.)
 
 All 18 shots animated as 5s Seedance 2.0 clips @720p (~23cr each) from the
 approved board frames (start-frame anchored, motion-only prompts, diegetic

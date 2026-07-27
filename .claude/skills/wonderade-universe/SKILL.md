@@ -104,6 +104,23 @@ off-model outfits). What works is the classic cel-animation workflow:
 These QA-passed composites are also the START FRAMES handed to video
 generation, anchoring scale and character in the animation itself.
 
+### Video prompts from start frames (validated by experiment — see references/research.md)
+
+- Pass the composite as `start_image` AND character refs as
+  `image_references`; bracket with an `end_image` composite when the final
+  pose matters.
+- Prompt = MOTION ONLY (how to travel from the frame), plus one compact
+  identity line per character ("green pants, brown belt, purple star boots —
+  no jersey, no sneakers") — outfits drift in motion without it.
+- Music: say "modern synthwave — NOT chiptune, NOT 8-bit" (the model
+  defaults cartoon sports to chiptune).
+- Add "no other plays, no extra cuts — one continuous action only" or the
+  model invents its own beats.
+- Announcer play-by-play WORKS: "energetic TV sports announcer calls the
+  play (off-screen commentator — the characters never speak)".
+- QA the first clip of any new scene family (media_import_url the mp4 →
+  video_analysis) before batch-producing.
+
 ## Asset registry (registered Higgsfield reference elements)
 
 Reference an element inside any generation prompt by embedding

@@ -118,8 +118,22 @@ generation, anchoring scale and character in the animation itself.
   model invents its own beats.
 - Announcer play-by-play WORKS: "energetic TV sports announcer calls the
   play (off-screen commentator — the characters never speak)".
+- **Ball-handling must name the hand**: any dribble shot says "RIGHT HAND
+  ONLY — the ball touches only his right hand, never both hands; the left
+  arm shields/balances". Without it the model animates two-handed patting
+  (user-caught defect, 2026-07-27).
 - QA the first clip of any new scene family (media_import_url the mp4 →
   video_analysis) before batch-producing.
+
+### Music beds (generate_audio CANNOT make music)
+
+The audio tool is speech-only and the music models are locked to the game
+pipeline. To manufacture a music bed: generate a dedicated Seedance clip on
+a STATIC locked master ("this clip exists for its MUSIC: …"), then extract
+the audio track at assembly. Two 15s segments (build + finale) crossfaded
+with `acrossfade=d=2` cover ~28s. Proven for the operatic soprano bed of
+the Frozen-Moment remake. Keep all story clips music-free ("NO music of any
+kind") so the bed lays under them cleanly at mix time.
 
 ## Asset registry (registered Higgsfield reference elements)
 
@@ -194,7 +208,10 @@ every Wonderade animated video uses:
 - **nano banana media role** must be `image` (NOT `image_references`).
 - **Content filter:** combat verbs ("punch", "power up", strike-by-strike
   wording) trigger false-positive NSFW rejections — frame all action as
-  sport/training/effort. Flagged jobs don't bill.
+  sport/training/effort. Also flagged: "CLIMAX" in a music description (use
+  "finale"/"peak intensity"). Flagged jobs don't bill.
+- **Concurrency cap:** ~8 seedance jobs in flight per account; more returns
+  429 rate_limit_reached. Fire batches in waves of ≤6 and wait ~5 min.
 - **Preset interception:** pass `declined_preset_id` preemptively — known
   interceptors: "IN THE DARK" `24bae836-2c4a-48e0-89b6-49fcc0b21612`,
   "KUNG FU HIT" `5bbf4a3f-e252-4c3b-84f4-29ce3fb88188`.

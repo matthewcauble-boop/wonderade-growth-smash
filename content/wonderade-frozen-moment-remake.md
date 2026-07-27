@@ -48,3 +48,38 @@ Existing: fruit-arena-v2 master + all five ballplayers + Princess Punch +
 Major Orange carton element (`f1ed3aa1-…`). New builds required: dark-grade
 arena master, 5 watcher-vignette environments, elderly-raisin characters,
 berry-kid, puppy, and per-shot poses.
+
+## Production record (completed 2026-07-27)
+
+**FINAL CUT (31.0s, 1280x720):**
+https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/aff0d12b-d8c1-4bfe-b726-d777c446360f.mp4
+(media `aff0d12b-d8c1-4bfe-b726-d777c446360f`; QA analysis `df2b16f8` — all
+18 beats verified in order, opera arc correct, no drift.)
+
+All 18 shots animated as 5s Seedance 2.0 clips @720p (~23cr each) from the
+approved board frames (start-frame anchored, motion-only prompts, diegetic
+audio only, `NO music` so the bed mixes cleanly). Shot job IDs:
+
+| # | video job | # | video job |
+|---|---|---|---|
+| 1 | `d1a5e7a2` | 10 | `9b59a522` |
+| 2 | `d46aac2f` | 11 | `3ae6b6fe` |
+| 3 | `86e3898a` | 12 | `444216ae` |
+| 4 | `9ad0111d` | 13 | `d1323d05` |
+| 5 | `0fc3e170` | 14 | `e2cb9324` |
+| 6 | `6d8a95f1` | 15 | `f0251366` |
+| 7 | `55d8f792` | 16 | `44601c98` |
+| 8 | `c88bd13b` (pilot v3, one-hand dribble fix) | 17 | `6aafc518` |
+| 9 | `632cdbc3` (pilot B) | 18 | `84f7f101` (generate_audio false — silent) |
+
+**Opera bed:** `generate_audio` is speech-only, so the aria was produced as
+two 15s Seedance clips on the static dark-arena master, audio extracted at
+assembly: build `e3604f9a` + finale `51338fb0` (first finale attempt
+`b009d2f3` was NSFW-flagged for the word "CLIMAX" — reworded to "FINALE").
+
+**Assembly (Higgsfield sandbox, single ffmpeg pass):** each clip trimmed
+from t=0 to its script length (1/2/3s), 18-way video concat with
+fade-to-black into the carton card; audio = 17-clip diegetic concat at 0.7
++ opera bed (`acrossfade d=2`, delayed 1s, fade-in 1.5s, fade-out 27–29s)
+mixed on top; ends in true silence. Total spend ≈ 500cr incl. the bed and
+one pilot retake.

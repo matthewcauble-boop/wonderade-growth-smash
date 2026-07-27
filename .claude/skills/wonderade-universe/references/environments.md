@@ -43,6 +43,17 @@ lawn, etc. do NOT exist as elements yet.)
 - **Dawn city / gym** — Rocky-montage set: charcoal/slate blue, hot orange
   accents, golden dawn.
 
+## Game-action shooting style (user direction, 2026-07-27)
+
+Shoot basketball action FROM INSIDE THE GAME, like real broadcast sideline
+cameras: court-level, characters filling most of the frame height,
+background = glossy floor + spotlight pool + dark crowd bokeh ONLY. Never
+show the full court, the far hoop, or the arena vista behind action shots —
+wide full-court framings were explicitly rejected ("don't like the wide
+shots"). Use the court-level backdrop master (job
+`52c2129f-04b1-4a6a-a8e7-0dcce993fa9d`, dark night-game grade) as the
+background reference for dark-mood game shots.
+
 ## World rules (apply everywhere)
 
 - Limb rule: heroes/players = fruit WITH arms and legs; crowds = round

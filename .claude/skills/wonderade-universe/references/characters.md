@@ -21,7 +21,7 @@ limb rule) — the element carries the look, the text guards against drift.
 
 ## Princess Punch (mascot #2)
 
-- **WEBSITE design (primary canon):** pink unicorn; magenta braided mane and
+- **CANON — the WEBSITE design (user decision, 2026-07-27):** pink unicorn; magenta braided mane and
   tail; small striped horn; yellow jumpsuit with belt; purple boots + purple
   gloves with yellow stars. Pinks `#F499C1`/`#E56CA9`, purple `#7F489C`,
   navy outlines `#374191`.
@@ -33,16 +33,20 @@ limb rule) — the element carries the look, the text guards against drift.
 - **Model sheet (job `dd6dac24-265e-4238-8aaa-0c0b140a92d0`):**
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011635_dd6dac24-265e-4238-8aaa-0c0b140a92d0.png
 
-### ⚠ Design conflict — website vs. carton
+### Design conflict — RESOLVED (2026-07-27)
 
 A second, DIFFERENT Princess Punch design exists from the May 2026 carton
 work: `princess-punch-v2` (`a5832d4a-1645-42f7-a56b-c289798a429e`) — white/
 pink chibi unicorn, gold horn, yellow crop-top + shorts, purple boxing
 gloves. This matches the printed carton art, not the website PNG.
 
-**Status: UNRESOLVED — ask the user which design is canon before putting
-Princess Punch in any new hero content.** Never mix the two designs in one
-piece. Record the decision here once made.
+**User decision: the WEBSITE design is canon.** Use element `princess-punch`
+(`9e52b08b-…`) for Princess Punch as a character in all content. Do NOT use
+`princess-punch-v2` to render her — it is retired for character use. (The
+carton design still appears in-world only as printed artwork on the product
+carton props, which is fine — a package illustration differing from the
+"real" character is normal cartoon logic.) Never mix the two designs as
+walking characters in one piece.
 
 ## Pip (star mascot)
 

@@ -59,7 +59,7 @@ server-side (manage with `show_reference_elements`).
 | Element | ID | Notes |
 |---|---|---|
 | `major-orange` | `64cc873a-ca24-4ff4-810b-d4bb12e483db` | Muscular orange, green pants, brown belt/gold buckle, purple star boots |
-| `princess-punch` | `9e52b08b-35cf-4213-924f-0e98aaadb3e8` | Pink unicorn, yellow jumpsuit, purple star gloves/boots (WEBSITE design) |
+| `princess-punch` | `9e52b08b-35cf-4213-924f-0e98aaadb3e8` | Pink unicorn, yellow jumpsuit, purple star gloves/boots — CANON design |
 | `pip-star` | `a6e36c5a-5bf4-42a9-8b85-94721210a76c` | Yellow star, simple face, NO arms, NO legs — never draw limbs on Pip |
 
 ### Pre-existing elements (May 2026 set — cartons, kids, props)
@@ -68,7 +68,7 @@ server-side (manage with `show_reference_elements`).
 |---|---|---|
 | `wonderade-major-orange-carton` | `f1ed3aa1-53f8-4afc-a62c-47cfbf527f49` | Product carton PROP — "use exactly as shown" |
 | `wonderade-princess-punch-carton` | `b305d54a-f8df-4427-9b1f-e917fcfb78ef` | Product carton PROP |
-| `princess-punch-v2` | `a5832d4a-1645-42f7-a56b-c289798a429e` | ⚠ CARTON design (white/pink chibi, crop-top, boxing gloves) — CONFLICTS with website design; see characters.md before using |
+| `princess-punch-v2` | `a5832d4a-1645-42f7-a56b-c289798a429e` | CARTON design — RETIRED for character use (user decision 2026-07-27); carton props only. See characters.md |
 | `cartoon-boy` | `db009952-c0ac-40c9-842a-3acf91d86544` | Recurring kid character |
 | `cartoon-girl-v2` | `6ab17d2c-df2f-45fd-8504-a77da5d59d75` | Recurring kid character |
 | `wonderade-cooler-prop` | `85207a94-39c6-461f-97ae-fa69d9ae5230` | Cooler prop |

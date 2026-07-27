@@ -51,6 +51,31 @@ berry-kid, puppy, and per-shot poses.
 
 ## Production record (completed 2026-07-27)
 
+**★ FINAL DELIVERABLES (v5 picture lock, no announcer, no horn):**
+- 16:9 (26.4s, 1280x720):
+  https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/ec6c459e-2a8c-4e93-8e35-0cba0dd1cfeb.mp4
+- 9:16 TikTok (26.1s, 720x1280, AI content-aware reframe `c5a8dc1a`+`c74ec5b2`
+  stitched, original audio re-laid):
+  https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/bc4d78f9-bc79-4025-bbf1-903fab678d6e.mp4
+
+### Revision history (all user-directed, same picture assets re-cut)
+
+- **v3** re-pace 31s→26.4s: every shot trimmed to its liveliest window
+  (cut in mid-motion, never at the static first frame); S1 re-shot as a
+  one-hand DRIVE past the grape (`e7c43f3e`) after a two-hand dribble read.
+- **v4** S8 re-shot as crossover-AND-drive-past-the-lime (`458fc23e`) —
+  "dribbling in place" reads flat; drives read exciting.
+- **v5** S17 re-shot from the SIDE (new board `9f2ca32a` → clip `c556312f`,
+  QA `99ef4be8` confirmed the make; original take's music-free audio kept).
+- **v6–v9 (audio experiments, superseded)**: radio announcer VO (seed_audio
+  then qwen_audio_tts w/ style instruction), broadcast chain (300–3400Hz +
+  6:1 comp + limiter), courtside crowd bed inside the VO channel, sox-synth
+  arena horn. User verdict: drop announcer + horn entirely → v5 audio is
+  final. Lessons: TTS announcer reads uncanny against this opera treatment;
+  Seedance ALWAYS leaks a music bed into dunk clips (splice proven clean
+  audio instead); crowd-in-mic + shared compressor is the right courtside
+  recipe if VO ever returns.
+
 **FINAL CUT v2 (31.0s, 1280x720):**
 https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/33750a91-ddef-49ae-a203-0928b1dd7300.mp4
 (media `33750a91-…`. v1 `aff0d12b-…` / QA `df2b16f8` verified all 18 beats,

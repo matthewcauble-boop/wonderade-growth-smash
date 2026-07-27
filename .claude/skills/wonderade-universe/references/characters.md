@@ -61,6 +61,22 @@ walking characters in one piece.
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011637_cc2b9a44-a87c-4ef5-856f-48bfb1e6bf28.png
   — turnaround incl. squash-and-stretch bounce pose + 5 expressions.
 
+## Basketball-story cast (registered 2026-07-27, user-approved sheets)
+
+| Element | ID | Role |
+|---|---|---|
+| `wonderade-teammates` | `28192230-440d-482c-9734-11ef68084ff7` | Home team: STRAWBERRY (flat red, leaf-cap hair) + tall lanky BANANA (flat yellow, stem tip), navy jerseys w/ orange trim, both with limbs |
+| `rival-fruit-team` | `aaf3c457-28b6-4cf5-8dad-1682bbfa0559` | Rivals in dark-green/purple jerseys: TALL smug PINEAPPLE captain, lean cocky LIME, burly purple GRAPE |
+| `berry-crowd` | `cebcc241-c4e8-409b-b66f-8175e42a9644` | Limbless round berry spectators (blueberries, raspberries, cherries, blackberry, tiny strawberry) — bounce/tilt only |
+| `lemon-referee` | `d3fdcb6d-08d4-4fcd-bf73-d270a98cde70` | Lemon ref: striped shirt, whistle, comedic no-nonsense face |
+
+Design notes: the teammates sheet went through two retakes — texture detail
+(strawberry seeds, kiwi fuzz) caused style drift, so all fruit bodies are
+SMOOTH AND FLAT with no texture; the kiwi was replaced by a banana at the
+user's request. When drawing any new fruit character, pass Major Orange's
+model sheet as an image reference AND write "same character designer, same
+studio" language into the prompt — that's what fixed the drift.
+
 ## Supporting cast & props (May 2026 elements)
 
 | Element | ID | Role |

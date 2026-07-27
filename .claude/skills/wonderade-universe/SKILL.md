@@ -62,6 +62,16 @@ server-side (manage with `show_reference_elements`).
 | `princess-punch` | `9e52b08b-35cf-4213-924f-0e98aaadb3e8` | Pink unicorn, yellow jumpsuit, purple star gloves/boots — CANON design |
 | `pip-star` | `a6e36c5a-5bf4-42a9-8b85-94721210a76c` | Yellow star, simple face, NO arms, NO legs — never draw limbs on Pip |
 
+### Basketball-story cast + arena (July 2026 — user-approved)
+
+| Element | ID | Notes |
+|---|---|---|
+| `wonderade-teammates` | `28192230-440d-482c-9734-11ef68084ff7` | Strawberry + banana, navy jerseys, with limbs |
+| `rival-fruit-team` | `aaf3c457-28b6-4cf5-8dad-1682bbfa0559` | Pineapple captain + lime + grape, green/purple jerseys |
+| `berry-crowd` | `cebcc241-c4e8-409b-b66f-8175e42a9644` | Limbless berry spectators — bounce/tilt only |
+| `lemon-referee` | `d3fdcb6d-08d4-4fcd-bf73-d270a98cde70` | Lemon ref, striped shirt, whistle |
+| `fruit-arena` | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | LOCKED arena environment (see environments.md) |
+
 ### Pre-existing elements (May 2026 set — cartons, kids, props)
 
 | Element | ID | Notes |

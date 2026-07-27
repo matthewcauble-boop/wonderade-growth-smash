@@ -24,16 +24,14 @@ approved, and registered as a reference element before animation.**
 
 | Element | ID | Notes |
 |---|---|---|
+| `fruit-arena` | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | LOCKED basketball arena (2026-07-27, user-approved): honey-wood court, navy+orange markings, orange-slice center logo, transparent backboards w/ orange rims, berry-packed tiered stands, hanging scoreboard cube w/ orange numerals + clock, navy rafter banners, warm golden spotlights |
 | `wonderade-beach-family` | `74220ba5-b89a-430f-a664-92dfb9f1eaa0` | Beach scene w/ family (May 2026) |
 
-(Add rows as new locations get locked — the basketball arena, the bamboo
-courtyard, the park lawn, etc. do NOT exist as elements yet.)
+(Add rows as new locations get locked — the bamboo courtyard, the park
+lawn, etc. do NOT exist as elements yet.)
 
 ## Known recurring locations (from produced content — not yet locked)
 
-- **Fruit-world basketball arena** — golden light, limbless-berry crowd in
-  the stands, diegetic scoreboard + game clock. Needed for any redo of the
-  3-act buzzer-beater story.
 - **Misty bamboo courtyard** — Princess Punch kung-fu set: ink blacks, jade
   mist, lantern gold, wooden training dummy.
 - **Sunny park lawn** — mixed-reality workout set (live-action look).

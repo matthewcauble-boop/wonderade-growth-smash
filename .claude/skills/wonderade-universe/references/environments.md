@@ -24,8 +24,13 @@ approved, and registered as a reference element before animation.**
 
 | Element | ID | Notes |
 |---|---|---|
-| `fruit-arena` | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | LOCKED basketball arena (2026-07-27, user-approved): honey-wood court, navy+orange markings, orange-slice center logo, transparent backboards w/ orange rims, berry-packed tiered stands, hanging scoreboard cube w/ orange numerals + clock, navy rafter banners, warm golden spotlights |
+| `fruit-arena-v2` | `cad64a70-fad6-45dd-8383-0a1ae414454a` | **USE THIS** — QA-passed EMPTY arena master, single broadcast perspective. Honey-wood court, navy+orange markings, orange-slice center logo, hoops w/ transparent backboards, berry stands, scoreboard cube w/ NUMERALS ONLY, navy banners, golden spotlights |
+| `fruit-arena` (v1) | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | ⚠ DEPRECATED — built from a multi-panel model SHEET; feeding a multi-view sheet as an environment reference makes generations blend perspectives into impossible geometry. Kept only as a design record |
 | `wonderade-beach-family` | `74220ba5-b89a-430f-a664-92dfb9f1eaa0` | Beach scene w/ family (May 2026) |
+
+**Environment reference rule (learned the hard way): an environment element's
+media must be ONE single-perspective establishing shot, never a multi-panel
+sheet.** Character elements tolerate sheets; environments do not.
 
 (Add rows as new locations get locked — the bamboo courtyard, the park
 lawn, etc. do NOT exist as elements yet.)

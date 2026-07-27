@@ -48,6 +48,32 @@ Never skip straight to video for a new character, new location, or new
 composition. Re-use of an already-locked scene family may go straight to
 animate.
 
+### Machine self-QA (run BEFORE showing stills to the user)
+
+The agent sandbox cannot download generated images, so run QA server-side —
+this loop caught giant characters, off-model boots, stray scoreboard text,
+and impossible court geometry that would otherwise reach the user:
+
+1. `media_upload` (filename `qa-*.mp4`) → get presigned PUT URL.
+2. `sandbox_exec`: curl each frame PNG → ffmpeg slideshow (3s per frame,
+   `scale=1280:720`, concat) → curl PUT to the presigned URL.
+3. `media_confirm` (type video) → `video_analysis_create(video_input_id)` →
+   poll `video_analysis_status` (~1-3 min). The scene-by-scene descriptions
+   are the QA report.
+4. Check each scene description against: exact outfit/canon details, limb
+   counts, ONE ball, character size vs. hoop/arena, no unwanted text, no
+   extra characters, coherent geometry. Retake failing frames; re-run QA.
+
+### Composition rules that prevent "nonsense" frames
+
+- **Max two characters per frame, never touching** — physical contact and
+  crowded frames are where models mangle bodies. Stage results of contact
+  (defender already down) instead of the contact itself.
+- **Always include a scale anchor** (the hoop, a bench) and state the ratio
+  ("rim ~2.5x character height"); without one, characters render as giants.
+- Say "exactly two arms and two legs" and "one single basketball".
+- Ban text explicitly every time; allow only scoreboard digits.
+
 ## Asset registry (registered Higgsfield reference elements)
 
 Reference an element inside any generation prompt by embedding
@@ -70,7 +96,7 @@ server-side (manage with `show_reference_elements`).
 | `rival-fruit-team` | `aaf3c457-28b6-4cf5-8dad-1682bbfa0559` | Pineapple captain + lime + grape, green/purple jerseys |
 | `berry-crowd` | `cebcc241-c4e8-409b-b66f-8175e42a9644` | Limbless berry spectators — bounce/tilt only |
 | `lemon-referee` | `d3fdcb6d-08d4-4fcd-bf73-d270a98cde70` | Lemon ref, striped shirt, whistle |
-| `fruit-arena` | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | LOCKED arena environment (see environments.md) |
+| `fruit-arena-v2` | `cad64a70-fad6-45dd-8383-0a1ae414454a` | LOCKED arena environment — USE v2; v1 (`036e9007-…`) is deprecated (see environments.md) |
 
 ### Pre-existing elements (May 2026 set — cartons, kids, props)
 

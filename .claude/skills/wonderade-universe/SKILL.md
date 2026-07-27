@@ -74,6 +74,36 @@ and impossible court geometry that would otherwise reach the user:
 - Say "exactly two arms and two legs" and "one single basketball".
 - Ban text explicitly every time; allow only scoreboard digits.
 
+### The CEL-COMPOSITE pipeline (the proven scale fix — user-approved 2026-07-27)
+
+Prompt-only staging failed scale repeatedly (characters render as giants),
+and editing characters INTO a scene mangles them (hallucinated extras,
+off-model outfits). What works is the classic cel-animation workflow:
+
+1. **Character pose renders, SOLO**: each character alone on plain white,
+   1:1, full body, element ref + restated canon outfit. Solo renders stay
+   on-model almost every time.
+2. **Cutout** in sandbox_exec (ImageMagick corner floodfill keeps interior
+   whites):
+   `convert pose.png -fuzz 6% -fill none -draw 'matte 0,0 floodfill' [all 4
+   corners] -trim +repage -resize x<HEIGHT_PX> cut.png`
+3. **Composite** onto the single-perspective environment master at
+   pixel-exact sizes: `convert arena.png -fill 'rgba(20,20,60,0.22)' -draw
+   'ellipse <shadow>' cut.png -geometry +X+Y -composite out.png`.
+   Calibration for fruit-arena-v2 (2752x1536): foreground character ~280px
+   tall with feet ~y1260; character a few steps deeper ~190px, feet ~y1195;
+   soft ellipse shadow under each.
+4. **Close-ups are CROPS** of the wide composite (`-crop WxH+X+Y` then
+   upscale) — a "broadcast zoom" that physically cannot drift scale or
+   model. Never re-stage a close-up as a fresh generation.
+5. **Publish** composites via media_upload presigned PUT + media_confirm,
+   then run the machine self-QA loop before showing the user.
+6. Size/position wrong? Re-composite with new numbers — free, seconds, no
+   regeneration.
+
+These QA-passed composites are also the START FRAMES handed to video
+generation, anchoring scale and character in the animation itself.
+
 ## Asset registry (registered Higgsfield reference elements)
 
 Reference an element inside any generation prompt by embedding

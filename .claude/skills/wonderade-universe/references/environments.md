@@ -27,6 +27,7 @@ approved, and registered as a reference element before animation.**
 | `fruit-arena-v2` | `cad64a70-fad6-45dd-8383-0a1ae414454a` | **USE THIS** — QA-passed EMPTY arena master, single broadcast perspective. Honey-wood court, navy+orange markings, orange-slice center logo, hoops w/ transparent backboards, berry stands, scoreboard cube w/ NUMERALS ONLY, navy banners, golden spotlights |
 | `fruit-arena` (v1) | `036e9007-5bcf-4e04-a4f1-1964fcd51d70` | ⚠ DEPRECATED — built from a multi-panel model SHEET; feeding a multi-view sheet as an environment reference makes generations blend perspectives into impossible geometry. Kept only as a design record |
 | `wonderade-beach-family` | `74220ba5-b89a-430f-a664-92dfb9f1eaa0` | Beach scene w/ family (May 2026) |
+| `bamboo-courtyard` | `9524b906-b80f-4474-885a-d4c764a4763c` | Misty bamboo courtyard at dawn (PP kung-fu set) — stone floor, jade bamboo, gold lanterns, shrine step, wooden dummy frame-right. Master job `9594f6bf` |
 
 **Environment reference rule (learned the hard way): an environment element's
 media must be ONE single-perspective establishing shot, never a multi-panel
@@ -37,8 +38,6 @@ lawn, etc. do NOT exist as elements yet.)
 
 ## Known recurring locations (from produced content — not yet locked)
 
-- **Misty bamboo courtyard** — Princess Punch kung-fu set: ink blacks, jade
-  mist, lantern gold, wooden training dummy.
 - **Sunny park lawn** — mixed-reality workout set (live-action look).
 - **Dawn city / gym** — Rocky-montage set: charcoal/slate blue, hot orange
   accents, golden dawn.

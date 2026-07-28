@@ -112,3 +112,8 @@ Both passed generation with the registered elements:
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011917_b71678b7-180e-45e6-98db-a45f53873847.png
 - Three-mascot beach group (job `79e39d7e-bae1-4484-b691-090706d664d5`):
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011920_79e39d7e-bae1-4484-b691-090706d664d5.png
+
+## Pip performance note (user canon, 2026-07-28)
+
+Pip is a ZEN TEACHER: serene half-closed eyes, tiny knowing smile, calm
+sensei energy. Never scared, worried, or anxious. (And as always: NO limbs.)

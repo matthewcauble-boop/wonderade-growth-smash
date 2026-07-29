@@ -10,9 +10,11 @@ User picked the premise and approved the script 2026-07-29.
 Sequel to [The Master](./wonderade-the-master.md); reuses the locked
 bamboo-courtyard environment and the zen-teacher Pip canon established there.
 
-## ★ FINAL DELIVERABLE (30.0s, 1280x720, 16:9)
+## ★ FINAL DELIVERABLE (v5, 30.0s, 1280x720, 16:9)
 
-https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/3bf7d237-fc04-4603-bdad-05c54fb68fa7.mp4
+https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/35ad5a15-465e-473e-b59e-5319defba3ed.mp4
+
+(v3 `3bf7d237-…` was superseded — see "Major Orange is always confident" below.)
 
 ## Approved shot script
 
@@ -20,11 +22,11 @@ https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/3bf7d237-
 |---|-----|------|------|
 | 1 | 2.0 | Wide: PP calm and centered, MO stretching way too eagerly | setup |
 | 2 | 2.5 | PP balances one-legged atop a bamboo pole, petals drifting | grace |
-| 3 | 3.0 | MO's pole bends double and flings him out of frame | crash 1 |
+| 3 | 3.0 | MO's pole bends double and flings him out of frame, whooping | crash 1 |
 | 4 | 2.0 | CU Pip, serene; MO arcs across the sky behind him | deadpan |
 | 5 | 2.5 | PP flows through silk-smooth tai chi | grace |
 | 6 | 3.0 | MO copies it at 10x and blasts the dummy into straw | crash 2 |
-| 7 | 2.0 | MO beside the wreckage, holding one splinter, apologetic | reaction |
+| 7 | 2.0 | MO beside the wreckage, fists on hips, proud of himself | reaction |
 | 8 | 2.5 | PP waters a bonsai — one perfect drop | grace |
 | 9 | 3.0 | MO "helps" with a barrel and floods the courtyard | crash 3 |
 | 10 | 2.0 | CU Pip, water at the pedestal top, entirely unbothered | deadpan |
@@ -62,17 +64,37 @@ Six frames needed retakes before the board passed (QA analyses `7472131d` →
   is a flexing pose and any prompt near his arms collapses into it. Solved by
   changing the STAGING rather than the face: medium-wide, full body, wreckage
   pile on the floor, one tiny splinter pinched between two fingertips.
+  (Superseded at v5 — the user cut the sheepish beat entirely. Worth keeping
+  as the record of *why* the model resisted: it was defending canon.)
 
 ### Animation (12 × 5s Seedance 2.0 @720p, start-frame anchored)
 
 | # | video job | # | video job |
 |---|---|---|---|
-| 1 | `a2193e0a` | 7 | `72036f29` |
+| 1 | `a2193e0a` | 7 | `fd10ba84` |
 | 2 | `7444ca1d` | 8 | `a4d2c922` |
-| 3 | `6cf7ff91` | 9 | `7fa81475` |
+| 3 | `ce0d03d0` | 9 | `e31ef8b6` |
 | 4 | `c49c94b4` | 10 | `711cec5b` |
 | 5 | `940ffd70` | 11 | `f21ab3a6` |
 | 6 | `19ec6c99` | 12 | `e8103a78` (silent) |
+
+### Major Orange is ALWAYS confident (user note, v3 → v5)
+
+The user rejected the v3 cut: *"he should be smiling and confident at all
+times not scared looking."* This retired the entire sheepish-reaction design
+— including the shot-7 beat that had taken four board attempts to get
+"embarrassed" right. Three shots were reboarded and re-animated:
+
+| # | was | now |
+|---|-----|-----|
+| 3 | panicked grin, shocked eyes on the launch | whooping with joy, "like a kid on a rollercoaster" (board `72c56741` → clip `ce0d03d0`) |
+| 7 | slumped, apologetic, holding a splinter | fists on hips, chest out, proud of the wreckage (board `0975f542` → clip `fd10ba84`) |
+| 9 | sheepish "oops" grin while flooding | laughing, handling the barrel effortlessly (board `5db2748f` → clip `e31ef8b6`) |
+
+The spot is funnier for it: the gag is now the gap between his enthusiasm and
+the damage, never him feeling bad about it. Canon recorded in
+`characters.md` — he is never sad, scared, worried, or apologetic.
+Verified by `video_analysis` `3142ee9c`.
 
 Pip reads as a stone statue in still frames, so S4 and S10 explicitly animate
 him alive — a gentle squash-and-stretch bob plus one slow deliberate blink.

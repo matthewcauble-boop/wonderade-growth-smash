@@ -113,6 +113,15 @@ Both passed generation with the registered elements:
 - Three-mascot beach group (job `79e39d7e-bae1-4484-b691-090706d664d5`):
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011920_79e39d7e-bae1-4484-b691-090706d664d5.png
 
+## Major Orange is ALWAYS confident (user canon, 2026-07-29)
+
+**He smiles and is confident at all times.** Never sad, scared, worried,
+embarrassed, apologetic, or straining. The user rejected a "sheepish oops"
+reaction beat outright: when he wrecks something, he is PROUD of it — that's
+the joke. Comedy comes from the gap between his enthusiasm and the damage,
+never from him feeling bad about it. Write every beat as delighted,
+chest-out, beaming.
+
 ## Major Orange keeps collapsing into a bicep flex (2026-07-29)
 
 His canonical PNG is a flexing pose, so any prompt that mentions his arms

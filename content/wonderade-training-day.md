@@ -14,6 +14,9 @@ bamboo-courtyard environment and the zen-teacher Pip canon established there.
 
 https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/76b1837c-1534-439d-b816-ad4f3ae307b8.mp4
 
+**9:16 TikTok cut** (30.1s, 720x1280):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/7f0bfbf3-7099-4b64-94c3-1393577d203b.mp4
+
 (v3 `3bf7d237-…` and v5 `35ad5a15-…` superseded — see the two revision
 sections below.)
 
@@ -150,4 +153,15 @@ ramp up from their still start frame, so every cut lands 0.3–1.0s in),
 above. Verified by `video_analysis` `96a1fe0a` — all 12 beats in order, one
 continuous flute bed, effects punctuating.
 
-Total spend ≈ 480 credits including 6 board retakes and one discarded bed.
+### 9:16 reframe
+
+AI content-aware reframe of the v6 master, 145cr. A 30s source exceeds the
+15s limit so it returns TWO segment jobs sharing one `batch_id`
+(`f3cfa11a`): `d499811b` (0–15s) + `72219a33` (15–30s). They come back
+silent and must be concat'd (`-c copy`) and then have the original audio
+re-laid over the top (`-map 0:v -map 1:a -shortest`). Verified by
+`video_analysis` `58595e44` — all beats present and effects still in sync.
+
+Total spend ≈ 700 credits: 480 for the original build (6 board retakes plus
+one discarded bed), ~75 for the confidence and eye revisions, 145 for the
+reframe.

@@ -135,6 +135,18 @@ with `acrossfade=d=2` cover ~28s. Proven for the operatic soprano bed of
 the Frozen-Moment remake. Keep all story clips music-free ("NO music of any
 kind") so the bed lays under them cleanly at mix time.
 
+Two segments can drift into different genres (Training Day's "resolve"
+segment came back electronic against a flute build). If they don't match,
+`asplit` ONE good segment and `acrossfade` it with itself — a slight repeat
+is far less noticeable than a genre change mid-spot.
+
+**The music ban is not reliable.** Clips leak their own score anyway. Do not
+try to balance a leaked track under a bed — QA will report a different score
+per scene. Instead keep clip audio ONLY on beats where a loud effect masks
+the leak (impacts, splashes, crashes) and replace every other clip's track
+with `anullsrc=r=48000:cl=stereo:d=<len>` silence, letting the bed carry the
+rest. Fade kept segments 0.12s at both ends so splices don't click.
+
 ## Asset registry (registered Higgsfield reference elements)
 
 Reference an element inside any generation prompt by embedding

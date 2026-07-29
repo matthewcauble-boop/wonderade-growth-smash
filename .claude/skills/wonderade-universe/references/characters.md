@@ -113,6 +113,17 @@ Both passed generation with the registered elements:
 - Three-mascot beach group (job `79e39d7e-bae1-4484-b691-090706d664d5`):
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011920_79e39d7e-bae1-4484-b691-090706d664d5.png
 
+## Major Orange keeps collapsing into a bicep flex (2026-07-29)
+
+His canonical PNG is a flexing pose, so any prompt that mentions his arms
+pulls the render back to a proud flex — a non-flex emotional beat took four
+attempts on Training Day, coming back variously smug, teary, or straining.
+Negative phrasing ("NOT flexing") is not enough on its own. What works is
+carrying the emotion in STAGING instead of the face: put his arms DOWN with
+open empty hands, hunch the shoulders, and say what he is looking AT (the
+wreckage, a dropped object). Wide/medium framing beats a close-up, because a
+close-up gives the model nothing but the face to work with.
+
 ## Pip performance note (user canon, 2026-07-28)
 
 Pip is a ZEN TEACHER: serene half-closed eyes, tiny knowing smile, calm

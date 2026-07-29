@@ -122,6 +122,20 @@ the joke. Comedy comes from the gap between his enthusiasm and the damage,
 never from him feeling bad about it. Write every beat as delighted,
 chest-out, beaming.
 
+## Eyes: half-lidded reads as STONED (2026-07-29)
+
+On calm, contented or satisfied beats the model relaxes both characters'
+eyelids to half-mast, and on a smiling face that reads as high, not peaceful
+— the user rejected a closing toast for exactly this. Specify eyes
+positively AND ban the droop, in the video prompt as well as the board (the
+animation will re-close eyes a board had open): "large fully-open round eyes,
+big dark pupils, two crisp white highlight glints each, eyebrows raised —
+eyelids never lower, never half-close, never droop; NO blinking, NO closed
+eyes at any point."
+
+Exceptions where eyes SHOULD be closed/half-closed: Pip's serene zen face
+(canon), and Princess Punch during meditation or tai chi.
+
 ## Major Orange keeps collapsing into a bicep flex (2026-07-29)
 
 His canonical PNG is a flexing pose, so any prompt that mentions his arms

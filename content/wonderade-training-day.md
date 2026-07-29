@@ -10,11 +10,12 @@ User picked the premise and approved the script 2026-07-29.
 Sequel to [The Master](./wonderade-the-master.md); reuses the locked
 bamboo-courtyard environment and the zen-teacher Pip canon established there.
 
-## ★ FINAL DELIVERABLE (v5, 30.0s, 1280x720, 16:9)
+## ★ FINAL DELIVERABLE (v6, 30.0s, 1280x720, 16:9)
 
-https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/35ad5a15-465e-473e-b59e-5319defba3ed.mp4
+https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/76b1837c-1534-439d-b816-ad4f3ae307b8.mp4
 
-(v3 `3bf7d237-…` was superseded — see "Major Orange is always confident" below.)
+(v3 `3bf7d237-…` and v5 `35ad5a15-…` superseded — see the two revision
+sections below.)
 
 ## Approved shot script
 
@@ -75,7 +76,7 @@ Six frames needed retakes before the board passed (QA analyses `7472131d` →
 | 2 | `7444ca1d` | 8 | `a4d2c922` |
 | 3 | `ce0d03d0` | 9 | `e31ef8b6` |
 | 4 | `c49c94b4` | 10 | `711cec5b` |
-| 5 | `940ffd70` | 11 | `f21ab3a6` |
+| 5 | `940ffd70` | 11 | `157594ae` |
 | 6 | `19ec6c99` | 12 | `e8103a78` (silent) |
 
 ### Major Orange is ALWAYS confident (user note, v3 → v5)
@@ -95,6 +96,23 @@ The spot is funnier for it: the gag is now the gap between his enthusiasm and
 the damage, never him feeling bad about it. Canon recorded in
 `characters.md` — he is never sad, scared, worried, or apologetic.
 Verified by `video_analysis` `3142ee9c`.
+
+### Dead eyes on the toast (v5 → v6)
+
+The user on the closing shot: *"they look high — fix the eyes so they are
+full of life."* Both characters had rendered with lowered, heavy eyelids,
+which reads as stoned rather than contented. Reboarded (`780c84bb`) and
+re-animated (`157594ae`) with an explicit eye spec: large fully-open round
+eyes, big dark pupils, two crisp white highlight glints each, eyebrows
+raised — and, in the motion prompt, "eyelids never lower, never half-close,
+never droop; NO blinking, NO closed eyes at any point."
+
+**Reusable lesson:** the model relaxes eyelids by default on calm/contented
+beats, and half-lidded eyes on a happy face read as intoxicated. Any
+peaceful or satisfied shot needs the eyes specified positively (size, pupil,
+highlight glints, brow) *and* the droop banned in the video prompt, not just
+the board — the animation will re-close eyes the board had open. Note this
+is the opposite of Pip, whose serene half-closed eyes are canon.
 
 Pip reads as a stone statue in still frames, so S4 and S10 explicitly animate
 him alive — a gentle squash-and-stretch bob plus one slow deliberate blink.

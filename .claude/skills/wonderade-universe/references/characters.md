@@ -113,6 +113,13 @@ Both passed generation with the registered elements:
 - Three-mascot beach group (job `79e39d7e-bae1-4484-b691-090706d664d5`):
   https://d8j0ntlcm91z4.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/hf_20260727_011920_79e39d7e-bae1-4484-b691-090706d664d5.png
 
+## Major Orange's smile shows TEETH (user canon, 2026-07-30)
+
+His signature smile is a big OPEN-MOUTHED grin with a clean row of white teeth
+showing. Never write "closed-mouth smile" or "small smile" for him — the user
+rejected a closing frame for exactly that. Say: "BIG WIDE OPEN-MOUTHED GRIN,
+mouth open, bright white teeth clearly showing, cheeks lifted."
+
 ## Major Orange is ALWAYS confident (user canon, 2026-07-29)
 
 **He smiles and is confident at all times.** Never sad, scared, worried,

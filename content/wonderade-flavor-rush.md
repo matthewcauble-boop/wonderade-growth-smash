@@ -10,10 +10,13 @@ the script 2026-07-30 and added the symbol layer mid-board.
 
 ## ★ FINAL DELIVERABLES
 
-- **16:9** (15.0s, 1280x720):
+- **16:9** (15.0s, 1280x720) — *big-band jazz bed*:
   https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/652443b5-647d-43ea-9af0-b1d8a0058f90.mp4
-- **9:16 TikTok** (15.0s, 720x1280, reframe `2cfbac82`, original audio re-laid):
-  https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/2c5e70db-6ae9-41ef-a444-eb36279a589e.mp4
+- **9:16 TikTok** (15.0s, 720x1280, reframe `2cfbac82`) — *modern synth bed*:
+  https://d2ol7oe51mr4n9.cloudfront.net/user_3DKBAe57ZcyV2yY1mT8pAZmbUyH/bcb87924-ad06-4b1d-b8a4-49689cb4061f.mp4
+
+The two masters deliberately differ in score — see *Two beds* below. (The
+jazz-bed vertical `2c5e70db-…` is superseded.)
 
 At 15s the reframe returned a SINGLE segment (no split/concat needed, unlike
 the 30s Training Day cut) — another reason to keep shorts at or under 15s.
@@ -107,6 +110,31 @@ modern electronic; **came back as upbeat big-band jazz with brass**. A genre
 miss, but internally consistent and high-energy — user accepted it ("the music
 is fine") rather than spend ~67 credits regenerating.
 
+### Two beds — how to actually get synth out of Seedance
+
+The user later asked for modern synth on the vertical cut, so a second bed was
+generated: `ff0848fa`. The first attempt had politely asked for "bright
+high-energy modern electronic, punchy drums, arpeggiated synth" and got a
+brass section. What worked the second time was being explicit in both
+directions at once:
+
+- **Name the instruments, not the genre.** "Fast bright arpeggiated analog
+  synth sequence, thick warm analog pad chords, drum machine with a snap snare
+  and deep sub bass, soaring lead synth." Genre words alone ("electronic")
+  leave the model room to pick any upbeat arrangement it likes.
+- **Ban the specific instruments you got last time**, by name — no brass, no
+  horns, no trumpet, no sax, no big band, no swing, no acoustic kit, no piano,
+  no guitar, no orchestra — and close with "synthesizers and electronic drums
+  ONLY."
+
+Generic negatives ("not jazzy") do nothing. The named-instrument ban is what
+moves it.
+
+Because the bed is a separate clip, swapping the score costs one bed
+generation (~67cr) and a free ffmpeg re-mix — the clips and the reframe are
+untouched. Worth remembering: **score is the cheapest thing in the pipeline to
+change**, so never re-render picture over a music note.
+
 ### Assembly
 
 Single ffmpeg pass: per-clip trim windows (clips ramp up from the still start
@@ -116,4 +144,22 @@ Audio keeps clip SFX only on shots 1, 4 and 5 (slurp, bounce, splash) with
 `alimiter`. Verified by `video_analysis` `f2873821` — all six beats in order,
 glyphs present, no text.
 
-Total spend ≈ 230 credits (14 boards, 6 clips, 1 bed).
+### Rebuilding the vertical mix
+
+The vertical is not a re-render — the reframed picture (`2cfbac82`, silent as
+all reframes come back) is muxed against a fresh audio mix built from the
+original clip trims plus the new bed:
+
+```
+segments  1:0.8-2.8  2:silence  3:silence  4:0.8-3.3  5:0.5-3.5  6:silence
+kept SFX  S1 @0.9, S4 @1.0, S5 @1.0 (0.12s fades both ends)
+bed       atrim 0:15, afade in 0.3 / out st=13.2 d=1.8, volume 0.85
+mix       amix normalize=0 -> alimiter=limit=0.95
+mux       -map 0:v (reframe) -map 1:a (new mix) -c:v copy -shortest
+```
+
+Only three clips need downloading — the three muted shots contribute
+`anullsrc` silence, so they never have to be fetched at all.
+
+Total spend ≈ 300 credits (14 boards, 6 clips, 2 beds) plus 75 for the
+reframe.

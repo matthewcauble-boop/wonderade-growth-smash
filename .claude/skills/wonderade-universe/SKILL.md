@@ -161,6 +161,20 @@ segment came back electronic against a flute build). If they don't match,
 `asplit` ONE good segment and `acrossfade` it with itself — a slight repeat
 is far less noticeable than a genre change mid-spot.
 
+**Genre words don't steer the bed — instrument names do.** Asking for "bright
+high-energy modern electronic, punchy drums, arpeggiated synth" produced a
+big-band brass arrangement (Flavor Rush). What fixed it was naming the
+instruments to play ("fast arpeggiated analog synth sequence, warm analog pad
+chords, drum machine with snap snare and deep sub bass, soaring lead synth")
+AND banning the wrong ones individually — "no brass, no horns, no trumpet, no
+sax, no big band, no swing, no acoustic kit, no piano, no guitar, no
+orchestra; synthesizers and electronic drums ONLY". Vague negatives like "not
+jazzy" are ignored.
+
+Because the bed is its own clip, changing the score later costs one bed
+generation plus a free ffmpeg re-mix — the story clips and any reframe are
+untouched. Never re-render picture over a music complaint.
+
 **The music ban is not reliable.** Clips leak their own score anyway. Do not
 try to balance a leaked track under a bed — QA will report a different score
 per scene. Instead keep clip audio ONLY on beats where a loud effect masks

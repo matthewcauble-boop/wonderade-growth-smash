@@ -1,14 +1,23 @@
-import { createStorefrontApiClient } from "@shopify/storefront-api-client"
+import { createStorefrontApiClient, StorefrontApiClient } from "@shopify/storefront-api-client"
 
-export const shopifyClient = createStorefrontApiClient({
-    storeDomain: "https://wonderade.myshopify.com",
-    apiVersion: "2024-10",
-    publicAccessToken: process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN!,
-})
+// Instantiated lazily so importing this module (e.g. during `next build`
+// page-data collection) doesn't throw when the token env var is absent.
+let _client: StorefrontApiClient | null = null
+
+function shopifyClient(): StorefrontApiClient {
+    if (!_client) {
+        _client = createStorefrontApiClient({
+            storeDomain: "https://wonderade.myshopify.com",
+            apiVersion: "2024-10",
+            publicAccessToken: process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN!,
+        })
+    }
+    return _client
+}
 
 // Fetch all products
 export async function getProducts() {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         query {
             products(first: 10) {
                 edges {
@@ -56,7 +65,7 @@ export async function getProducts() {
 
 // Create a checkout with a single variant
 export async function createCheckout(variantId: string, quantity: number = 1) {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         mutation checkoutCreate($input: CheckoutCreateInput!) {
             checkoutCreate(input: $input) {
                 checkout {
@@ -107,7 +116,7 @@ export async function createCheckout(variantId: string, quantity: number = 1) {
 
 // Create checkout with email pre-filled (for users who already signed up)
 export async function createCheckoutWithEmail(variantId: string, email: string, quantity: number = 1) {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         mutation checkoutCreate($input: CheckoutCreateInput!) {
             checkoutCreate(input: $input) {
                 checkout {

@@ -125,6 +125,27 @@ generation, anchoring scale and character in the animation itself.
 - QA the first clip of any new scene family (media_import_url the mp4 →
   video_analysis) before batch-producing.
 
+### Abstract scenes don't need a locked environment (Flavor Rush, 2026-07-30)
+
+When a sequence is abstract (inside the drink, a void, a kaleidoscope), skip
+the boarded/registered environment master and hold consistency with a **fixed
+palette instruction repeated verbatim in every prompt** — e.g. "vivid orange
+and gold against deep teal, hard-edged cel shapes, NO gradients, NO haze".
+QA confirmed four abstract shots read as one world. This is the cheap way to
+build a new visual space when credits are tight; a physical location still
+needs the full board → approve → register cycle.
+
+**Symbol/glyph layers:** keep the vocabulary tight (about six shapes) and
+repeat it across shots so it reads designed, varying only how the shapes
+behave per shot. NEVER use question marks or any punctuation as a glyph —
+they read as typography and make the model spawn garbled letters. End every
+such prompt with "NO letters, NO numbers, NO words, NO punctuation of any
+kind — symbols ONLY."
+
+**Speed poses:** naming velocity is not enough — the model defaults to a
+symmetrical floating spread-eagle. Specify the limbs (arms pinned back, legs
+together, body angled diagonally) and ban spread-eagle explicitly.
+
 ### Music beds (generate_audio CANNOT make music)
 
 The audio tool is speech-only and the music models are locked to the game

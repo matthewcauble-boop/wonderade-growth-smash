@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { FlavorShowcase } from "./flavor-showcase"
 
 export function Hero() {
     const router = useRouter()
@@ -158,33 +159,16 @@ export function Hero() {
 
                 </div>
 
-                {/* Right Column: Product Image (Mobile Order 1) */}
-                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[45vh] min-h-[250px] md:min-h-0 md:h-full pt-4 pb-0 md:py-0">
-                    <div className="hero-right-inner relative z-10 w-full h-full mx-auto flex justify-center max-w-[480px] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] mt-0">
-                        {/* Product Bottles Vector Image */}
-                        <motion.div 
-                            initial={{ y: 80, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="relative w-full h-full z-0 origin-center"
-                        >
-                            <motion.div 
-                                animate={{ y: [0, -12, 0] }}
-                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="relative w-full h-full origin-center"
-                            >
-                                <div className="relative w-full h-[85%] md:h-[95%] lg:h-full flex justify-center items-center mx-auto scale-[1.05] sm:scale-[1.1] md:scale-[0.95] lg:scale-[0.90] xl:scale-[0.95] 2xl:scale-[1.0] hover:scale-[1.10] sm:hover:scale-[1.15] md:hover:scale-100 lg:hover:scale-[0.95] xl:hover:scale-[1.0] 2xl:hover:scale-[1.05] transition-transform duration-500 origin-center">
-                                    <Image
-                                        src="/assets/brand/Product/wonderade-bottles-cropped.png"
-                                        alt="Wonderade Bottles"
-                                        fill
-                                        className="object-contain object-bottom md:object-center"
-                                        priority
-                                    />
-                                </div>
-                            </motion.div>
-                        </motion.div>
-                    </div>
+                {/* Right Column: Alive Flavor Showcase (Mobile Order 1) */}
+                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[52vh] min-h-[320px] md:min-h-0 md:h-full pt-4 pb-0 md:py-6">
+                    <motion.div
+                        initial={{ y: 60, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="relative w-full h-full mx-auto max-w-[480px] md:max-w-[92%] lg:max-w-[86%]"
+                    >
+                        <FlavorShowcase />
+                    </motion.div>
                 </div>
 
             </div>

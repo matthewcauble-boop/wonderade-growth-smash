@@ -127,10 +127,33 @@ export function FlavorShowcase() {
 
     return (
         <motion.div
-            className="relative w-full h-full flex flex-col items-center justify-center rounded-3xl"
+            className="relative w-full h-full rounded-3xl"
             animate={{ backgroundColor: f.tint }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
         >
+            {/* giant flavor name BEHIND the carton — the carton overlaps it */}
+            <div className="absolute inset-x-0 top-[6%] md:top-[8%] z-0 flex flex-col items-center pointer-events-none select-none">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={flavor}
+                        className="text-center leading-[0.85]"
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.35, delay: reduceMotion ? 0 : 0.25 }}
+                    >
+                        {f.name.split(" ").map((word) => (
+                            <div
+                                key={word}
+                                className="font-sans font-black uppercase tracking-tight text-[clamp(3.2rem,8.5vw,8rem)]"
+                                style={{ color: f.accent, opacity: 0.9 }}
+                            >
+                                {word}
+                            </div>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
+            </div>
             {/* ambient doodles, themed per flavor */}
             <AnimatePresence mode="sync">
                 {f.doodles.map((d, i) => (
@@ -153,14 +176,16 @@ export function FlavorShowcase() {
                 ))}
             </AnimatePresence>
 
-            {/* the carton: keyed by flavor so each selection replays the spin */}
-            <div className="relative flex-1 w-full flex items-center justify-center min-h-0" style={{ perspective: 1200 }}>
+            {/* the carton: keyed by flavor so each selection replays the spin.
+                Absolutely layered over the giant name; taller than the panel
+                so it pops past the rounded edges. */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center" style={{ perspective: 1200 }}>
                 <AnimatePresence mode="popLayout">
                     {/* exact image aspect so overlay % maps 1:1 onto artwork
                         (object-contain letterboxing would silently shift the character) */}
                     <motion.div
                         key={flavor}
-                        className="relative h-[82%] md:h-[90%]"
+                        className="relative h-[100%] md:h-[106%]"
                         initial={reduceMotion ? { opacity: 0 } : { rotateY: 0, opacity: 1 }}
                         animate={
                             reduceMotion
@@ -227,8 +252,8 @@ export function FlavorShowcase() {
                 </AnimatePresence>
             </div>
 
-            {/* flavor title + tagline */}
-            <div className="relative z-10 text-center px-4 pb-3 md:pb-4 min-h-[4.5rem]">
+            {/* tagline, tucked at the panel's bottom edge */}
+            <div className="absolute inset-x-0 bottom-[4.5rem] md:bottom-[5.5rem] z-20 text-center px-4 pointer-events-none">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={flavor}
@@ -236,22 +261,17 @@ export function FlavorShowcase() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.3, delay: reduceMotion ? 0 : 0.35 }}
+                        className="inline-block bg-white/85 backdrop-blur-sm rounded-full px-4 py-1.5 border-2 border-[#374191] shadow-[3px_3px_0px_#374191]"
                     >
-                        <div
-                            className="font-sans font-black uppercase tracking-tight text-2xl md:text-3xl"
-                            style={{ color: f.accent }}
-                        >
-                            {f.name}
-                        </div>
-                        <div className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#374191]/70 mt-1">
+                        <span className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#374191]">
                             {f.tagline}
-                        </div>
+                        </span>
                     </motion.div>
                 </AnimatePresence>
             </div>
 
-            {/* flavor picker chips */}
-            <div className="relative z-10 flex items-center gap-3 pb-5 md:pb-6">
+            {/* flavor picker chips, floating over the stage */}
+            <div className="absolute inset-x-0 bottom-4 md:bottom-5 z-20 flex items-center justify-center gap-3">
                 {ORDER.map((id) => {
                     const fl = FLAVORS[id]
                     const active = id === flavor

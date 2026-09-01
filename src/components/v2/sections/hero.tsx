@@ -160,12 +160,12 @@ export function Hero() {
                 </div>
 
                 {/* Right Column: Alive Flavor Showcase (Mobile Order 1) */}
-                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[62vh] min-h-[380px] md:min-h-0 md:h-full pt-4 pb-0 md:py-6">
+                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[66vh] min-h-[420px] md:min-h-0 md:h-full pt-4 pb-0 md:py-4">
                     <motion.div
                         initial={{ y: 60, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="relative w-full h-full mx-auto max-w-[480px] md:max-w-[92%] lg:max-w-[86%]"
+                        className="relative w-full h-full mx-auto max-w-[520px] md:max-w-none"
                     >
                         <FlavorShowcase />
                     </motion.div>

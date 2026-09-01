@@ -42,7 +42,7 @@ export function Hero() {
             className="relative min-h-[calc(100vh-5rem)] bg-white overflow-hidden"
         >
 
-            <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-2 px-4 pt-2 md:py-12 lg:py-16 pb-16 md:gap-8">
+            <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-screen-2xl grid-cols-1 md:grid-cols-[5fr_7fr] px-4 pt-2 md:py-12 lg:py-16 pb-16 md:gap-8">
 
                 {/* Left Column wrapper */}
                 <div className="contents order-2 md:order-none md:flex md:flex-col md:self-center md:justify-center md:py-10 md:px-8 lg:px-12 xl:px-16 relative z-10">
@@ -160,7 +160,7 @@ export function Hero() {
                 </div>
 
                 {/* Right Column: Alive Flavor Showcase (Mobile Order 1) */}
-                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[52vh] min-h-[320px] md:min-h-0 md:h-full pt-4 pb-0 md:py-6">
+                <div className="hero-right-col order-1 md:order-none relative z-10 flex flex-col items-center justify-end md:justify-center w-full h-[62vh] min-h-[380px] md:min-h-0 md:h-full pt-4 pb-0 md:py-6">
                     <motion.div
                         initial={{ y: 60, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}

@@ -25,6 +25,8 @@ const FLAVORS: Record<
         accent: string     // headline color
         tint: string       // section wash
         chipRing: string
+        /** the label character, overlaid + animated so the print "wakes up" */
+        character: { src: string; left: string; top: string; width: string }
         doodles: { src: string; className: string; float: number }[]
     }
 > = {
@@ -35,6 +37,7 @@ const FLAVORS: Record<
         accent: "#F57D14",
         tint: "#E9F7F6",
         chipRing: "#F57D14",
+        character: { src: "/characters/major-orange.png", left: "6.5%", top: "49.5%", width: "62%" },
         doodles: [
             { src: "/assets/brand/Stickers/orange.svg", className: "left-[6%] top-[12%] w-14 md:w-20 -rotate-12", float: 5.5 },
             { src: "/assets/brand/Stickers/orange sticker.svg", className: "right-[8%] top-[30%] w-12 md:w-16 rotate-6", float: 7 },
@@ -49,6 +52,7 @@ const FLAVORS: Record<
         accent: "#ED1E7A",
         tint: "#FDEEF4",
         chipRing: "#ED1E7A",
+        character: { src: "/characters/princess-punch.png", left: "25%", top: "37%", width: "46%" },
         doodles: [
             { src: "/assets/brand/Stickers/strawberry.svg", className: "left-[7%] top-[14%] w-12 md:w-16 -rotate-6", float: 6 },
             { src: "/assets/brand/Stickers/cherry sticker.svg", className: "right-[7%] top-[26%] w-12 md:w-16 rotate-12", float: 5 },
@@ -152,9 +156,11 @@ export function FlavorShowcase() {
             {/* the carton: keyed by flavor so each selection replays the spin */}
             <div className="relative flex-1 w-full flex items-center justify-center min-h-0" style={{ perspective: 1200 }}>
                 <AnimatePresence mode="popLayout">
+                    {/* exact image aspect so overlay % maps 1:1 onto artwork
+                        (object-contain letterboxing would silently shift the character) */}
                     <motion.div
                         key={flavor}
-                        className="relative h-[68%] md:h-[74%] aspect-[3/5]"
+                        className="relative h-[82%] md:h-[90%]"
                         initial={reduceMotion ? { opacity: 0 } : { rotateY: 0, opacity: 1 }}
                         animate={
                             reduceMotion
@@ -171,7 +177,7 @@ export function FlavorShowcase() {
                                   }
                         }
                         exit={{ opacity: 0, transition: { duration: 0.12 } }}
-                        style={{ transformStyle: "preserve-3d" }}
+                        style={{ transformStyle: "preserve-3d", aspectRatio: flavor === "mo" ? "601/1024" : "612/1024" }}
                     >
                         {/* gentle idle float after the spin settles */}
                         <motion.div
@@ -186,6 +192,36 @@ export function FlavorShowcase() {
                                 priority
                                 className="object-contain drop-shadow-[0_18px_24px_rgba(55,65,145,0.25)]"
                             />
+                            {/* the label character, alive: covers its printed self and moves */}
+                            <motion.div
+                                className="absolute pointer-events-none"
+                                style={{ left: f.character.left, top: f.character.top, width: f.character.width }}
+                                initial={{ opacity: 0, scale: 0.7 }}
+                                animate={{ opacity: 1, scale: [0.7, 1.12, 1] }}
+                                transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.95, times: [0, 0.7, 1] }}
+                            >
+                                <motion.div
+                                    animate={
+                                        reduceMotion
+                                            ? {}
+                                            : {
+                                                  rotate: [0, -1.5, 1.5, -1, 0],
+                                                  y: ["0%", "-2.5%", "0%", "-1.5%", "0%"],
+                                                  scale: [1, 1.03, 1, 1.045, 1],
+                                              }
+                                    }
+                                    transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.8 }}
+                                    className="origin-bottom"
+                                >
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={f.character.src}
+                                        alt=""
+                                        className="w-full h-auto drop-shadow-[0_4px_6px_rgba(55,65,145,0.35)]"
+                                        draggable={false}
+                                    />
+                                </motion.div>
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 </AnimatePresence>

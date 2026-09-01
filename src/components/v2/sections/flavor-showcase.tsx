@@ -131,28 +131,34 @@ export function FlavorShowcase() {
             animate={{ backgroundColor: f.tint }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-            {/* giant flavor name BEHIND the carton — the carton overlaps it */}
-            <div className="absolute inset-x-0 top-[6%] md:top-[8%] z-0 flex flex-col items-center pointer-events-none select-none">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={flavor}
-                        className="text-center leading-[0.85]"
-                        initial={{ opacity: 0, scale: 0.92 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.96 }}
-                        transition={{ duration: 0.35, delay: reduceMotion ? 0 : 0.25 }}
-                    >
-                        {f.name.split(" ").map((word) => (
-                            <div
-                                key={word}
-                                className="font-sans font-black uppercase tracking-tight text-[clamp(3.2rem,8.5vw,8rem)]"
-                                style={{ color: f.accent, opacity: 0.9 }}
-                            >
-                                {word}
-                            </div>
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
+            {/* giant flavor name BEHIND the carton — the carton overlaps it.
+                Both names stay mounted (crossfade only): AnimatePresence
+                mode="wait" drops the enter phase when attract-mode swaps
+                interrupt each other on a throttled tab. */}
+            <div className="absolute inset-x-0 top-[6%] md:top-[8%] z-0 pointer-events-none select-none">
+                {ORDER.map((id) => {
+                    const fl = FLAVORS[id]
+                    const active = id === flavor
+                    return (
+                        <motion.div
+                            key={id}
+                            className="absolute inset-x-0 text-center leading-[0.85]"
+                            initial={false}
+                            animate={{ opacity: active ? 0.9 : 0, scale: active ? 1 : 0.94 }}
+                            transition={{ duration: 0.45, delay: active && !reduceMotion ? 0.25 : 0 }}
+                        >
+                            {fl.name.split(" ").map((word) => (
+                                <div
+                                    key={word}
+                                    className="font-sans font-black uppercase tracking-tight text-[clamp(3.2rem,8.5vw,8rem)]"
+                                    style={{ color: fl.accent }}
+                                >
+                                    {word}
+                                </div>
+                            ))}
+                        </motion.div>
+                    )
+                })}
             </div>
             {/* ambient doodles, themed per flavor */}
             <AnimatePresence mode="sync">
@@ -252,22 +258,25 @@ export function FlavorShowcase() {
                 </AnimatePresence>
             </div>
 
-            {/* tagline, tucked at the panel's bottom edge */}
-            <div className="absolute inset-x-0 bottom-[4.5rem] md:bottom-[5.5rem] z-20 text-center px-4 pointer-events-none">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={flavor}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.3, delay: reduceMotion ? 0 : 0.35 }}
-                        className="inline-block bg-white/85 backdrop-blur-sm rounded-full px-4 py-1.5 border-2 border-[#374191] shadow-[3px_3px_0px_#374191]"
-                    >
-                        <span className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#374191]">
-                            {f.tagline}
-                        </span>
-                    </motion.div>
-                </AnimatePresence>
+            {/* tagline, tucked at the panel's bottom edge (always-mounted crossfade) */}
+            <div className="absolute inset-x-0 bottom-[4.5rem] md:bottom-[5.5rem] z-20 pointer-events-none">
+                {ORDER.map((id) => {
+                    const fl = FLAVORS[id]
+                    const active = id === flavor
+                    return (
+                        <motion.div
+                            key={id}
+                            className="absolute inset-x-0 text-center px-4"
+                            initial={false}
+                            animate={{ opacity: active ? 1 : 0, y: active ? 0 : 8 }}
+                            transition={{ duration: 0.3, delay: active && !reduceMotion ? 0.35 : 0 }}
+                        >
+                            <span className="inline-block bg-white/85 backdrop-blur-sm rounded-full px-4 py-1.5 border-2 border-[#374191] shadow-[3px_3px_0px_#374191] font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#374191]">
+                                {fl.tagline}
+                            </span>
+                        </motion.div>
+                    )
+                })}
             </div>
 
             {/* flavor picker chips, floating over the stage */}

@@ -185,7 +185,7 @@ export function FlavorShowcase() {
             {/* the carton: keyed by flavor so each selection replays the spin.
                 Absolutely layered over the giant name; taller than the panel
                 so it pops past the rounded edges. */}
-            <div className="absolute inset-0 z-10 flex items-center justify-center" style={{ perspective: 1200 }}>
+            <div className="absolute inset-0 z-10 flex items-center justify-center pb-[7%]" style={{ perspective: 1200 }}>
                 <AnimatePresence mode="popLayout">
                     {/* exact image aspect so overlay % maps 1:1 onto artwork
                         (object-contain letterboxing would silently shift the character) */}
@@ -259,7 +259,7 @@ export function FlavorShowcase() {
             </div>
 
             {/* tagline, tucked at the panel's bottom edge (always-mounted crossfade) */}
-            <div className="absolute inset-x-0 bottom-[4.5rem] md:bottom-[5.5rem] z-20 pointer-events-none">
+            <div className="absolute inset-x-0 bottom-[7rem] md:bottom-[7.5rem] z-20 pointer-events-none">
                 {ORDER.map((id) => {
                     const fl = FLAVORS[id]
                     const active = id === flavor

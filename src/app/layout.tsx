@@ -15,7 +15,7 @@ const baloo = Baloo_2({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const SITE = "https://wonderade.us";
+const SITE = "https://www.wonderade.us";
 const TITLE = "Wonderade | Big and Strong Juice";
 const DESC = "The juice you wish you had when you were growing up. 8g protein, 3g sugar, 4g fiber, real fruit. Zero junk.";
 

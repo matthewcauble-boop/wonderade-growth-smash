@@ -122,3 +122,19 @@ h6 {
 main :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-baloo), 'Baloo 2', 'Quicksand', cursive !important;
 }
+/* Blog post body — brand-styled markdown (no typography plugin) */
+.post-body { color: #1f2340; font-size: 1.0625rem; line-height: 1.75; }
+.post-body h2 { font-family: var(--font-display); color: #374191; font-size: 1.75rem; line-height: 1.15; margin: 2.25rem 0 0.75rem; }
+.post-body h3 { font-family: var(--font-display); color: #374191; font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
+.post-body p { margin: 0 0 1.1rem; }
+.post-body ul, .post-body ol { margin: 0 0 1.25rem 1.25rem; padding-left: 0.5rem; }
+.post-body li { margin: 0.35rem 0; }
+.post-body li::marker { color: #ef4b61; font-weight: 700; }
+.post-body strong { color: #374191; }
+.post-body a { color: #ef4b61; text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.post-body a:hover { color: #374191; }
+.post-body hr { border: 0; border-top: 2px solid #374191; margin: 2.5rem 0; }
+.post-body blockquote { border-left: 4px solid #fbd02e; padding-left: 1rem; color: #374191; font-style: italic; }
+.post-body table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.95rem; }
+.post-body th, .post-body td { border: 1px solid #374191; padding: 0.5rem 0.75rem; text-align: left; }
+.post-body th { background: #fbd02e; color: #374191; }

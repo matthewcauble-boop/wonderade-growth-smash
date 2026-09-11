@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button"
 
 export function Header() {
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-        e.preventDefault();
         const element = document.getElementById(targetId);
         if (element) {
+            e.preventDefault();
             element.scrollIntoView({ behavior: "smooth", block: "start" });
             // Silently update the URL to maintain the routing state without glitching the viewport
             window.history.pushState(null, "", `#${targetId}`);
@@ -34,7 +34,8 @@ export function Header() {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-mono text-xs lg:text-sm font-bold uppercase tracking-widest text-[#374191]">
-                        <Link href="#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
+                        <Link href="/#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
+                        <Link href="/blog" className="hover:text-[#Fbd02e] transition-colors">Learn</Link>
                     </nav>
                 </div>
 

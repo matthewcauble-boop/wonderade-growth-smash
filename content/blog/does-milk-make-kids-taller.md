@@ -1,7 +1,7 @@
 ---
 title: "Does Milk Actually Make Kids Taller? What a Danish Study Found"
 slug: does-milk-make-kids-taller
-description: "Danish researchers measured 90 toddlers: milk drinkers were taller, with 30% more IGF-1, the growth messenger. The mechanism, and what it means for your kid."
+description: "Danish researchers measured 90 toddlers: milk drinkers were taller, with 30% more IGF-1, the growth messenger. What it means for your kid."
 keywords: ["does milk make you taller", "milk and height in children", "does milk help kids grow", "milk IGF-1 growth", "danish milk study height"]
 date: 2026-09-12
 status: draft

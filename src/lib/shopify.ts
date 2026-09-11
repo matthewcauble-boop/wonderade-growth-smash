@@ -1,14 +1,25 @@
 import { createStorefrontApiClient } from "@shopify/storefront-api-client"
 
-export const shopifyClient = createStorefrontApiClient({
-    storeDomain: "https://wonderade.myshopify.com",
-    apiVersion: "2024-10",
-    publicAccessToken: process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN!,
-})
+// Lazy: instantiating at module load throws when NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN is unset,
+// which killed every Vercel Preview build (the token is only configured for Production).
+// Building the client on first request keeps unrelated pages deployable and fails the
+// checkout call itself with a clear message instead.
+let _client: ReturnType<typeof createStorefrontApiClient> | null = null
+function shopifyClient() {
+    if (_client) return _client
+    const token = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN
+    if (!token) throw new Error("NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN is not set")
+    _client = createStorefrontApiClient({
+        storeDomain: "https://wonderade.myshopify.com",
+        apiVersion: "2024-10",
+        publicAccessToken: token,
+    })
+    return _client
+}
 
 // Fetch all products
 export async function getProducts() {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         query {
             products(first: 10) {
                 edges {
@@ -56,7 +67,7 @@ export async function getProducts() {
 
 // Create a checkout with a single variant
 export async function createCheckout(variantId: string, quantity: number = 1) {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         mutation checkoutCreate($input: CheckoutCreateInput!) {
             checkoutCreate(input: $input) {
                 checkout {
@@ -107,7 +118,7 @@ export async function createCheckout(variantId: string, quantity: number = 1) {
 
 // Create checkout with email pre-filled (for users who already signed up)
 export async function createCheckoutWithEmail(variantId: string, email: string, quantity: number = 1) {
-    const { data } = await shopifyClient.request(`
+    const { data } = await shopifyClient().request(`
         mutation checkoutCreate($input: CheckoutCreateInput!) {
             checkoutCreate(input: $input) {
                 checkout {

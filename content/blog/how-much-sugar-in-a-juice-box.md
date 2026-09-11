@@ -10,91 +10,101 @@ cta: https://wonderade.us/claim
 
 # How Much Sugar Is Actually in a Juice Box? (And What to Look for Instead)
 
-Here's a thing nobody tells you at the baby shower: the juice box is going to become a negotiation.
+Grab a juice box. Any juice box. Turn it over.
 
-It shows up at the birthday party, the soccer sideline, the friend's house, the lunchbox swap. Your kid learns the word for it early. And at some point you turn one over, read the back, and think — wait, how much?
+Somewhere on the back is a small panel of numbers, and one of those numbers is going to surprise you. Let's find it together.
 
-Let's answer that properly.
+## Try this first
 
-## The short answer
+Get a clear glass and a teaspoon. Now spoon four teaspoons of sugar into the glass. Look at it.
 
-A standard 6-ounce juice box or pouch carries somewhere between **15 and 25 grams of sugar**. Some 100% juice boxes land near the top of that range. The "juice drink" and "fruit punch" pouches often sit in the middle, but a chunk of that sugar is *added* rather than from fruit.
+That's sixteen grams. That is a *modest* juice box. Most of the ones in the lunchbox aisle land between **15 and 25 grams of sugar** in a single 6-ounce box. The bigger ones? Keep spooning. Five. Six. Some 100% juice boxes get to six teaspoons.
 
-For scale: a teaspoon of sugar is about 4 grams. So a typical juice box is roughly **4 to 6 teaspoons** of sugar in a container your kid can finish in under a minute.
+A kid drinks that in about forty seconds. You've watched it happen.
 
-## "But it's 100% juice"
+## Where does all that sugar come from?
 
-It is, and that matters — 100% juice has no *added* sugar, and it brings some vitamin C along. But the sugar in juice is still sugar as far as your kid's body is concerned. Pressing the fruit removes the fiber that would normally slow it down. An apple takes a kid five minutes to eat and comes with a few grams of fiber. The juice from three apples takes thirty seconds and comes with none.
+Here is the part that actually matters, because it explains everything else.
 
-That's why the American Academy of Pediatrics gives juice its own rulebook. Their guidance, in plain terms:
+Consider an apple. Bite it. It's crunchy, it takes work, and inside all that crunch is a material called fiber. Fiber doesn't have much flavor. What it *does* is act like a speed bump. When the sugar in the apple hits your kid's digestive system, the fiber slows it down, so it trickles in instead of pouring in.
 
-- **Under 1 year:** no juice at all.
-- **Ages 1–3:** no more than 4 ounces a day.
-- **Ages 4–6:** 4 to 6 ounces a day.
-- **Ages 7–18:** no more than 8 ounces a day.
+Now squeeze that apple. Squeeze three of them. The sugar comes out in the juice. The fiber stays behind in the pulp. Pour it in a box, and you have removed the speed bump and kept the sugar.
 
-Notice that a single 6.75-ounce box already blows through the limit for a toddler and uses up the whole day's allowance for a kindergartner.
+That is why "100% juice" and "sugar water" behave more alike inside a body than you'd guess from the label. Same sugar, same speed. The apple was doing something important and the juice box left it out.
 
-The American Heart Association, meanwhile, recommends kids ages 2–18 get **less than 25 grams of added sugar per day**. One sweetened juice pouch can be most of that.
+## What the pediatricians actually say
 
-## The three things to actually read on the label
+The American Academy of Pediatrics has looked at this carefully, and their guidance is refreshingly specific:
 
-You don't need to become a nutritionist in the cereal aisle. Three lines tell you nearly everything.
+- **Under 1 year:** no juice.
+- **Ages 1 to 3:** no more than 4 ounces a day.
+- **Ages 4 to 6:** 4 to 6 ounces a day.
+- **Ages 7 to 18:** no more than 8 ounces a day.
 
-**1. Total Sugars.** This is the whole picture — fruit sugar plus anything added. For a kids' drink, single digits is the goal.
+Now look at the box in your hand. Six and three-quarter ounces. That one box is more than a toddler's daily limit and the entire day's allowance for a kindergartner. Not "a lot." All of it.
 
-**2. Includes Added Sugars.** This line (indented under Total Sugars on the current label format) is the one manufacturers hope you skip. "Made with real fruit juice" on the front can coexist with 12 g of added sugar on the back. If the number here isn't zero, the fruit isn't doing the sweetening.
+The American Heart Association adds another number: kids ages 2 to 18 should have **less than 25 grams of added sugar per day**. One sweetened fruit punch pouch can be most of that before lunch.
 
-**3. Serving size vs. container size.** Some pouches list a serving smaller than the pouch. Kids don't drink half a pouch. Do the math for the whole thing.
+## The three lines that tell you everything
 
-Everything else — the sunburst graphics, the word "natural," the cartoon orange — is packaging.
+You do not need a chemistry degree in the grocery store. Three lines on the back do the job. Find them now:
 
-## What "no added sugar" does and doesn't mean
+**Total Sugars.** This is the whole amount, fruit sugar plus anything added. For a kids' drink, you want a single digit here.
 
-"No added sugar" means exactly that: nothing was added. It does **not** mean low sugar. A no-added-sugar 100% grape juice can still carry 20 g per box, all of it from grapes. The claim is true and the drink is still a sugar bomb.
+**Includes Added Sugars.** It's indented right under Total Sugars, and it's the line the front of the box hopes you skip. "Made with real fruit juice" on the front can sit right above 12 grams of *added* sugar on the back. Both true! If this number isn't zero, the fruit is not doing the sweetening.
 
-So the question isn't only "is sugar added?" It's "how much sugar is in here, period, and what came with it?"
+**Serving size vs. container.** Some pouches list a serving smaller than the pouch. Has your kid ever stopped halfway through a pouch? Right. Do the math for the whole thing.
+
+The sunburst, the word "natural," the cartoon orange on the front? Those are art. The back is science.
+
+## "No added sugar" is true and also not what you think
+
+Here's a small experiment in reading. "No added sugar" means exactly one thing: nobody put extra sugar in. It does **not** mean low sugar.
+
+A no-added-sugar 100% grape juice can carry 20 grams per box, every gram from grapes. The claim is honest. The glass of sugar is still full.
+
+So the question is never just "was sugar added?" It's "how much is in here, and what came along with it to slow it down?"
 
 ## What a better box looks like
 
-If you want the juice-box moment — the straw, the squeeze, the treat — without the sugar spike, here's the checklist we'd hold any kids' drink to:
+Now for the good part. You can keep the juice box. The straw, the squeeze, the little moment of victory at the lunch table. You just want different stuff inside it. Hold any kids' drink up to this list:
 
-- **Total sugars in single digits.** Not 15, not 20.
-- **0 g added sugar.** Fruit does the work, or something naturally sweet does.
-- **Something that slows it down.** Fiber, protein, or both. This is what juice lost when it stopped being fruit.
-- **Actual nutrition, not just vitamin C.** Potassium, calcium, protein — the things kids are commonly short on.
-- **Made for a kid to drink from the box.** No cup, no pouring, no "just a little" that becomes the whole bottle.
+- **Total sugars in single digits.** Not 15. Not 20.
+- **Zero added sugar.** Fruit does the sweetening, or something naturally sweet does.
+- **A speed bump.** Fiber, protein, or both. Put back what juicing took out.
+- **Nutrition a kid is actually short on.** Potassium, calcium, protein. Not just vitamin C.
+- **Built to be drunk from the box.** No cup, no pouring, no "just a little" that becomes the bottle.
 
-We built Wonderade against that list. Each box has **3 grams of total sugar, none of it added**, alongside 8 grams of protein and 4 grams of fiber — so it lands more like a snack than a syrup. It's still a juice. It still tastes like one. Kids don't notice the difference; you will, on the label.
+We built Wonderade against exactly that list. Each box: **3 grams of total sugar, none of it added,** with 8 grams of protein and 4 grams of fiber riding along. Go back to your glass of sugar. Pour out all but three-quarters of one teaspoon. That's the sugar in a Wonderade. The speed bump is back in the box.
 
-You can see the numbers side by side with a typical juice box [here](https://wonderade.us/#compare).
+It's still a juice. It tastes like one. Your kid won't notice what changed. You will, on the back panel. See the numbers next to a typical juice box [here](https://wonderade.us/#compare).
 
-## Practical moves that don't require a fight
+## Things that work without a standoff
 
-A few things that have worked for us and for the parents we've talked to:
+A few moves that hold up in real kitchens:
 
-- **Downsize, don't ban.** A 4-ounce cup of juice with a meal reads as "juice" to a kid. An 8-ounce box on the couch reads as a sugar delivery system.
-- **Water it down, gradually.** Half juice, half water is barely noticed after a week. A third juice after that.
-- **Keep the ritual, swap the contents.** The box and the straw are half the fun. Find a box that earns its place.
-- **Make the sugary one the party one.** Not forbidden — just not the Tuesday afternoon default.
+- **Shrink the container.** Four ounces in a small cup with a meal is "juice." Eight ounces on the couch is a sugar delivery system.
+- **Dilute on a schedule.** Half juice, half water this week. A third juice next week. Kids notice sudden changes and miss gradual ones.
+- **Keep the ritual, change the contents.** The box and straw are half the fun. Find a box that earns its spot.
+- **Let the sugary one be the party one.** Not banned. Just not Tuesday.
 
 ## FAQ
 
-**How much sugar is in a Capri Sun-style juice pouch?**
-Most 6-ounce fruit-flavored pouches list 13–16 g of total sugar, and a meaningful share of that is added sugar. Check the "Includes Added Sugars" line on the specific product; formulas change.
+**How much sugar is in a typical fruit punch pouch?**
+Most 6-ounce fruit-flavored pouches list 13 to 16 grams of total sugar, and a meaningful share is added sugar. Check the "Includes Added Sugars" line on the specific product; formulas change.
 
 **Is 100% juice healthier than a juice drink?**
-It's better in one specific way — no added sugar — and it brings vitamin C. But it's still concentrated fruit sugar without fiber, which is why the AAP caps it by age. It's not a free pass.
+It's better in one way: no added sugar, and it brings vitamin C. But it is still fruit sugar with the fiber removed, which is why the AAP limits it by age. Better, not free.
 
 **How much sugar should a child have per day?**
-The American Heart Association recommends less than 25 grams of *added* sugar per day for kids ages 2–18. There's no formal cap on naturally occurring sugar, but total intake still matters for teeth and appetite.
+The American Heart Association says less than 25 grams of *added* sugar a day for ages 2 to 18. There's no official cap on natural sugar, but the total still matters for teeth and for appetite at dinner.
 
 **Are "no sugar added" juice boxes low in sugar?**
-Not necessarily. "No sugar added" only means nothing was added — the fruit sugar can still be 15–20 g per box. Always read the Total Sugars line.
+Not necessarily. It only means nothing was added. The fruit sugar can still be 15 to 20 grams per box. Read the Total Sugars line.
 
 **What's a low-sugar juice box for kids?**
-Look for single-digit total sugars and 0 g added, ideally with some protein or fiber alongside. Wonderade is 3 g total sugar with 8 g protein and 4 g fiber per box.
+Look for single-digit total sugars, zero added, and some protein or fiber to slow it down. Wonderade is 3 grams total sugar with 8 grams protein and 4 grams fiber per box.
 
 ---
 
-**Want to try one?** We're sending free samples to founding families before launch. [Claim your free sample](https://wonderade.us/claim) — no commitment, just first access.
+**Want to run the experiment with a real box?** We're sending free samples to founding families before launch. [Claim your free sample](https://wonderade.us/claim). No commitment, just first access.

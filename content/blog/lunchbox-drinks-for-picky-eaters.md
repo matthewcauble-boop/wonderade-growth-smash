@@ -10,92 +10,100 @@ cta: https://wonderade.us/claim
 
 # The Best Lunchbox Drinks for Picky Eaters (That Aren't Just Water)
 
-Every article about kids' lunches starts the same way: pack water. And they're right. Water is the answer.
+Every guide to packing lunch starts with the same sentence: pack water. Correct! Water is the answer.
 
-Except you've packed water, and the water bottle comes home full, and the sandwich comes home with one bite out of it, and the only thing that got consumed was the drink you *didn't* pack because a friend traded it to them.
+And yet. The water bottle comes home full. The sandwich comes home with one bite out of it. The only thing that got consumed was the drink you *didn't* pack, because a friend traded it across the table.
 
-So this is the other article. The one for parents of the kid who treats lunch as a suggestion.
+So this is the other guide. For the kid who treats lunch as a suggestion.
 
-## First, why the drink matters more for picky eaters
+## Why the drink does more work for a picky eater
 
-For a kid who eats everything, the drink is a footnote. For a picky eater, it might be the only thing in the box you can count on.
+Think about it this way. For a kid who eats everything, the drink is a footnote. Lunch did the job; the drink washed it down.
 
-That changes the job description. It's not "hydration." It's: **can this drink carry some of the nutrition the food was supposed to?** Protein, calcium, potassium — the things that were in the milk and the turkey and the fruit that came back untouched.
+For a picky eater, the drink might be the only item in that box you can count on. That changes its job description entirely. It's no longer "hydration." It's: **can this drink carry some of the nutrition the food was supposed to?** The protein that was in the turkey. The calcium that was in the milk. The potassium that was in the banana that came home brown and untouched.
 
-And it has to do that while still being something a kid picks up voluntarily, at a cafeteria table, in front of other kids, with a Capri Sun two seats down.
+And it has to do all that while still being something a seven-year-old picks up voluntarily, in a cafeteria, in front of other seven-year-olds, with a fruit punch pouch two seats down.
 
-## The ranking (by what actually comes home empty)
+## Try this: the empties audit
 
-We're ranking on two things: does the kid drink it, and does it pull its weight nutritionally. Here's the honest list.
+Before you change anything, run a one-week experiment. Every afternoon, open the lunchbox and write down two things: what came home, and what came home *empty*.
+
+You'll learn more from five days of empties than from any article, including this one. Whatever comes home empty is your kid's actual vote. Now we can work with that.
+
+## The ranking (by what comes home empty)
+
+Two things score points here: does the kid drink it, and does it pull its weight nutritionally. In order:
 
 ### 1. A juice box that isn't a sugar box
 
-The juice box format wins the cafeteria for a reason: it's a treat, it's social, it needs no cup, and it has a straw. The problem was never the box. It was the 15–20 g of sugar inside it.
+The juice box wins the cafeteria for reasons that have nothing to do with nutrition. It's a treat. It's social. No cup, no pouring, and it has a straw. Kids voted a long time ago.
 
-The fix is a box that keeps the format and changes the contents — single-digit sugar, no added sugar, and some protein and fiber to make it worth packing. That's the category we built [Wonderade](https://wonderade.us) for: **8 g protein, 3 g sugar (0 added), 4 g fiber** per box, plus calcium and potassium, in a box that tastes like juice and looks like a treat to a seven-year-old.
+The problem was never the box. The problem was the 15 to 20 grams of sugar inside it, with nothing to slow it down.
 
-When the food comes home uneaten, this is the one that still did some work.
+So keep the box and change the contents. Single-digit sugar, none added, plus some protein and fiber so it's worth packing. That's the category we built [Wonderade](https://wonderade.us) for: **8 grams of protein, 3 grams of sugar (0 added), 4 grams of fiber** per box, with calcium and potassium along for the ride. It tastes like juice. To a seven-year-old it looks like a treat. To you, on the back panel, it looks like lunch.
+
+When the sandwich comes home, this one still did its job.
 
 ### 2. Milk (if they'll drink it, and if it stays cold)
 
-Plain milk is a genuinely good lunchbox drink — 8 g protein, calcium, no added sugar. Two problems: a lot of picky kids won't touch it, and it needs to stay cold for four hours in a backpack. Shelf-stable cartons solve the second problem. Nothing solves the first.
+Plain milk is a genuinely good lunchbox drink. Eight grams of protein, real calcium, zero added sugar. Two problems. A lot of picky kids won't touch it, and it has to survive four hours in a backpack. Shelf-stable cartons solve the second one. Nothing solves the first.
 
-Flavored milk fixes the taste and reintroduces 10–12 g of added sugar. It's a trade, and sometimes a fair one — just know you're making it.
+Flavored milk fixes the taste and puts 10 to 12 grams of added sugar back. That's a trade. Sometimes a fair one. Just know you're making it.
 
 ### 3. Smoothie pouches
 
-The squeezable fruit-and-yogurt pouches are easy wins for acceptance and bring some fiber. Watch the sugar — many run 12–18 g per pouch, mostly from fruit purée — and the protein is usually modest unless yogurt is the first ingredient. Better as a side than as the drink.
+The squeezable fruit-and-yogurt pouches win on acceptance and bring some fiber along. Watch the sugar. Many run 12 to 18 grams per pouch, mostly from fruit purée, and the protein is modest unless yogurt is the first ingredient. Good as a side. Less good as *the* drink.
 
 ### 4. Water with something in it
 
-Fruit slices, a splash of juice, an ice cube with a berry frozen in it. Cheap, and it works for some kids. For a true water-refuser it's still water, and it still comes home full — but it's worth a week's trial before you give up.
+Fruit slices. A splash of juice. An ice cube with a berry frozen inside it (kids find this fascinating; try it). Cheap, and it works for some kids. For a committed water-refuser it's still water and it still comes home full. Worth a week's trial before you give up on it.
 
 ### 5. Coconut water
 
-Real potassium, low sugar for what it is (around 6–8 g per cup). Acceptance is the coin flip; kids either love it or find it deeply suspicious.
+Real potassium and, for what it is, fairly low sugar at 6 to 8 grams a cup. Acceptance is a coin flip. Kids either love it or regard it with deep suspicion.
 
-### The ones we'd leave out
+### The ones to leave out
 
-- **Sports drinks.** Designed for an hour-plus of sweating, not a 20-minute lunch. Sugar plus salt plus dye.
-- **Fruit punch and "juice drinks"** with added sugar. The front says fruit; the back says 12 g added.
-- **Sodas and "sparkling" kid drinks.** Even the low-sugar ones train the palate toward carbonated sweet.
+- **Sports drinks.** Engineered for an hour of sweating, not a 20-minute lunch. Sugar plus salt plus dye.
+- **Fruit punch and "juice drinks."** Fruit on the front, 12 grams of added sugar on the back.
+- **Sodas and "sparkling" kid drinks.** Even the low-sugar ones train the palate toward fizzy and sweet.
 
-## The label, in ten seconds
+## The label in ten seconds
 
-Whatever you pack, three lines on the back tell you most of it:
+Whatever you pack, three lines on the back tell you almost everything:
 
-1. **Total Sugars** — single digits is the target.
-2. **Includes Added Sugars** — should be zero, or close.
-3. **Protein** — for a picky eater's lunch, anything above zero is a gift.
+1. **Total Sugars.** Single digits is the target.
+2. **Includes Added Sugars.** Zero, or close to it.
+3. **Protein.** For a picky eater's lunch, anything above zero is a gift.
 
-If the front of the package works harder than the back, that's usually the tell.
+Quick rule of thumb: if the front of the package is working harder than the back, that's your clue.
 
 ## Making the swap stick
 
-The picky-eater rulebook, learned the hard way:
+Learned the hard way, in more than one kitchen:
 
-- **Don't announce it.** A new drink introduced with a speech about nutrition is dead on arrival. Just put it in the box.
-- **Match the format they already like.** If they love the pouch, find a better pouch. If they love the box and straw, find a better box. Format is 80% of acceptance.
-- **Let the first one be at home.** A new drink at the cafeteria table is a social risk. On the couch, it's just a drink.
-- **Accept the trade.** If the drink is doing real nutritional work, you can relax about the half-eaten sandwich. That's the whole point of picking a good one.
+- **Don't announce it.** A new drink introduced with a speech about nutrition is finished before the lid comes off. Put it in the box. Say nothing.
+- **Match the format they already love.** Pouch kid? Find a better pouch. Box-and-straw kid? Find a better box. Format is most of acceptance.
+- **First one at home.** A new drink at the cafeteria table is a social risk. On the couch it's just a drink.
+- **Take the trade.** If the drink is doing real nutritional work, relax about the half-eaten sandwich. That was the point of picking a good one.
 
 ## FAQ
 
 **What's the healthiest drink to put in a kid's lunchbox?**
-Water, then plain milk. For a picky eater who won't drink either, the next best thing is a drink with low sugar (single digits, none added) and some protein and fiber — so the drink carries nutrition the food may not.
+Water, then plain milk. For a picky eater who won't drink either, the next best thing is a drink with low sugar (single digits, none added) and some protein and fiber, so the drink carries nutrition the food may not.
 
 **Are juice boxes bad for school lunch?**
-Typical juice boxes carry 15–20 g of sugar with no fiber or protein, which is a lot for a 20-minute lunch. The format itself is fine; the contents are the issue. A low-sugar, protein-bearing box in the same format solves it.
+Typical juice boxes carry 15 to 20 grams of sugar with no fiber or protein, which is a lot for a 20-minute lunch. The format is fine. The contents are the issue. A low-sugar box with protein in the same format solves it.
 
 **What can I give my child instead of juice for lunch?**
-Plain or shelf-stable milk, water with fruit, coconut water, or a low-sugar juice with protein and fiber. Rank them by what your specific kid will actually finish.
+Plain or shelf-stable milk, water with fruit in it, coconut water, or a low-sugar juice with protein and fiber. Rank them by what your specific kid actually finishes.
 
 **How do I get a picky eater to drink something healthy?**
-Keep the format they already accept (box, pouch, straw), introduce it at home first, and skip the nutrition speech. Taste and social comfort decide it, not the label.
+Keep the format they already accept (box, pouch, straw), introduce it at home first, and skip the nutrition speech. Taste and social comfort decide it. The label doesn't.
 
 **Is Wonderade a juice?**
-Yes — it's a juice made for kids with 8 g of protein, 3 g of total sugar (0 g added), 4 g of fiber, and calcium and potassium per box. Made without dairy, gluten, soy, or nuts. You can compare it to a typical juice box [here](https://wonderade.us/#compare).
+Yes. It's a juice made for kids with 8 grams of protein, 3 grams of total sugar (0 added), 4 grams of fiber, and calcium and potassium per box. No dairy, gluten, soy, or nuts. Compare it to a typical juice box [here](https://wonderade.us/#compare).
 
 ---
 
-**Want to try one?** We're sending free samples to founding families before launch. [Claim your free sample](https://wonderade.us/claim) — no commitment, just first access.
+**Want to run the empties audit with a real box in the mix?** We're sending free samples to founding families before launch. [Claim your free sample](https://wonderade.us/claim). No commitment, just first access.

@@ -33,10 +33,10 @@ export function Footer() {
                     <div className="flex flex-col space-y-6">
                         <h4 className="font-sans font-black text-xl uppercase tracking-widest text-[#FBD02E]">Shop</h4>
                         <ul className="flex flex-col space-y-4 font-mono text-sm uppercase tracking-widest font-bold text-white/70">
-                            <li><Link href="#flavors" className="hover:text-white transition-colors">All Flavors</Link></li>
-                            <li><Link href="#flavors" className="hover:text-white transition-colors">Major Orange</Link></li>
-                            <li><Link href="#flavors" className="hover:text-white transition-colors">Princess Punch</Link></li>
-                            <li><Link href="#checkout" className="hover:text-white transition-colors">Variety Pack</Link></li>
+                            <li><Link href="/#flavors" className="hover:text-white transition-colors">All Flavors</Link></li>
+                            <li><Link href="/#flavors" className="hover:text-white transition-colors">Major Orange</Link></li>
+                            <li><Link href="/#flavors" className="hover:text-white transition-colors">Princess Punch</Link></li>
+                            <li><Link href="/#checkout" className="hover:text-white transition-colors">Variety Pack</Link></li>
                         </ul>
                     </div>
 
@@ -44,8 +44,9 @@ export function Footer() {
                     <div className="flex flex-col space-y-6">
                         <h4 className="font-sans font-black text-xl uppercase tracking-widest text-[#FBD02E]">Info</h4>
                         <ul className="flex flex-col space-y-4 font-mono text-sm uppercase tracking-widest font-bold text-white/70">
-                            <li><Link href="#how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-                            <li><Link href="#flavors" className="hover:text-white transition-colors">Nutrition Facts</Link></li>
+                            <li><Link href="/#how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                            <li><Link href="/blog" className="hover:text-white transition-colors">Learn</Link></li>
+                            <li><Link href="/#flavors" className="hover:text-white transition-colors">Nutrition Facts</Link></li>
                             <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                         </ul>
                     </div>

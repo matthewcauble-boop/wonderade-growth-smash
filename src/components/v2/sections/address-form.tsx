@@ -1,4 +1,5 @@
 "use client"
+import { trackMeta } from "@/components/meta-pixel"
 import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { useLoadScript } from "@react-google-maps/api"
@@ -96,11 +97,14 @@ export function AddressForm() {
         setStatus("loading");
         
         try {
+            const eventId = typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : String(Date.now())
             const response = await fetch("/api/klaviyo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     email,
+                    eventId,
+                    source: "free-sample-claim",
                     firstName,
                     lastName,
                     address: addressDetails.street || inputValue, // Use formatted street, or raw input fallback
@@ -113,6 +117,7 @@ export function AddressForm() {
             if (!response.ok) throw new Error("Failed to update profile");
             
             setStatus("success");
+            trackMeta("Lead", { content_name: "free_sample_claim" }, eventId);
             
             // Seamless Anti-Abuse Tracking Drop: Exactly 1 Year Expiration Native State Lock
             document.cookie = "wonderade_sample_claimed=true; max-age=31536000; path=/";

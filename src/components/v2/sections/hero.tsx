@@ -24,7 +24,7 @@ export function Hero() {
             const response = await fetch("/api/klaviyo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({ email, source: "hero-email" })
             })
             if (!response.ok) throw new Error("Failed to subscribe")
             setStatus("success")

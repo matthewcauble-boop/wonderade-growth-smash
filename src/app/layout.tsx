@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand, Baloo_2 } from "next/font/google";
 import "./globals.css";
+import { MetaPixel } from "@/components/meta-pixel";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${baloo.variable} antialiased`}
       >
+        <MetaPixel />
         {children}
       </body>
     </html>

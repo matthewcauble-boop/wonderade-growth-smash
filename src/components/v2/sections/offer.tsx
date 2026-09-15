@@ -34,7 +34,7 @@ export function Offer() {
             const response = await fetch("/api/klaviyo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({ email, source: "offer-email" })
             });
 
             if (!response.ok) {

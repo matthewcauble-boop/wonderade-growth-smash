@@ -21,6 +21,7 @@ const DESC = "The juice you wish you had when you were growing up. 8g protein, 3
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
+  verification: { google: "YvsN_k2L23Q4L_TViSagobzwSVopPCwXJpI5DoKfaeE" },
   title: TITLE,
   description: DESC,
   openGraph: {

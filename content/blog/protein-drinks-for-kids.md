@@ -4,7 +4,7 @@ slug: protein-drinks-for-kids
 description: "How much protein kids actually need by age, when a protein drink makes sense, what to avoid in the adult ones, and what a kid-sized option looks like."
 keywords: ["protein drinks for kids", "kids protein drink", "how much protein do kids need", "protein shake for kids", "protein juice for kids"]
 date: 2026-09-11
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

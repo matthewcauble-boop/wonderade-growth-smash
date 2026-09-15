@@ -4,7 +4,7 @@ slug: nutrition-and-how-tall-kids-grow
 description: "How much of your kid's height is genetic, how much is diet, and the three nutrients the growth research keeps pointing at: protein, calcium, and vitamin D."
 keywords: ["how to help my child grow taller", "nutrition and height in children", "what foods help kids grow", "protein and growth in kids", "calcium for growing kids"]
 date: 2026-09-12
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

@@ -4,7 +4,7 @@ slug: no-added-sugar-juice-boxes
 description: "'No added sugar' is a legal phrase with a precise meaning, and it isn't 'low sugar.' What the FDA definition covers, what it doesn't, and how to read past it."
 keywords: ["no added sugar juice boxes", "what does no added sugar mean", "no sugar added vs sugar free", "juice with no added sugar for kids", "unsweetened vs no added sugar"]
 date: 2026-09-14
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

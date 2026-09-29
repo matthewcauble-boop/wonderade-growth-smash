@@ -105,10 +105,12 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Failed to create profile" }, { status: profileRes.status })
         }
 
-        // Step 2: Subscribe to the main list (you'll need to set KLAVIYO_LIST_ID in env)
+        // Step 2: Subscribe them to email marketing on the main list. Adding a profile to the list alone does not
+        // record consent, and Klaviyo only sends campaigns to subscribed profiles (every signup on launch day showed
+        // "never subscribed"). The form says "By continuing you agree to get emails from Wonderade".
         const listId = process.env.KLAVIYO_LIST_ID
-        if (listId && profileId) {
-            await fetch(`${KLAVIYO_API_URL}/lists/${listId}/relationships/profiles/`, {
+        if (listId) {
+            const subRes = await fetch(`${KLAVIYO_API_URL}/profile-subscription-bulk-create-jobs/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -116,9 +118,25 @@ export async function POST(request: Request) {
                     revision: KLAVIYO_REVISION
                 },
                 body: JSON.stringify({
-                    data: [{ type: "profile", id: profileId }]
+                    data: {
+                        type: "profile-subscription-bulk-create-job",
+                        attributes: {
+                            custom_source: "v2-landing-page",
+                            profiles: {
+                                data: [{
+                                    type: "profile",
+                                    attributes: {
+                                        email,
+                                        subscriptions: { email: { marketing: { consent: "SUBSCRIBED" } } }
+                                    }
+                                }]
+                            }
+                        },
+                        relationships: { list: { data: { type: "list", id: listId } } }
+                    }
                 })
             })
+            if (!subRes.ok) console.error("Klaviyo subscribe error:", await subRes.text())
         }
 
         return NextResponse.json({ success: true }, { status: 200 })

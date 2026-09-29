@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Quicksand, Baloo_2 } from "next/font/google";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({
         className={`${quicksand.variable} ${baloo.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

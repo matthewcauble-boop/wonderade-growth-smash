@@ -138,3 +138,10 @@ main :is(h1, h2, h3, h4, h5, h6) {
 .post-body table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.95rem; }
 .post-body th, .post-body td { border: 1px solid #374191; padding: 0.5rem 0.75rem; text-align: left; }
 .post-body th { background: #fbd02e; color: #374191; }
+
+
+/* iOS Safari zooms the page into any form field whose text is under 16px (the email box, the address fields...).
+   On phones every field is 16px, so tapping a field never zooms the layout. */
+@media (max-width: 767px) {
+  input, select, textarea { font-size: 16px !important; }
+}

@@ -45,6 +45,10 @@ export function AddressForm() {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => setIsMounted(true), []);
 
+    // if Google Maps never loads (blocked, quota, slow network), fall back to typing the address by hand
+    const [mapsTimedOut, setMapsTimedOut] = useState(false);
+    useEffect(() => { const t = setTimeout(() => setMapsTimedOut(true), 6000); return () => clearTimeout(t); }, []);
+
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
         libraries: libraries as any,
@@ -59,7 +63,7 @@ export function AddressForm() {
             setAddressDetails({ street: "", city: "", state: "", zip: "" });
         }
         const my = ++reqId.current;
-        if (!input || input.length < 3 || !window.google) {
+        if (!input || input.length < 3 || manualOnly || !window.google) {
             setSuggestions([]); setOpen(false);
             return;
         }
@@ -176,9 +180,9 @@ export function AddressForm() {
 
     if (!isMounted) return null;
 
-    if (loadError) return <div className="text-center font-mono font-bold text-red-600">Maps Initialization Error</div>;
-    // Loading state while script mounts silently
-    if (!isLoaded) return <div className="p-8 text-center text-[#374191] font-mono animate-pulse">Initializing Secure Validation...</div>;
+    const manualOnly = !!loadError || (!isLoaded && mapsTimedOut);   // no suggestions, the form still works
+    // Loading state while the script mounts (briefly; after 6 s the form opens in manual mode)
+    if (!isLoaded && !manualOnly) return <div className="p-8 text-center text-[#374191] font-mono animate-pulse">Loading the address form...</div>;
 
     return (
         <div className="flex flex-col border-4 border-[#374191] bg-white p-6 shadow-[12px_12px_0px_#374191] md:p-10 rounded-3xl w-full">
@@ -222,10 +226,10 @@ export function AddressForm() {
                             onChange={(e) => fetchNewSuggestions(e.target.value)}
                             onFocus={() => { if (suggestions.length && inputValue !== selected) setOpen(true) }}
                             onBlur={() => setTimeout(() => setOpen(false), 150)}
-                            disabled={!isLoaded}
+                            disabled={!isLoaded && !manualOnly}
                             autoComplete="off"
                             enterKeyHint="next"
-                            placeholder="START TYPING ADDRESS..."
+                            placeholder={manualOnly ? "STREET ADDRESS" : "START TYPING ADDRESS..."}
                             className="w-full py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 text-[#374191] bg-transparent"
                         />
                     </div>

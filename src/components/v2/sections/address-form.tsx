@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { useLoadScript } from "@react-google-maps/api"
 import { MapPin } from "lucide-react"
@@ -19,6 +19,27 @@ export function AddressForm() {
 
     const [inputValue, setInputValue] = useState("")
     const [suggestions, setSuggestions] = useState<any[]>([])
+    const [open, setOpen] = useState(false)          // the suggestion list is showing
+    const [selected, setSelected] = useState("")      // the street the box was filled with by a pick ("" = typed by hand)
+    const [unit, setUnit] = useState("")
+    const reqId = useRef(0)                           // only the newest suggestion request may fill the list
+    const boxRef = useRef<HTMLDivElement>(null)
+
+    // close the list on a tap/click anywhere outside it, and on Escape
+    useEffect(() => {
+        const onDown = (e: MouseEvent | TouchEvent) => {
+            if (boxRef.current && !boxRef.current.contains(e.target as Node)) setOpen(false)
+        }
+        const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false) }
+        document.addEventListener("mousedown", onDown)
+        document.addEventListener("touchstart", onDown)
+        document.addEventListener("keydown", onKey)
+        return () => {
+            document.removeEventListener("mousedown", onDown)
+            document.removeEventListener("touchstart", onDown)
+            document.removeEventListener("keydown", onKey)
+        }
+    }, [])
 
     // Prevent hydration mismatch
     const [isMounted, setIsMounted] = useState(false);
@@ -32,8 +53,14 @@ export function AddressForm() {
 
     const fetchNewSuggestions = async (input: string) => {
         setInputValue(input);
-        if (!input || !window.google) {
-            setSuggestions([]);
+        // typing after a pick means a different address: clear what the old pick filled in
+        if (selected && input !== selected) {
+            setSelected("");
+            setAddressDetails({ street: "", city: "", state: "", zip: "" });
+        }
+        const my = ++reqId.current;
+        if (!input || input.length < 3 || !window.google) {
+            setSuggestions([]); setOpen(false);
             return;
         }
         try {
@@ -42,14 +69,22 @@ export function AddressForm() {
                 input,
                 includedRegionCodes: ["us"]
             });
+            if (my !== reqId.current) return;          // a newer keystroke (or a pick) has happened since
             setSuggestions(response.suggestions || []);
+            setOpen(true);
         } catch (err) {
             console.error("V3 Maps Native Error:", err);
         }
     };
 
+    const enterManually = () => {
+        reqId.current++; setOpen(false); setSuggestions([]); setSelected("");
+        setAddressDetails({ street: "", city: "", state: "", zip: "" });
+    };
+
     const handleSelect = async (placeId: string, description: string) => {
-        setInputValue(description);
+        reqId.current++;                               // drop any suggestion response still in flight
+        setOpen(false);
         setSuggestions([]);
         
         try {
@@ -72,12 +107,11 @@ export function AddressForm() {
                 if (types.includes("postal_code")) zip = component.longText;
             });
 
-            setAddressDetails({
-                street: `${streetNumber} ${route}`.trim() || description.split(',')[0],
-                city,
-                state,
-                zip
-            });
+            const street = `${streetNumber} ${route}`.trim() || description.split(',')[0];
+            // the box shows the street line only, so what is sent is always exactly what the customer sees
+            setInputValue(street);
+            setSelected(street);
+            setAddressDetails({ street, city, state, zip });
 
         } catch (error) {
             console.error("V3 Geocoding Parsing Error: ", error);
@@ -93,6 +127,16 @@ export function AddressForm() {
             return;
         }
 
+        const street = inputValue.trim();
+        if (!/^\d+\s+\S+/.test(street)) {
+            setErrorMessage("Please enter a street address with a house number (or pick one from the list).");
+            setStatus("error"); return;
+        }
+        if (!addressDetails.city.trim() || !/^[A-Za-z]{2}$/.test(addressDetails.state.trim()) || !/^\d{5}(-\d{4})?$/.test(addressDetails.zip.trim())) {
+            setErrorMessage("Please check the city, 2-letter state and 5-digit ZIP.");
+            setStatus("error"); return;
+        }
+        setErrorMessage("");
         setStatus("loading");
         
         try {
@@ -103,10 +147,12 @@ export function AddressForm() {
                     email,
                     firstName,
                     lastName,
-                    address: addressDetails.street || inputValue, // Use formatted street, or raw input fallback
-                    city: addressDetails.city,
-                    state: addressDetails.state,
-                    postalCode: addressDetails.zip
+                    address: street,                       // always the street the customer sees in the box
+                    address2: unit.trim(),
+                    city: addressDetails.city.trim(),
+                    state: addressDetails.state.trim().toUpperCase(),
+                    postalCode: addressDetails.zip.trim(),
+                    addressPicked: !!selected
                 })
             });
 
@@ -168,32 +214,56 @@ export function AddressForm() {
                 </div>
 
                 {/* Autocomplete Street Bounds */}
-                <div className="relative z-50">
+                <div className="relative z-50" ref={boxRef}>
                     <div className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden focus-within:-translate-y-0.5 transition-transform items-center px-4">
                         <MapPin className="text-[#374191]/50 w-5 h-5 mr-2" />
                         <input
                             value={inputValue}
                             onChange={(e) => fetchNewSuggestions(e.target.value)}
+                            onFocus={() => { if (suggestions.length && inputValue !== selected) setOpen(true) }}
+                            onBlur={() => setTimeout(() => setOpen(false), 150)}
                             disabled={!isLoaded}
+                            autoComplete="off"
+                            enterKeyHint="next"
                             placeholder="START TYPING ADDRESS..."
                             className="w-full py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 text-[#374191] bg-transparent"
                         />
                     </div>
                     
                     {/* Autocomplete Suggestions Dropdown */}
-                    {suggestions.length > 0 && (
-                        <ul className="absolute top-full left-0 w-full mt-2 bg-white border-2 border-[#374191] rounded-xl shadow-[4px_4px_0px_#374191] overflow-hidden">
+                    {open && suggestions.length > 0 && (
+                        <ul className="absolute top-full left-0 w-full mt-2 bg-white border-2 border-[#374191] rounded-xl shadow-[4px_4px_0px_#374191] max-h-72 overflow-y-auto">
                             {suggestions.map((suggest) => (
                                 <li
                                     key={suggest.placePrediction.placeId}
+                                    onMouseDown={(e) => e.preventDefault()}
                                     onClick={() => handleSelect(suggest.placePrediction.placeId, suggest.placePrediction.text.text)}
                                     className="cursor-pointer px-4 py-3 font-mono text-xs uppercase font-bold text-[#374191] hover:bg-[#F8F2D0] border-b border-[#374191]/10 last:border-none transition-colors"
                                 >
                                     {suggest.placePrediction.text.text}
                                 </li>
                             ))}
+                            <li
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={enterManually}
+                                className="cursor-pointer px-4 py-3 font-mono text-xs uppercase font-bold text-[#374191]/70 bg-[#F8F2D0]/60 hover:bg-[#F8F2D0]"
+                            >
+                                My address isn&apos;t listed - enter it manually
+                            </li>
                         </ul>
                     )}
+                </div>
+
+                {/* Apartment / unit */}
+                <div className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden">
+                    <input
+                        type="text"
+                        placeholder="APT / UNIT (OPTIONAL)"
+                        value={unit}
+                        onChange={(e) => setUnit(e.target.value)}
+                        autoComplete="address-line2"
+                        className="w-full px-4 py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 text-[#374191]"
+                    />
                 </div>
 
                 {/* Explicit Parsed Details Grid (Unlocks when validated) */}
@@ -201,7 +271,7 @@ export function AddressForm() {
                      <div className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden">
                         <input
                             required
-                            readOnly={!!addressDetails.city}
+                            autoComplete="address-level2"
                             type="text"
                             placeholder="CITY"
                             value={addressDetails.city}
@@ -213,7 +283,7 @@ export function AddressForm() {
                         <div className="flex-1 border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden">
                             <input
                                 required
-                                readOnly={!!addressDetails.state}
+                                autoComplete="address-level1"
                                 type="text"
                                 placeholder="ST"
                                 value={addressDetails.state}
@@ -225,7 +295,7 @@ export function AddressForm() {
                         <div className="flex-[2] border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden">
                             <input
                                 required
-                                readOnly={!!addressDetails.zip}
+                                autoComplete="postal-code" inputMode="numeric"
                                 type="text"
                                 placeholder="ZIP"
                                 value={addressDetails.zip}

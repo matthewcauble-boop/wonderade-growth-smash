@@ -6,7 +6,7 @@ const KLAVIYO_REVISION = "2024-10-15"
 export async function POST(request: Request) {
     try {
         const body = await request.json()
-        const { email, firstName, lastName, address, city, state, postalCode } = body
+        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked } = body
 
         if (!email || !email.includes("@")) {
             return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
@@ -40,6 +40,7 @@ export async function POST(request: Request) {
             properties: {
                 signup_source: "v2-landing-page",
                 free_sample_claim: true,
+                ...(address ? { address_picked_from_list: !!addressPicked } : {}),
                 signup_date: new Date().toISOString(),
                 ...(referrerEmail ? { referred_by: referrerEmail } : {})
             }
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
         if (address || city || state || postalCode) {
             profileAttributes.location = {
                 address1: address || "",
+                address2: address2 || "",
                 city: city || "",
                 region: state || "",
                 zip: postalCode || "",

@@ -6,7 +6,9 @@ const KLAVIYO_REVISION = "2024-10-15"
 export async function POST(request: Request) {
     try {
         const body = await request.json()
-        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked } = body
+        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked, phone, smsConsent } = body
+        // only a well-formed US number in E.164 is passed on; anything else is ignored rather than failing the signup
+        const phoneE164 = typeof phone === "string" && /^\+1\d{10}$/.test(phone) ? phone : ""
 
         if (!email || !email.includes("@")) {
             return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
@@ -42,7 +44,8 @@ export async function POST(request: Request) {
                 free_sample_claim: true,
                 ...(address ? { address_picked_from_list: !!addressPicked } : {}),
                 signup_date: new Date().toISOString(),
-                ...(referrerEmail ? { referred_by: referrerEmail } : {})
+                ...(referrerEmail ? { referred_by: referrerEmail } : {}),
+                ...(phoneE164 ? { mobile_entered: phoneE164, sms_consent_checked: !!smsConsent } : {})
             }
         }
         if (firstName) profileAttributes.first_name = firstName
@@ -139,6 +142,40 @@ export async function POST(request: Request) {
                 })
             })
             if (!subRes.ok) console.error("Klaviyo subscribe error:", await subRes.text())
+
+            // Step 3: SMS. Only when the customer ticked the (unticked-by-default) consent box next to their number.
+            // Its own request, so a number Klaviyo rejects, or SMS not yet set up in the account, never costs the
+            // email signup. The consent wording is in address-form.tsx; /sms-terms has the full terms.
+            if (phoneE164 && smsConsent === true) {
+                const smsRes = await fetch(`${KLAVIYO_API_URL}/profile-subscription-bulk-create-jobs/`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
+                        revision: KLAVIYO_REVISION
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            type: "profile-subscription-bulk-create-job",
+                            attributes: {
+                                custom_source: "v2-claim-form-sms",
+                                profiles: {
+                                    data: [{
+                                        type: "profile",
+                                        attributes: {
+                                            email,
+                                            phone_number: phoneE164,
+                                            subscriptions: { sms: { marketing: { consent: "SUBSCRIBED" } } }
+                                        }
+                                    }]
+                                }
+                            },
+                            relationships: { list: { data: { type: "list", id: listId } } }
+                        }
+                    })
+                })
+                if (!smsRes.ok) console.error("Klaviyo SMS subscribe error:", await smsRes.text())
+            }
         }
 
         return NextResponse.json({ success: true }, { status: 200 })

@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { useLoadScript } from "@react-google-maps/api"
-import { MapPin } from "lucide-react"
+import Link from "next/link"
+import { MapPin, Phone } from "lucide-react"
 
 const libraries = ["places"];
 
@@ -22,6 +23,8 @@ export function AddressForm() {
     const [open, setOpen] = useState(false)          // the suggestion list is showing
     const [selected, setSelected] = useState("")      // the street the box was filled with by a pick ("" = typed by hand)
     const [unit, setUnit] = useState("")
+    const [phone, setPhone] = useState("")
+    const [smsConsent, setSmsConsent] = useState(false)   // never pre-checked: texts need the customer's own yes
     const reqId = useRef(0)                           // only the newest suggestion request may fill the list
     const boxRef = useRef<HTMLDivElement>(null)
 
@@ -140,6 +143,17 @@ export function AddressForm() {
             setErrorMessage("Please check the city, 2-letter state and 5-digit ZIP.");
             setStatus("error"); return;
         }
+        // phone is optional; if given it must be a US number (10 digits, an optional leading 1)
+        const digits = phone.replace(/\D/g, "")
+        const phone10 = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits
+        if (phone.trim() && phone10.length !== 10) {
+            setErrorMessage("Please enter a 10-digit US mobile number, or leave it blank.");
+            setStatus("error"); return;
+        }
+        if (smsConsent && !phone10) {
+            setErrorMessage("Add your mobile number to get texts, or untick the box.");
+            setStatus("error"); return;
+        }
         setErrorMessage("");
         setStatus("loading");
         
@@ -156,7 +170,9 @@ export function AddressForm() {
                     city: addressDetails.city.trim(),
                     state: addressDetails.state.trim().toUpperCase(),
                     postalCode: addressDetails.zip.trim(),
-                    addressPicked: !!selected
+                    addressPicked: !!selected,
+                    phone: phone10 ? `+1${phone10}` : "",
+                    smsConsent: !!(phone10 && smsConsent)
                 })
             });
 
@@ -309,6 +325,35 @@ export function AddressForm() {
                         </div>
                     </div>
                 </div>
+
+                {/* Mobile number + SMS consent (both optional) */}
+                <div className="flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] rounded-xl overflow-hidden focus-within:-translate-y-0.5 transition-transform items-center px-4">
+                    <Phone className="text-[#374191]/50 w-5 h-5 mr-2" />
+                    <input
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel-national"
+                        placeholder="MOBILE NUMBER (OPTIONAL)"
+                        aria-label="Mobile number (optional)"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full py-4 font-mono text-sm font-bold uppercase tracking-widest outline-none placeholder:text-[#374191]/40 text-[#374191] bg-transparent"
+                    />
+                </div>
+                <label className="flex items-start gap-3 cursor-pointer select-none">
+                    <input
+                        type="checkbox"
+                        checked={smsConsent}
+                        onChange={(e) => setSmsConsent(e.target.checked)}
+                        className="mt-0.5 h-5 w-5 shrink-0 accent-[#374191]"
+                    />
+                    <span className="font-mono text-[11px] leading-snug text-[#374191]/80">
+                        Text me Wonderade updates and offers at this number. Msg frequency varies. Msg &amp; data rates may apply.
+                        Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.{" "}
+                        <Link href="/sms-terms" className="underline">SMS Terms</Link> &amp;{" "}
+                        <Link href="/privacy" className="underline">Privacy Policy</Link>.
+                    </span>
+                </label>
 
                 <button 
                     type="submit"

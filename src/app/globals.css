@@ -138,6 +138,10 @@ main :is(h1, h2, h3, h4, h5, h6) {
 .post-body table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.95rem; }
 .post-body th, .post-body td { border: 1px solid #374191; padding: 0.5rem 0.75rem; text-align: left; }
 .post-body th { background: #fbd02e; color: #374191; }
+/* Source lists carry long bare URLs; let them wrap on phones instead of forcing a horizontal scroll. */
+.source-list { overflow-wrap: anywhere; }
+.source-list p { margin: 0 0 0.5rem; }
+.source-list ul { list-style: disc; }
 
 
 /* iOS Safari zooms the page into any form field whose text is under 16px (the email box, the address fields...).

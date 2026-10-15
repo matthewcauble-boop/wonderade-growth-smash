@@ -65,6 +65,11 @@ export default function RootLayout({
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         {children}
         <Analytics />
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "d534a6fb2f1c46c39f6c98f2d5e7f939"}'
+        />
       </body>
     </html>
   );

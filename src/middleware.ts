@@ -25,5 +25,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     // Only strictly engage the interceptor parser linearly on the core operational frontend pages
-    matcher: ['/', '/v2', '/claim'],
+    matcher: ['/', '/v2', '/claim', '/share', '/blog/:path*'],
 }

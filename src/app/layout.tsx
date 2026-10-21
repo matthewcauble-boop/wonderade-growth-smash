@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Quicksand, Baloo_2 } from "next/font/google";
 import "./globals.css";
+import { MetaPixel } from "@/components/meta-pixel";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/site";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${baloo.variable} antialiased`}
       >
+        <MetaPixel />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         {children}
         <Analytics />

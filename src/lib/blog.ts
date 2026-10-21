@@ -41,6 +41,15 @@ function extractFaq(md: string): { question: string; answer: string }[] {
   return out;
 }
 
+// Posts link to https://wonderade.us/..., which 307-redirects to www and spends a redirect hop on every internal link.
+// The old "/#compare" anchor no longer exists on the homepage; the comparison table now lives on /nutrition#compare.
+function internalLinks(html: string): string {
+  return html
+    .replace(/href="https?:\/\/(?:www\.)?wonderade\.us\/#compare"/g, 'href="/nutrition#compare"')
+    .replace(/href="https?:\/\/(?:www\.)?wonderade\.us\/?"/g, 'href="/"')
+    .replace(/href="https?:\/\/(?:www\.)?wonderade\.us(\/[^"]*)"/g, 'href="$1"');
+}
+
 function load(file: string): Post {
   const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf8");
   const { data, content } = matter(raw);
@@ -53,7 +62,7 @@ function load(file: string): Post {
     date: typeof data.date === "string" ? data.date : new Date(data.date).toISOString().slice(0, 10),
     status: data.status ?? "draft",
     cta: data.cta ?? "https://wonderade.us/claim",
-    html: marked.parse(body, { gfm: true }) as string,
+    html: internalLinks(marked.parse(body, { gfm: true }) as string),
     faq: extractFaq(body),
     wordCount: body.split(/\s+/).filter(Boolean).length,
   };

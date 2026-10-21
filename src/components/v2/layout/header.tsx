@@ -19,8 +19,8 @@ export function Header() {
         <header className="sticky top-0 z-[9999] w-full border-b-2 border-[#374191] bg-white">
             <div className="flex h-20 items-center justify-between pl-4 md:pl-8">
                 <div className="flex items-center gap-6 lg:gap-8">
-                    <Link href="/" className="flex items-center justify-start h-[32px] sm:h-[48px] md:h-[60px] min-w-[120px] max-w-[45vw] sm:max-w-[200px] md:max-w-[280px] shrink mr-auto md:mr-[80px]">
-                        <svg viewBox="0 0 446.77 59.07" className="w-full h-auto max-h-full fill-black">
+                    <Link href="/" aria-label="Wonderade home" className="flex items-center justify-start h-[32px] sm:h-[48px] md:h-[60px] min-w-[120px] max-w-[45vw] sm:max-w-[200px] md:max-w-[280px] shrink mr-auto md:mr-[80px]">
+                        <svg viewBox="0 0 446.77 59.07" className="w-full h-auto max-h-full fill-black" role="img" aria-label="Wonderade">
                             <path d="M66.71,33.48c-.51-7.15.93-14.41,4.06-20.45,1.33-2.56,2.92-4.85,4.74-6.82-.46-.3-1.03-.44-1.72-.5-5.46-.46-10.55.1-16.28.06-3.36.08-2.86,2.87-2.88,4.75-.05,4.44-.24,8.06-.8,12.74-.18,1.53-.11,5.94-1.36,6.97-1.01.83-2.11-.57-2.1-1.5-1.41-6.85-1.49-14.3-2.93-21.1-.26-1.23-1.01-1.81-2.38-1.92-3.22-.26-10.84-.32-13.98,0-2.64.27-2.15,2.53-2.41,4.13-.88,5.51-1.64,11.06-2.51,16.56-.14.91.09,4.02-1.68,4.03-1.86,0-2.16-5.06-2.26-5.95-.49-4.57-.38-7.23-.89-11.5-.28-2.29,0-7.14-1.9-7.27-5.22-.36-11.54.39-16.94.04-.38-.02-.77.06-1.09.25l-.51.31C.31,6.68-.03,7.29,0,7.92l5.83,43.93c-.08,1,.65,1.54,1.55,1.99l25.11.02c1.35-.36,1.54-2.09,1.73-3.16,1.12-6.41,1.3-8.57,2.63-14.94.35-1.68,1.78-2.42,2.45-.48.81,5.81,1.36,7.26,2.26,13.04.19,1.19.51,4.41,1.39,5.13.44.36,1.22.48,1.81.53,8.38.67,15.15-.54,23.66,0,1.1,0,2.03-.51,2.51-1.36l.45-3.72c-2.66-4.41-4.27-9.68-4.68-15.41Z"/>
                             <path d="M184.71,54.84c-2.21-.36-6.33.73-8.36-.86-2.04-8.34-.64-17.64-.96-26.31.63-7.38-1.03-15.4.46-22.47,3.8-1.6,8.95-.53,13.11-.69,7.21-.06,15.57-1,20.77,5.1,7.14,8.22,7.71,21.88,2.6,31.18-4.49,9.67-17.13,15.17-27.24,14.08l-.38-.03ZM192.01,27.25c.02,1.9.05,3.8.05,5.71,0,.23-.05.58.31.6.62.03,1.26-.04,1.87-.08.36-.02.73-.04,1.09-.09.63-.1,1.14-1.03,1.46-1.51.47-.71.8-1.49,1.02-2.31.42-1.61.42-3.29.43-4.95,0-1.33-.55-2.96-1.69-3.75-.87-.6-3.09-1.08-4.1-.7-.53.2-.45.76-.46,1.19-.03,1.98,0,3.94.01,5.9Z"/>
                             <path d="M126.59,31.22c-.63-7.41-.91-15.62-6.32-21.19-7.98-9.48-21.77-12.59-32.99-7.84-23.31,8.22-23.72,50.5,1.77,55.6,19.35,4.93,37.56-4.58,37.55-25.98v-.59ZM114.46,25.15c-1.8,1.7-3.95,3.04-5.71,4.8-.7.8-2.41,1.27-1.96,2.59,1.02,2.41,2.06,4.83,2.88,7.32.25.8.64,1.64.5,2.49-.12.78-.79,1.4-1.59,1.31-1.46-.26-2.63-1.37-3.92-2.04-1.53-.94-2.99-1.97-4.48-3-1.27-.95-2.01-.04-3,.8-1.94,1.41-3.65,3.12-5.5,4.63-1.64,1.52-3.67.72-3.38-1.59.39-2.33,1.35-4.53,1.74-6.87.12-.75.45-1.55.5-2.24.09-.79-.6-1.29-1.22-1.63-1.42-.74-2.67-1.74-4.06-2.52-.95-.53-1.82-1.16-2.71-1.78-.4-.28-.81-.61-1.05-1.04-.41-.7-.15-1.58.51-2.03,1.3-.76,3.04-.54,4.51-.66,1.44-.09,2.89-.18,4.33-.24.72-.07,1.57.04,2.17-.39.61-.53.61-1.47.81-2.22.48-1.99.91-4,1.5-5.97.25-.79.45-1.66,1.06-2.25.58-.58,1.55-.67,2.18-.13.42.34.68.87.88,1.37.9,2.08,1.59,4.26,2.47,6.35.29.85.44,1.67.94,2.12.07.05.14.1.21.16.3.17.7.25,1.26.17.99-.1,1.98-.03,2.97-.15,1.26-.19,2.52-.18,3.78-.29.72-.06,1.45-.12,2.16-.03h.05c1.59.13,2.21,1.78,1.14,2.96Z"/>
@@ -35,16 +35,19 @@ export function Header() {
 
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-mono text-xs lg:text-sm font-bold uppercase tracking-widest text-[#374191]">
                         <Link href="/#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")} className="hover:text-[#Fbd02e] transition-colors">How it works</Link>
+                        <Link href="/flavors" className="hidden lg:inline hover:text-[#Fbd02e] transition-colors">Flavors</Link>
+                        <Link href="/nutrition" className="hidden lg:inline hover:text-[#Fbd02e] transition-colors">Nutrition</Link>
+                        <Link href="/food-stories" className="hover:text-[#Fbd02e] transition-colors">Food Stories</Link>
                         <Link href="/blog" className="hover:text-[#Fbd02e] transition-colors">Learn</Link>
                     </nav>
                 </div>
 
                 <div className="flex h-full items-center">
                     <div className="hidden sm:block relative w-12 h-12 md:w-16 md:h-16 mr-2 md:mr-6 animate-[spin_10s_linear_infinite]">
-                        <Image src="/assets/brand/Stickers/orange sticker.svg" alt="Juiced Up Sticker" fill className="object-contain" />
+                        <Image src="/assets/brand/Stickers/orange sticker.svg" alt="Juiced Up orange sticker" fill className="object-contain" />
                     </div>
                     <Button asChild className="px-3 md:px-6 py-0 shrink-0 whitespace-nowrap text-[11px] sm:text-xs md:text-base tracking-normal md:tracking-widest shadow-none hover:bg-[#374191] hover:text-white transition-colors border-l-2 border-[#374191] bg-[#FBD02E] text-[#374191] h-full rounded-none">
-                        <Link href="#checkout" onClick={(e) => scrollToSection(e, "checkout")} className="font-bold">
+                        <Link href="/#checkout" onClick={(e) => scrollToSection(e, "checkout")} className="font-bold">
                             TRY OUT
                         </Link>
                     </Button>

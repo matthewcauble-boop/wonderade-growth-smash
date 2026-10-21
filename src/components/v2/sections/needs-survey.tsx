@@ -250,6 +250,7 @@ export function NeedsSurvey() {
             {step.kind === "about" && (
                 <>
                     <h2 className={heading}>How old are your kids?</h2>
+                    <p className="-mt-2 mb-3 text-sm opacity-70">Pick all that apply.</p>
                     <div className="flex flex-wrap gap-2">
                         {AGE_BANDS.map((band) => {
                             const on = ages.includes(band)

@@ -53,7 +53,7 @@ export const INTENT_LABELS: Record<(typeof INTENT)[number], string> = {
     no: "No",
 }
 
-export const AGE_BANDS = ["Under 2", "2-4", "5-8", "9-12", "13+"] as const
+export const AGE_BANDS = ["Under 5", "5-10", "Over 10"] as const
 export const KID_COUNTS = ["1", "2", "3", "4+"] as const
 
 export type SurveyAnswer = {

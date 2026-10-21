@@ -48,5 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...posts,
     page("/punch-list", 0.5),
     page("/contact", 0.3, "yearly"),
+    page("/privacy", 0.2, "yearly"),
+    page("/sms-terms", 0.2, "yearly"),
   ];
 }

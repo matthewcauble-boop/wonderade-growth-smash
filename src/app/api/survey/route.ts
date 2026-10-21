@@ -21,7 +21,7 @@ export async function POST(request: Request) {
 
         const properties: Record<string, unknown> = {
             landing_angle: angle || "none",
-            unprompted_worry: typeof answer.worry === "string" ? answer.worry.slice(0, 500) : "",
+            other_worry: typeof answer.worry === "string" ? answer.worry.slice(0, 500) : "",
         }
 
         // per nutrient: thought about it / worried / what they do today

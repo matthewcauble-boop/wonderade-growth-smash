@@ -1,6 +1,6 @@
 // Parent-needs survey (Oct 2026). Question it answers: do parents think about these nutrients at all, and would
-// they buy something for them today? Order matters: the unprompted worry comes first so the nutrient list can't
-// lead it, then per-nutrient awareness/worry/behaviour, then a best-worst ranking, then priced product concepts.
+// they buy something for them today? Taps only up front (per-nutrient awareness/worry/behaviour, a best-worst
+// ranking, priced product concepts); the one free-text question is optional and comes last.
 
 export const NUTRIENTS = [
     { key: "iron", label: "Iron" },

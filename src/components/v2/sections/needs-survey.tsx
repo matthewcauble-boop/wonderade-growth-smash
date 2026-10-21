@@ -10,7 +10,6 @@ import {
 
 type Nutrient = (typeof NUTRIENTS)[number]
 type Step =
-    | { kind: "worry" }
     | { kind: "nutrient"; index: number }
     | { kind: "rank"; index: number }
     | { kind: "concepts" }
@@ -44,7 +43,6 @@ export function NeedsSurvey() {
         () =>
             order
                 ? [
-                      { kind: "worry" as const },
                       ...order.nutrients.map((_, index) => ({ kind: "nutrient" as const, index })),
                       ...order.rank.map((_, index) => ({ kind: "rank" as const, index })),
                       { kind: "concepts" as const },
@@ -145,21 +143,6 @@ export function NeedsSurvey() {
             <div className="mb-6 h-2 w-full overflow-hidden rounded-full border border-[#374191] bg-white">
                 <div className="h-full bg-[#F57D14] transition-all" style={{ width: `${progress}%` }} />
             </div>
-
-            {step.kind === "worry" && (
-                <>
-                    <h2 className={heading}>What, if anything, worries you about your kid&apos;s nutrition?</h2>
-                    <textarea
-                        value={worry}
-                        onChange={(e) => setWorry(e.target.value)}
-                        maxLength={500}
-                        rows={4}
-                        placeholder="In your own words. Or just tap Next if nothing comes to mind."
-                        className="w-full rounded-xl border-2 border-[#374191] bg-white p-3 text-base text-[#374191] outline-none"
-                    />
-                    {nextButton(true, next)}
-                </>
-            )}
 
             {step.kind === "nutrient" && (() => {
                 const n = order.nutrients[step.index]
@@ -285,6 +268,17 @@ export function NeedsSurvey() {
                             </button>
                         ))}
                     </div>
+                    <h3 className="mb-3 mt-6 font-sans text-xl font-black uppercase text-[#374191]">
+                        Anything else that worries you about what they eat?
+                    </h3>
+                    <textarea
+                        value={worry}
+                        onChange={(e) => setWorry(e.target.value)}
+                        maxLength={500}
+                        rows={3}
+                        placeholder="Optional"
+                        className="w-full rounded-xl border-2 border-[#374191] bg-white p-3 text-base text-[#374191] outline-none"
+                    />
                     {status === "error" && <p className="mt-3 font-mono text-xs font-bold uppercase text-red-500">Something went wrong. Please try again.</p>}
                     {nextButton(ages.length > 0 && !!kids && status !== "sending", submit, status === "sending" ? "Sending..." : "Finish")}
                 </>

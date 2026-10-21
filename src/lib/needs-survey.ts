@@ -40,7 +40,7 @@ export const RANK_APPEARANCES = 2
 
 export const CONCEPTS = [
     { key: "iron_packet", label: "A tasteless iron + fiber packet you stir into their food", price: "$25 a month" },
-    { key: "protein_box", label: "A juice box with 8g protein", price: "$2.50 a box" },
+    { key: "protein_box", label: "A juice box with 8g protein", price: "$2.99 a box" },
     { key: "fiber_vitamin_box", label: "A juice box with fiber + vitamins", price: "$1.50 a box" },
 ] as const
 

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { isAngle } from "@/lib/ad-angles"
 
 const KLAVIYO_API_URL = "https://a.klaviyo.com/api"
 const KLAVIYO_REVISION = "2024-10-15"
@@ -6,9 +7,19 @@ const KLAVIYO_REVISION = "2024-10-15"
 export async function POST(request: Request) {
     try {
         const body = await request.json()
-        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked, phone, smsConsent } = body
+        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked, phone, smsConsent, source, angle, utm } = body
         // only a well-formed US number in E.164 is passed on; anything else is ignored rather than failing the signup
         const phoneE164 = typeof phone === "string" && /^\+1\d{10}$/.test(phone) ? phone : ""
+        // message-test landing pages (/for/[angle]) tag the signup with the angle and the ad's UTM tags
+        const adAngle = source === "ad-test" && isAngle(angle) ? angle : null
+        const utmProps: Record<string, string> = {}
+        if (adAngle && utm && typeof utm === "object") {
+            for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+                const value = (utm as Record<string, unknown>)[key]
+                if (typeof value === "string" && value) utmProps[key] = value.slice(0, 120)
+            }
+        }
+        const signupSource = adAngle ? `ad-test-${adAngle}` : "v2-landing-page"
 
         if (!email || !email.includes("@")) {
             return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
@@ -40,8 +51,8 @@ export async function POST(request: Request) {
         const profileAttributes: Record<string, unknown> = {
             email,
             properties: {
-                signup_source: "v2-landing-page",
-                free_sample_claim: true,
+                signup_source: signupSource,
+                ...(adAngle ? { landing_angle: adAngle, ...utmProps } : { free_sample_claim: true }),
                 ...(address ? { address_picked_from_list: !!addressPicked } : {}),
                 signup_date: new Date().toISOString(),
                 ...(referrerEmail ? { referred_by: referrerEmail } : {}),
@@ -126,7 +137,7 @@ export async function POST(request: Request) {
                     data: {
                         type: "profile-subscription-bulk-create-job",
                         attributes: {
-                            custom_source: "v2-landing-page",
+                            custom_source: signupSource,
                             profiles: {
                                 data: [{
                                     type: "profile",

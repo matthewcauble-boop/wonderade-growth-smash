@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { createHash } from "node:crypto"
+import { isAngle } from "@/lib/ad-angles"
 
 const KLAVIYO_API_URL = "https://a.klaviyo.com/api"
 const KLAVIYO_REVISION = "2024-10-15"
@@ -74,7 +75,19 @@ async function sendMetaEvent(opts: { name: string; email: string; eventId?: stri
 export async function POST(request: Request) {
     try {
         const body = await request.json()
-        const { email, firstName, lastName, address, city, state, postalCode, eventId, source } = body
+        const { email, firstName, lastName, address, address2, city, state, postalCode, addressPicked, phone, smsConsent, source, angle, utm, eventId } = body
+        // only a well-formed US number in E.164 is passed on; anything else is ignored rather than failing the signup
+        const phoneE164 = typeof phone === "string" && /^\+1\d{10}$/.test(phone) ? phone : ""
+        // message-test landing pages (/for/[angle]) tag the signup with the angle and the ad's UTM tags
+        const adAngle = source === "ad-test" && isAngle(angle) ? angle : null
+        const utmProps: Record<string, string> = {}
+        if (adAngle && utm && typeof utm === "object") {
+            for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+                const value = (utm as Record<string, unknown>)[key]
+                if (typeof value === "string" && value) utmProps[key] = value.slice(0, 120)
+            }
+        }
+        const signupSource = adAngle ? `ad-test-${adAngle}` : (typeof source === "string" && source) || "v2-landing-page"
 
         if (!email || !email.includes("@")) {
             return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
@@ -109,17 +122,20 @@ export async function POST(request: Request) {
         const profileAttributes: Json = {
             email,
             properties: {
-                signup_source: source || "v2-landing-page",
-                free_sample_claim: hasAddress,
+                signup_source: signupSource,
+                ...(adAngle ? { landing_angle: adAngle, ...utmProps } : { free_sample_claim: hasAddress }),
+                ...(address ? { address_picked_from_list: !!addressPicked } : {}),
                 signup_date: new Date().toISOString(),
                 ...(referrerEmail ? { referred_by: referrerEmail } : {}),
-            },
+                ...(phoneE164 ? { mobile_entered: phoneE164, sms_consent_checked: !!smsConsent } : {})
+            }
         }
         if (firstName) profileAttributes.first_name = firstName
         if (lastName) profileAttributes.last_name = lastName
         if (hasAddress) {
             profileAttributes.location = {
                 address1: address || "",
+                address2: address2 || "",
                 city: city || "",
                 region: state || "",
                 zip: postalCode || "",
@@ -163,27 +179,59 @@ export async function POST(request: Request) {
                     data: {
                         type: "profile-subscription-bulk-create-job",
                         attributes: {
-                            custom_source: source || "v2-landing-page",
+                            custom_source: signupSource,
                             profiles: {
-                                data: [
-                                    {
+                                data: [{
+                                    type: "profile",
+                                    attributes: {
+                                        email,
+                                        subscriptions: { email: { marketing: { consent: "SUBSCRIBED" } } }
+                                    }
+                                }]
+                            }
+                        },
+                        relationships: { list: { data: { type: "list", id: listId } } }
+                    }
+                })
+            })
+            if (!subRes.ok) console.error("Klaviyo subscribe error:", await subRes.text())
+
+            // Step 3: SMS. Only when the customer ticked the (unticked-by-default) consent box next to their number.
+            // Its own request, so a number Klaviyo rejects, or SMS not yet set up in the account, never costs the
+            // email signup. The consent wording is in address-form.tsx; /sms-terms has the full terms.
+            if (phoneE164 && smsConsent === true) {
+                const smsRes = await fetch(`${KLAVIYO_API_URL}/profile-subscription-bulk-create-jobs/`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
+                        revision: KLAVIYO_REVISION
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            type: "profile-subscription-bulk-create-job",
+                            attributes: {
+                                custom_source: "v2-claim-form-sms",
+                                profiles: {
+                                    data: [{
                                         type: "profile",
                                         attributes: {
                                             email,
-                                            subscriptions: { email: { marketing: { consent: "SUBSCRIBED" } } },
-                                        },
-                                    },
-                                ],
+                                            phone_number: phoneE164,
+                                            subscriptions: { sms: { marketing: { consent: "SUBSCRIBED" } } }
+                                        }
+                                    }]
+                                }
                             },
-                        },
-                        relationships: { list: { data: { type: "list", id: listId } } },
-                    },
-                }),
-            })
-            if (!subRes.ok) console.error("Klaviyo subscribe error:", subRes.status, await subRes.text())
+                            relationships: { list: { data: { type: "list", id: listId } } }
+                        }
+                    })
+                })
+                if (!smsRes.ok) console.error("Klaviyo SMS subscribe error:", await smsRes.text())
+            }
         }
 
-        // Step 3: side effects that must not fail the signup
+        // Step 4: side effects that must not fail the signup
         const tasks: Promise<unknown>[] = []
         if (referrerEmail && isNew) tasks.push(creditReferrer(KLAVIYO_PRIVATE_KEY, referrerEmail))
         tasks.push(sendMetaEvent({ name: hasAddress ? "Lead" : "Subscribe", email, eventId, request }))

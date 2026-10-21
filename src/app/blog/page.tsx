@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/v2/layout/header";
 import { Footer } from "@/components/v2/layout/footer";
 import { getAllPosts } from "@/lib/blog";
+import { GUIDES, pageMeta } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Learn | Wonderade",
+export const metadata = pageMeta({
+  title: "Learn: Food Stories and Straight Answers for Parents",
   description:
     "Straight answers for parents on sugar, protein, lunchboxes and picky eaters — from the people making a juice with 8g of protein and 3g of sugar.",
-  alternates: { canonical: "/blog" },
-  openGraph: { title: "Learn | Wonderade", url: "/blog", type: "website" },
-};
+  path: "/blog",
+});
 
 function fmt(d: string) {
   return new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -31,6 +30,22 @@ export default function BlogIndex() {
             <p className="mt-4 max-w-xl text-lg text-[#374191]">
               Sugar, protein, lunchboxes, picky eaters. No lectures — just what the label says and what to do about it.
             </p>
+          </div>
+        </section>
+
+        <section className="border-b-2 border-[#374191] bg-[#F8F2D0] px-4 py-10 md:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-2xl font-extrabold text-[#374191]">Quick comparisons</h2>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {GUIDES.map((g) => (
+                <li key={g.href}>
+                  <Link href={g.href} className="font-bold text-[#EF4B61] underline underline-offset-2 hover:text-[#374191]">{g.label}</Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/food-stories" className="font-bold text-[#EF4B61] underline underline-offset-2 hover:text-[#374191]">Food Stories: sourced food science videos</Link>
+              </li>
+            </ul>
           </div>
         </section>
 

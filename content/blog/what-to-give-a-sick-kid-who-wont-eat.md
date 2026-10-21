@@ -4,7 +4,7 @@ slug: what-to-give-a-sick-kid-who-wont-eat
 description: "Why appetite shuts off when a kid is sick, why fluids beat food for a few days, what to offer in what order, and the signs that mean call the doctor."
 keywords: ["what to give sick kid who won't eat", "child sick not eating", "what to feed a sick toddler", "sick kid won't eat or drink", "fluids for sick child"]
 date: 2026-09-14
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

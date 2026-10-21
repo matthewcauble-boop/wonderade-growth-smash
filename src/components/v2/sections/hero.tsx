@@ -143,6 +143,7 @@ export function Hero() {
                                     )}
                                 </button>
                             </form>
+                            <p className="mt-2 font-mono text-[10px] leading-snug text-[#374191]/60">By continuing you agree to get emails from Wonderade. Unsubscribe anytime.</p>
 
                             <div className="min-h-[1.25rem]">
                                 {status === "error" ? (

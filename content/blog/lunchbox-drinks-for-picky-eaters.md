@@ -4,7 +4,7 @@ slug: lunchbox-drinks-for-picky-eaters
 description: "Water is the right answer and your kid still won't drink it. What to pack instead, ranked by what actually comes home empty, with sugar and protein numbers."
 keywords: ["lunchbox drinks for kids", "healthy drinks for picky eaters", "best drinks for school lunch", "juice box alternatives for lunch", "kids lunch drink ideas"]
 date: 2026-09-11
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

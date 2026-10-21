@@ -4,7 +4,7 @@ slug: kid-wont-drink-milk
 description: "When milk leaves a kid's diet, protein, calcium, and vitamin D leave with it. What they do, how much a kid needs, and how to replace them without a fight."
 keywords: ["kid won't drink milk", "child refuses milk", "milk alternatives for kids", "calcium for kids who don't drink milk", "what to give a child instead of milk"]
 date: 2026-09-12
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

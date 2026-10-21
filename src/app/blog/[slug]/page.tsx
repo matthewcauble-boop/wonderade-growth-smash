@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/v2/layout/header";
 import { Footer } from "@/components/v2/layout/footer";
 import { getAllPosts, getPost } from "@/lib/blog";
+import { Breadcrumbs } from "@/components/seo/page-parts";
+import { GUIDES, LOGO, pageMeta } from "@/lib/site";
 
 const SITE = "https://www.wonderade.us";
 
@@ -18,20 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Wonderade`,
-    description: post.description,
-    keywords: post.keywords,
-    alternates: { canonical: `/blog/${post.slug}` },
-    robots: post.status === "published" ? undefined : { index: false, follow: false },
-    openGraph: {
-      type: "article",
-      url: `/blog/${post.slug}`,
+    ...pageMeta({
       title: post.title,
       description: post.description,
+      path: `/blog/${post.slug}`,
+      type: "article",
       publishedTime: post.date,
-      authors: ["Wonderade"],
-    },
-    twitter: { card: "summary_large_image", title: post.title, description: post.description },
+      noindex: post.status !== "published",
+    }),
+    keywords: post.keywords,
   };
 }
 
@@ -52,7 +49,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Organization", name: "Wonderade", url: SITE },
-    publisher: { "@type": "Organization", name: "Wonderade", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/og.png` } },
+    publisher: { "@type": "Organization", "@id": `${SITE}/#organization`, name: "Wonderade", url: SITE, logo: { "@type": "ImageObject", url: LOGO } },
     mainEntityOfPage: `${SITE}/blog/${post.slug}`,
     image: [`${SITE}/og.png`],
     wordCount: post.wordCount,
@@ -97,6 +94,22 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
         <article className="px-4 py-10 md:px-8 md:py-14">
           <div className="post-body mx-auto max-w-3xl" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
+
+        <section className="border-t-2 border-[#374191] bg-[#F8F2D0] px-4 py-10 md:px-8">
+          <div className="mx-auto max-w-3xl">
+            <Breadcrumbs items={[{ name: "Learn", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]} />
+            <h2 className="mt-4 font-display text-2xl font-extrabold text-[#374191]">Keep reading</h2>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {GUIDES.map((g) => (
+                <li key={g.href}>
+                  <Link href={g.href} className="font-bold text-[#EF4B61] underline underline-offset-2 hover:text-[#374191]">{g.label}</Link>
+                </li>
+              ))}
+              <li><Link href="/nutrition" className="font-bold text-[#EF4B61] underline underline-offset-2 hover:text-[#374191]">Wonderade nutrition facts</Link></li>
+              <li><Link href="/food-stories" className="font-bold text-[#EF4B61] underline underline-offset-2 hover:text-[#374191]">Food Stories</Link></li>
+            </ul>
+          </div>
+        </section>
 
         <section className="border-t-2 border-[#374191] bg-[#374191] px-4 py-12 text-white md:px-8">
           <div className="mx-auto flex max-w-3xl flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">

@@ -4,7 +4,7 @@ slug: how-much-sugar-in-a-juice-box
 description: "Most juice boxes carry 15–25 g of sugar. How to read the label in ten seconds, what the AAP and AHA actually recommend, and what a better box looks like."
 keywords: ["how much sugar in a juice box", "juice boxes without added sugar", "low sugar juice boxes for kids", "sugar in kids drinks"]
 date: 2026-09-11
-status: draft
+status: published
 cta: https://wonderade.us/claim
 ---
 

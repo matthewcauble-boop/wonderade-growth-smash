@@ -88,6 +88,7 @@ export function Offer() {
                             SAMPLE RESERVED
                         </div>
                     ) : (
+                        <>
                         <form onSubmit={handleSubmit} className="mt-auto flex border-2 border-[#374191] bg-white shadow-[4px_4px_0px_#374191] focus-within:shadow-[2px_2px_0px_#374191] focus-within:-translate-y-0.5 transition-all rounded-xl overflow-hidden mb-2">
                             <input
                                 type="email"
@@ -111,6 +112,8 @@ export function Offer() {
                                 )}
                             </button>
                         </form>
+                        <p className="mt-2 font-mono text-[10px] leading-snug text-[#374191]/60">By continuing you agree to get emails from Wonderade. Unsubscribe anytime.</p>
+                        </>
                     )}
 
                     <div className="mt-1 min-h-[1.5rem] flex items-center">

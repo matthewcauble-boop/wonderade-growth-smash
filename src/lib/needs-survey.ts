@@ -1,73 +1,76 @@
-// Parent-needs survey (Oct 2026). Best-worst scaling: each screen shows 4 needs and the parent picks the most and
-// least important. 8 needs x 6 screens, each need shown 3 times, so score = (times best - times worst) / 3, in [-1, 1].
+// Parent-needs survey (Oct 2026). Question it answers: do parents think about these nutrients at all, and would
+// they buy something for them today? Order matters: the unprompted worry comes first so the nutrient list can't
+// lead it, then per-nutrient awareness/worry/behaviour, then a best-worst ranking, then priced product concepts.
 
-export const NEEDS = [
-    { key: "protein", label: "More protein" },
-    { key: "gut", label: "Gut health (fiber + probiotics)" },
-    { key: "vitamins", label: "Daily vitamins" },
-    { key: "veggies", label: "More vegetables" },
-    { key: "iron", label: "More iron" },
-    { key: "low_sugar", label: "Less sugar" },
-    { key: "taste", label: "Taste they actually love" },
-    { key: "clean", label: "No artificial ingredients" },
+export const NUTRIENTS = [
+    { key: "iron", label: "Iron" },
+    { key: "protein", label: "Protein" },
+    { key: "calcium", label: "Calcium" },
+    { key: "fiber", label: "Fiber" },
+    { key: "vitamin_d", label: "Vitamin D" },
+    { key: "probiotics", label: "Probiotics / gut health" },
+    { key: "veggies", label: "Vegetables" },
+    { key: "sugar", label: "Too much sugar" },
 ] as const
 
-export type NeedKey = (typeof NEEDS)[number]["key"]
+export type NutrientKey = (typeof NUTRIENTS)[number]["key"]
 
-// indexes into NEEDS; every need appears exactly 3 times
-export const SCREENS: number[][] = [
+export const THOUGHT = ["never", "once_or_twice", "often"] as const
+export const WORRY = ["not_at_all", "a_little", "very"] as const
+export const DOING = ["nothing", "food_choices", "buys_product"] as const
+
+export const THOUGHT_LABELS: Record<(typeof THOUGHT)[number], string> = { never: "Never", once_or_twice: "Once or twice", often: "Often" }
+export const WORRY_LABELS: Record<(typeof WORRY)[number], string> = { not_at_all: "Not at all", a_little: "A little", very: "Very" }
+export const DOING_LABELS: Record<(typeof DOING)[number], string> = {
+    nothing: "Nothing",
+    food_choices: "Food choices",
+    buys_product: "A supplement or special product",
+}
+
+export type NutrientAnswer = { thought: (typeof THOUGHT)[number]; worry: (typeof WORRY)[number]; doing: (typeof DOING)[number] }
+
+// best-worst screens: indexes into NUTRIENTS, every nutrient shown exactly twice
+export const RANK_SCREENS: number[][] = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
     [0, 2, 4, 6],
     [1, 3, 5, 7],
-    [0, 3, 5, 6],
-    [1, 2, 4, 7],
 ]
+export const RANK_APPEARANCES = 2
 
-export const TRADEOFFS = [
-    {
-        key: "price_vs_protein",
-        question: "Which would you rather buy?",
-        a: "8g protein, $2.50 a box",
-        b: "3g protein, $2.00 a box",
-    },
-    {
-        key: "protein_vs_gut",
-        question: "If you could only pick one, which matters more?",
-        a: "Extra protein",
-        b: "Gut health (fiber + probiotics)",
-    },
-    {
-        key: "sweet_vs_protein",
-        question: "Which would your kid be more likely to finish?",
-        a: "Sweeter, with less protein",
-        b: "A little less sweet, with more protein",
-    },
-    {
-        key: "box_vs_powder",
-        question: "Which format fits your family better?",
-        a: "Ready-to-drink juice box",
-        b: "Powder you mix with water or milk",
-    },
+export const CONCEPTS = [
+    { key: "iron_packet", label: "A tasteless iron + fiber packet you stir into their food", price: "$25 a month" },
+    { key: "protein_box", label: "A juice box with 8g protein", price: "$2.50 a box" },
+    { key: "fiber_vitamin_box", label: "A juice box with fiber + vitamins", price: "$1.50 a box" },
 ] as const
 
-export type TradeoffKey = (typeof TRADEOFFS)[number]["key"]
-
-export const AGE_BANDS = ["Under 2", "2-4", "5-8", "9-12", "13+"] as const
-
-export type SurveyAnswer = {
-    screens: { best: NeedKey; worst: NeedKey }[]
-    tradeoffs: Partial<Record<TradeoffKey, "a" | "b">>
-    ages: string[]
-    worry: string
+export type ConceptKey = (typeof CONCEPTS)[number]["key"]
+export const INTENT = ["definitely", "probably", "not_sure", "no"] as const
+export const INTENT_LABELS: Record<(typeof INTENT)[number], string> = {
+    definitely: "Definitely",
+    probably: "Probably",
+    not_sure: "Not sure",
+    no: "No",
 }
 
-export function scoreNeeds(screens: SurveyAnswer["screens"]): Record<NeedKey, number> {
-    const scores = Object.fromEntries(NEEDS.map((n) => [n.key, 0])) as Record<NeedKey, number>
-    for (const s of screens) {
-        if (s.best in scores) scores[s.best] += 1
-        if (s.worst in scores) scores[s.worst] -= 1
+export const AGE_BANDS = ["Under 2", "2-4", "5-8", "9-12", "13+"] as const
+export const KID_COUNTS = ["1", "2", "3", "4+"] as const
+
+export type SurveyAnswer = {
+    worry: string
+    nutrients: Partial<Record<NutrientKey, NutrientAnswer>>
+    rank: { best: NutrientKey; worst: NutrientKey }[]
+    concepts: Partial<Record<ConceptKey, (typeof INTENT)[number]>>
+    ages: string[]
+    kids: string
+}
+
+export function rankScores(rank: SurveyAnswer["rank"]): Record<NutrientKey, number> {
+    const scores = Object.fromEntries(NUTRIENTS.map((n) => [n.key, 0])) as Record<NutrientKey, number>
+    for (const r of rank) {
+        if (r.best in scores) scores[r.best] += 1
+        if (r.worst in scores) scores[r.worst] -= 1
     }
-    for (const key of Object.keys(scores) as NeedKey[]) scores[key] = Math.round((scores[key] / 3) * 100) / 100
+    for (const key of Object.keys(scores) as NutrientKey[]) scores[key] = Math.round((scores[key] / RANK_APPEARANCES) * 100) / 100
     return scores
 }

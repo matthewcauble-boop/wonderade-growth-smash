@@ -1,6 +1,6 @@
 // Message test (Oct 2026): one landing page per parent need, all on the same offer, so Meta ad sets can be compared
-// on cost per signup. Angles the box delivers today state product facts; "veggies" and "iron" are need-led and only
-// promise a say in what we make next, since the box has no vegetables and only 2% DV iron.
+// on cost per signup. Box angles state product facts; "veggies" is need-led and only promises a say in what we make
+// next (the box has no vegetables); "iron" pitches the iron + fiber packet as a coming-soon reservation.
 
 export type AngleKey = "protein" | "gut" | "vitamins" | "veggies" | "iron"
 
@@ -14,6 +14,8 @@ export type Angle = {
     cta: string
     // true when the page promises a vote on future products rather than claiming the current box delivers it
     needLed: boolean
+    // the juice-box photo only belongs on pages about the box
+    showBox: boolean
 }
 
 export const ANGLES: Record<AngleKey, Angle> = {
@@ -26,6 +28,7 @@ export const ANGLES: Record<AngleKey, Angle> = {
         bullets: ["8g plant protein in every box", "0g added sugar, only 3g sugar total", "Real fruit, no artificial anything"],
         cta: "Claim my first batch",
         needLed: false,
+        showBox: true,
     },
     gut: {
         key: "gut",
@@ -36,6 +39,7 @@ export const ANGLES: Record<AngleKey, Angle> = {
         bullets: ["4g prebiotic fiber in every box", "0g added sugar, only 3g sugar total", "Real fruit, no artificial anything"],
         cta: "Claim my first batch",
         needLed: false,
+        showBox: true,
     },
     vitamins: {
         key: "vitamins",
@@ -46,6 +50,7 @@ export const ANGLES: Record<AngleKey, Angle> = {
         bullets: ["Vitamins C, D and B12, plus zinc and calcium", "0g added sugar, only 3g sugar total", "Real fruit, no artificial anything"],
         cta: "Claim my first batch",
         needLed: false,
+        showBox: true,
     },
     veggies: {
         key: "veggies",
@@ -56,16 +61,18 @@ export const ANGLES: Record<AngleKey, Angle> = {
         bullets: ["Founding families shape what we make next", "Our first box: 8g protein, 4g fiber, 0g added sugar", "Real fruit, no artificial anything"],
         cta: "Join the founding families",
         needLed: true,
+        showBox: true,
     },
     iron: {
         key: "iron",
-        eyebrow: "Growing bodies",
-        headline: "Worried they're",
-        accent: "low on iron?",
-        subhead: "We're building the juice box around what parents actually need. Join the founding families and help decide what goes in it.",
-        bullets: ["Founding families shape what we make next", "Our first box: 8g protein, 4g fiber, 0g added sugar", "Real fruit, no artificial anything"],
-        cta: "Join the founding families",
-        needLed: true,
+        eyebrow: "Coming soon",
+        headline: "A tasteless iron packet",
+        accent: "for picky eaters.",
+        subhead: "Stir it into yogurt, applesauce or oatmeal. They won't taste it. Reserve a spot in the first batch.",
+        bullets: ["7mg iron in a gentle, kid-friendly form", "3g fiber to keep tummies happy", "No taste, no chewables, no bribes"],
+        cta: "Reserve mine",
+        needLed: false,
+        showBox: false,
     },
 }
 

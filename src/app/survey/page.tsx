@@ -6,7 +6,7 @@ import { NeedsSurvey } from "@/components/v2/sections/needs-survey"
 
 export const metadata: Metadata = {
     title: "What matters most to you? | Wonderade",
-    description: "Help shape what goes in your kid's juice box. 60 seconds.",
+    description: "Help shape what we make for your kids. About 2 minutes.",
     robots: { index: false, follow: false },
 }
 
@@ -18,7 +18,7 @@ export default function SurveyPage() {
                 <div className="w-full max-w-xl">
                     <h1 className="mb-2 text-center font-sans text-3xl font-black uppercase text-[#374191]">Help us build it</h1>
                     <p className="mb-8 text-center font-mono text-xs font-bold uppercase tracking-widest text-[#374191]/70">
-                        60 seconds. Tell us what your family actually needs.
+                        About 2 minutes. Tell us what your family actually thinks about.
                     </p>
                     <Suspense fallback={null}>
                         <NeedsSurvey />

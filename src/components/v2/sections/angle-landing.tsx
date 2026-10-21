@@ -94,14 +94,22 @@ export function AngleLanding({ angle }: { angle: Angle }) {
                 </div>
 
                 <div className="relative mx-auto w-full max-w-md">
-                    <Image
-                        src="/assets/brand/Product/wonderade-bottles-cropped.png"
-                        alt="Wonderade Major Orange and Princess Punch juice boxes"
-                        width={900}
-                        height={900}
-                        priority
-                        className="h-auto w-full"
-                    />
+                    {angle.showBox ? (
+                        <Image
+                            src="/assets/brand/Product/wonderade-bottles-cropped.png"
+                            alt="Wonderade Major Orange and Princess Punch juice boxes"
+                            width={900}
+                            height={900}
+                            priority
+                            className="h-auto w-full"
+                        />
+                    ) : (
+                        <div className="rounded-3xl border-2 border-[#374191] bg-[#F8F2D0] p-8 text-center shadow-[8px_8px_0px_#374191]">
+                            <p className="font-mono text-xs font-bold uppercase tracking-widest text-[#F57D14]">{angle.eyebrow}</p>
+                            <p className="mt-3 font-sans text-3xl font-black uppercase leading-tight text-[#374191]">Iron + Fiber</p>
+                            <p className="mt-2 text-[#374191]/80">One packet a day. Stir in. Done.</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
